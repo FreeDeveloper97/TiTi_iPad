@@ -350,26 +350,10 @@ extension ViewController2 : ChangeViewController {
     
     func refresh (hours: Int, mins: Int, secs: Int) {
         let tempSeconds = hours*3600 + mins*60 + secs
-        let temp = second-tempSeconds;
         
-        if(second - tempSeconds < 0)
-        {
-            allTime = allTime - tempSeconds
-            sum = sum + tempSeconds
-            second = 0
-        }
-        else
-        {
-            allTime = allTime - tempSeconds
-            sum = sum + tempSeconds
-            second = second - tempSeconds
-        }
-        setPerSeconds()
-        startAction()
-        if(second - tempSeconds < 0)
-        {
-            CountTimeLabel.text = printTime(temp: temp)
-        }
+        allTime = allTime - tempSeconds
+        sum = sum + tempSeconds
+        second = second + tempSeconds
     }
     
     func removeSavedDate() {
