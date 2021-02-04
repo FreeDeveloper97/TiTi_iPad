@@ -1499,7 +1499,7 @@ AVER : 0:00:00</string>
                         <outlet property="SumTimeLabel" destination="DlM-wM-FfM" id="EUc-Fd-i0B"/>
                         <outlet property="TIMER_Button" destination="yIX-N6-4uZ" id="f5Q-E1-ufj"/>
                         <outlet property="View_labels" destination="hhX-DD-vjd" id="NT6-AF-qve"/>
-                        <outlet property="persentLabel" destination="b5N-VH-SzQ" id="QjC-dU-ocu"/>
+                        <outlet property="avarageLabel" destination="b5N-VH-SzQ" id="QjC-dU-ocu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fr-Zm-M77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

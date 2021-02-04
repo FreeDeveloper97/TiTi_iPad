@@ -18,9 +18,6 @@
 //  Copyright © 2020 FDEE.
 
 import UIKit
-
-
-import AudioToolbox
 import AVFoundation
 
 class ViewController2: UIViewController {
@@ -33,25 +30,12 @@ class ViewController2: UIViewController {
     @IBOutlet var ResetButton: UIButton!
     @IBOutlet var SETTING_Button: UIButton!
     @IBOutlet var TIMER_Button: UIButton!
-    @IBOutlet var persentLabel: UILabel!
+    @IBOutlet var avarageLabel: UILabel!
     @IBOutlet var LogButton: UIButton!
-    //종료예정시간 추가
     @IBOutlet var Label_to: UILabel!
     @IBOutlet var Label_toTime: UILabel!
-    //사라지기 애니메이션 추가
     @IBOutlet var View_labels: UIView!
-    //타이머 설정 버튼 추가
-    
     @IBOutlet var CircleView: CircularProgressView!
-    var audioPlayer : AVPlayer!
-    
-    var timeTrigger = true
-    var realTime = Timer()
-    
-    var second : Int = 0
-    var second2 : Int = 0
-    var sum : Int = 0
-    var allTime : Int = 0
     
     let BACKGROUND = UIColor(named: "Background")
     let BLUE = UIColor(named: "Blue")
@@ -59,95 +43,51 @@ class ViewController2: UIViewController {
     let CLICK = UIColor(named: "Click")
     let TEXT = UIColor(named: "Text")
     
+    var audioPlayer : AVPlayer!
+    var timeTrigger = true
+    var realTime = Timer()
+    var second : Int = 0
+    var second2 : Int = 0
+    var sum : Int = 0
+    var allTime : Int = 0
     var diffHrs = 0
     var diffMins = 0
     var diffSecs = 0
-    
     var isStop = true
-    
-    //퍼센트 추가!
-    var isRESET = false
+    var isFirst = false
     var timeForPersent = 0
-    
-    //프로그래스 퍼센트 추가!
     var progressPer: Float = 0.0
     var fixedSecond: Int = 3600
     var fromSecond: Float = 0.0
-    
-    //빡공률 보이기 설정
-    var showPersent: Int = 0
-    //날짜 저장
+    var showAvarage: Int = 0
     var array_day = [String](repeating: "", count: 7)
     var array_time = [String](repeating: "", count: 7)
-    //스탑회수 저장
     var stopCount: Int = 0
     
     override func viewDidLoad() {
-        
-        StartButton.layer.cornerRadius = 10
-        StopButton.layer.cornerRadius = 10
-        ResetButton.layer.cornerRadius = 10
-
-        sum = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
-        allTime = UserDefaults.standard.value(forKey: "allTime2") as? Int ?? 21600
-        second = UserDefaults.standard.value(forKey: "second2") as? Int ?? 0
-        second2 = second%3600
-        showPersent = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
-        stopCount = UserDefaults.standard.value(forKey: "stopCount") as? Int ?? 0
-
-        AllTimeLabel.text = printTime(temp: allTime)
-        CountTimeLabel.text = printTime(temp: second)
-        SumTimeLabel.text = printTime(temp: sum)
+        super.viewDidLoad()
+        setRadius()
+        setDatas()
+        setTimes()
         
         stopColor()
         stopEnable()
         
-        super.viewDidLoad()
+        setBackground()
+        setIsFirst()
+        checkAverage()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(pauseWhenBackground(noti:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(noti:)), name: UIApplication.willEnterForegroundNotification, object: nil)
-        
-        if (UserDefaults.standard.object(forKey: "startTime") == nil)
-        {
-            isRESET = true
-        }
-        if(showPersent == 0)
-        {
-            persentLabel.alpha = 1
-            if(stopCount != 0)
-            {
-                checkPersent()
-            }
-            else
-            {
-                persentLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
-            }
-            persentLabel.textColor = UIColor.white
-        }
-        else
-        {
-            persentLabel.alpha = 0
-        }
-        
-        //프로그래스 추가
-        CircleView.trackColor = UIColor.darkGray
-        fixedSecond = 3600
-        
-        progressPer = Float(second2) / Float(fixedSecond)
-        fromSecond = progressPer
-        CircleView.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
-        //종료예상시간 보이기
-        Label_toTime.text = getFutureTime()
+        setFirstProgress()
     }
     
     @IBAction func StartButtonAction(_ sender: UIButton) {
         //persent 추가! RESET 후 시작시 시작하는 시간 저장!
-        if(isRESET)
+        if(isFirst)
         {
             let startTime = UserDefaults.standard
             startTime.set(Date(), forKey: "startTime")
             print("startTime SAVE")
-            isRESET = false
+            isFirst = false
             fixedSecond = 3600
             //log 추가
             setLogData()
@@ -224,7 +164,7 @@ class ViewController2: UIViewController {
         //stopCount 증가
         stopCount+=1
         UserDefaults.standard.set(stopCount, forKey: "stopCount")
-        checkPersent()
+        setAverage()
         //종료예상시간 보이기
         Label_toTime.text = getFutureTime()
     }
@@ -256,7 +196,7 @@ class ViewController2: UIViewController {
         allTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         print("allTime set complite")
         //빡공률 보이기 설정
-        showPersent = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
+        showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
     }
     
     
@@ -285,7 +225,7 @@ extension ViewController2 : ChangeViewController {
         //정지 회수 저장
         stopCount = 0
         UserDefaults.standard.set(0, forKey: "stopCount")
-        persentLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
+        avarageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
         
         AllTimeLabel.text = printTime(temp: allTime)
         SumTimeLabel.text = printTime(temp: sum)
@@ -293,13 +233,13 @@ extension ViewController2 : ChangeViewController {
         
         persentReset()
         //빡공률 보이기 설정
-        if(showPersent == 0)
+        if(showAvarage == 0)
         {
-            persentLabel.alpha = 1
+            avarageLabel.alpha = 1
         }
         else
         {
-            persentLabel.alpha = 0
+            avarageLabel.alpha = 0
         }
         //종료 예상시간 보이기
         Label_toTime.text = getFutureTime()
@@ -395,25 +335,17 @@ extension ViewController2 : ChangeViewController {
     
     func persentReset()
     {
-        isRESET = true
+        isFirst = true
 //        persentLabel.text = "빡공률 : 0.0%"
-        persentLabel.textColor = UIColor.white
+        avarageLabel.textColor = UIColor.white
         //프로그래스 추가!
         fixedSecond = 3600
         CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
         fromSecond = 0.0
     }
     
-    //빡공률 -> 종료회수, 평균시간 보이기로 변경
-    func checkPersent()
-    {
-        //정지회수 보이기
-        var print = "STOP : " + String(stopCount)
-        let aver = (Int)(sum/stopCount)
-        print += "\nAVER : " + printTime(temp: aver)
-        //정지회수, 평균 시간 보이기
-        persentLabel.text = print
-    }
+    
+    
     
     func stopColor()
     {
@@ -441,10 +373,10 @@ extension ViewController2 : ChangeViewController {
             self.View_labels.alpha = 1
         })
         //보이기 숨기기 설정
-        if(showPersent == 0)
+        if(showAvarage == 0)
         {
             UIView.animate(withDuration: 0.5, animations: {
-                self.persentLabel.alpha = 1
+                self.avarageLabel.alpha = 1
             })
         }
     }
@@ -470,7 +402,7 @@ extension ViewController2 : ChangeViewController {
             self.TIMER_Button.alpha = 0
             self.LogButton.alpha = 0
             self.View_labels.alpha = 0
-            self.persentLabel.alpha = 0
+            self.avarageLabel.alpha = 0
         })
     }
     
@@ -569,7 +501,7 @@ extension ViewController2 : ChangeViewController {
         //정지 회수 저장
         stopCount = 0
         UserDefaults.standard.set(0, forKey: "stopCount")
-        persentLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
+        avarageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
         
         AllTimeLabel.text = printTime(temp: allTime)
         SumTimeLabel.text = printTime(temp: sum)
@@ -584,3 +516,69 @@ extension ViewController2 : ChangeViewController {
 
 }
 
+
+extension ViewController2 {
+    
+    func setRadius() {
+        StartButton.layer.cornerRadius = 10
+        StopButton.layer.cornerRadius = 10
+        ResetButton.layer.cornerRadius = 10
+    }
+    
+    func setDatas() {
+        sum = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
+        allTime = UserDefaults.standard.value(forKey: "allTime2") as? Int ?? 21600
+        second = UserDefaults.standard.value(forKey: "second2") as? Int ?? 0
+        showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
+        stopCount = UserDefaults.standard.value(forKey: "stopCount") as? Int ?? 0
+        
+        fixedSecond = 3600
+        second2 = second%fixedSecond
+    }
+    
+    func setTimes() {
+        AllTimeLabel.text = printTime(temp: allTime)
+        CountTimeLabel.text = printTime(temp: second)
+        SumTimeLabel.text = printTime(temp: sum)
+        Label_toTime.text = getFutureTime()
+    }
+    
+    func setBackground() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseWhenBackground(noti:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(noti:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    func setIsFirst() {
+        if (UserDefaults.standard.object(forKey: "startTime") == nil) {
+            isFirst = true
+        }
+    }
+    
+    func setAverage() {
+        if(stopCount == 0) {
+            avarageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
+        } else {
+            var print = "STOP : " + String(stopCount)
+            let aver = (Int)(sum/stopCount)
+            print += "\nAVER : " + printTime(temp: aver)
+            avarageLabel.text = print
+        }
+    }
+    
+    func checkAverage() {
+        if(showAvarage == 0) {
+            avarageLabel.alpha = 1
+            avarageLabel.textColor = UIColor.white
+            setAverage()
+        } else {
+            avarageLabel.alpha = 0
+        }
+    }
+    
+    func setFirstProgress() {
+        CircleView.trackColor = UIColor.darkGray
+        progressPer = Float(second2) / Float(fixedSecond)
+        fromSecond = progressPer
+        CircleView.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
+    }
+}
