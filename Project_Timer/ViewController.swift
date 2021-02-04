@@ -43,6 +43,8 @@ class ViewController: UIViewController {
     //타이머 설정 버튼 추가
     
     @IBOutlet var CircleView: CircularProgressView!
+    @IBOutlet var ModeButton: UIButton!
+    
     var audioPlayer : AVPlayer!
     
     var timeTrigger = true
@@ -82,6 +84,9 @@ class ViewController: UIViewController {
     var stopCount: Int = 0
     
     override func viewDidLoad() {
+        
+        setRadius()
+        setBorner()
         
         StartButton.layer.cornerRadius = 10
         StopButton.layer.cornerRadius = 10
@@ -195,6 +200,10 @@ class ViewController: UIViewController {
             setVC.SetTimerViewControllerDelegate = self
             present(setVC,animated: true,completion: nil)
     }
+    @IBAction func ModeBTAction(_ sender: UIButton) {
+        goToViewController(where: "ViewController2")
+    }
+    
     
     @objc func updateCounter(){
         if second < 61 {
@@ -450,6 +459,7 @@ extension ViewController : ChangeViewController {
         UIView.animate(withDuration: 0.3, animations: {
             self.Label_to.alpha = 1
             self.Label_toTime.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.ModeButton.layer.borderColor = UIColor.white.cgColor
         })
         //animation test
         UIView.animate(withDuration: 0.5, animations: {
@@ -491,6 +501,7 @@ extension ViewController : ChangeViewController {
             self.LogButton.alpha = 0
             self.View_labels.alpha = 0
             self.persentLabel.alpha = 0
+            self.ModeButton.layer.borderColor = nil
         })
     }
     
@@ -502,6 +513,7 @@ extension ViewController : ChangeViewController {
         SETTING_Button.isUserInteractionEnabled = true
         TIMER_Button.isUserInteractionEnabled = true
         LogButton.isUserInteractionEnabled = true
+        ModeButton.isUserInteractionEnabled = true
     }
     
     func startEnable()
@@ -512,6 +524,7 @@ extension ViewController : ChangeViewController {
         SETTING_Button.isUserInteractionEnabled = false
         TIMER_Button.isUserInteractionEnabled = false
         LogButton.isUserInteractionEnabled = false
+        ModeButton.isUserInteractionEnabled = false
     }
     
     func saveLogData()
@@ -603,3 +616,23 @@ extension ViewController : ChangeViewController {
 
 }
 
+
+
+extension ViewController {
+    
+    func setRadius() {
+        ModeButton.layer.cornerRadius = 10
+    }
+    
+    func setBorner() {
+        ModeButton.layer.borderWidth = 3
+        ModeButton.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    func goToViewController(where: String) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: `where`)
+        vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+        vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        self.present(vcName!, animated: true, completion: nil)
+    }
+}

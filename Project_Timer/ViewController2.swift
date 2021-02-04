@@ -35,6 +35,8 @@ class ViewController2: UIViewController {
     @IBOutlet var finishTimeLabel: UILabel!
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
+    @IBOutlet var ModeButton: UIButton!
+    
     
     let BACKGROUND = UIColor(named: "Background2")
     let BROWN = UIColor(named: "Background2")
@@ -66,6 +68,7 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setRadius()
+        setBorder()
         setDatas()
         setTimes()
         
@@ -106,38 +109,60 @@ class ViewController2: UIViewController {
     @IBAction func SettingBTAction(_ sender: UIButton) {
         showSettingView()
     }
+    @IBAction func ModeBTAction(_ sender: UIButton) {
+        goToViewController(where: "ViewController")
+    }
 }
 
-extension ViewController2 : ChangeViewController {
+extension ViewController2 : ChangeViewController2 {
     
-    func updateViewController() {
-        isFirst = true
-        timeTrigger = true
-        realTime = Timer()
+//    func updateViewController() {
+//        isFirst = true
+//        timeTrigger = true
+//        realTime = Timer()
+//
+//        getDatas()
+//        resetStopCount()
+//        resetAverage()
+//        saveTimes()
+//        checkAverage()
+//
+//        setAverage()
+//        updateTimeLabels()
+//        finishTimeLabel.text = getFutureTime()
+//
+//        stopColor()
+//        stopEnable()
+//    }
+//
+//    func changeTimer() {
+//        sumTime = UserDefaults.standard.value(forKey: "second") as? Int ?? 0
+//        sumTime2 = sumTime
+//        UserDefaults.standard.set(sumTime, forKey: "second2")
+//        CountTimeLabel.text = printTime(temp: sumTime)
+//        finishTimeLabel.text = getFutureTime()
+//        fixedSecond = 3600
+//        CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
+//        fromSecond = 0.0
+//    }
+    
+    func changeGoalTime() {
+        goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
+        sumTime = 0
+        sumTime2 = 0
+        breakTime = 0
         
-        getDatas()
+        UserDefaults.standard.set(goalTime, forKey: "allTime2")
+        UserDefaults.standard.set(sumTime, forKey: "sum2")
+//        UserDefaults.standard.set(breakTime, forKey: "breakTime")
+        
         resetStopCount()
         resetAverage()
-        saveTimes()
-        checkAverage()
-        
-        setAverage()
         updateTimeLabels()
         finishTimeLabel.text = getFutureTime()
         
         stopColor()
         stopEnable()
-    }
-    
-    func changeTimer() {
-        sumTime = UserDefaults.standard.value(forKey: "second") as? Int ?? 0
-        sumTime2 = sumTime
-        UserDefaults.standard.set(sumTime, forKey: "second2")
-        CountTimeLabel.text = printTime(temp: sumTime)
-        finishTimeLabel.text = getFutureTime()
-        fixedSecond = 3600
-        CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
-        fromSecond = 0.0
     }
 }
 
@@ -200,11 +225,17 @@ extension ViewController2 {
         StartButton.layer.cornerRadius = 10
         StopButton.layer.cornerRadius = 10
         BreakButton.layer.cornerRadius = 10
+        ModeButton.layer.cornerRadius = 10
+    }
+    
+    func setBorder() {
+        ModeButton.layer.borderWidth = 3
+        ModeButton.layer.borderColor = UIColor.white.cgColor
     }
     
     func setDatas() {
         goalTime = UserDefaults.standard.value(forKey: "allTime2") as? Int ?? 21600
-        sumTime = UserDefaults.standard.value(forKey: "second2") as? Int ?? 0
+        sumTime = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
         showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
         stopCount = UserDefaults.standard.value(forKey: "stopCount") as? Int ?? 0
         
@@ -277,8 +308,8 @@ extension ViewController2 {
     }
     
     func showSettingView() {
-        let setVC = storyboard?.instantiateViewController(withIdentifier: "SetViewController") as! SetViewController
-            setVC.setViewControllerDelegate = self
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "SetTimerViewController2") as! SetTimerViewController2
+            setVC.SetTimerViewControllerDelegate = self
             present(setVC,animated: true,completion: nil)
     }
     
@@ -308,7 +339,7 @@ extension ViewController2 {
     }
     
     func saveTimes() {
-        UserDefaults.standard.set(sumTime, forKey: "second2")
+        UserDefaults.standard.set(sumTime, forKey: "sum2")
         UserDefaults.standard.set(goalTime, forKey: "allTime2")
     }
     
@@ -402,6 +433,7 @@ extension ViewController2 {
         UIView.animate(withDuration: 0.3, animations: {
             self.finishTimeLabel_show.alpha = 1
             self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.ModeButton.layer.borderColor = UIColor.white.cgColor
         })
         //animation test
         UIView.animate(withDuration: 0.5, animations: {
@@ -439,6 +471,7 @@ extension ViewController2 {
             self.LogButton.alpha = 0
             self.viewLabels.alpha = 0
             self.avarageLabel.alpha = 0
+            self.ModeButton.layer.borderColor = nil
         })
     }
     
@@ -448,6 +481,7 @@ extension ViewController2 {
         StopButton.isUserInteractionEnabled = false
         SettingButton.isUserInteractionEnabled = true
         LogButton.isUserInteractionEnabled = true
+        ModeButton.isUserInteractionEnabled = true
     }
     
     func startEnable() {
@@ -456,6 +490,14 @@ extension ViewController2 {
         StopButton.isUserInteractionEnabled = true
         SettingButton.isUserInteractionEnabled = false
         LogButton.isUserInteractionEnabled = false
+        ModeButton.isUserInteractionEnabled = false
+    }
+    
+    func goToViewController(where: String) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: `where`)
+        vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+        vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        self.present(vcName!, animated: true, completion: nil)
     }
 }
 
