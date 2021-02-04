@@ -1335,7 +1335,7 @@ AVER : 0:00:00</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="TIMERButton:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="8r5-P2-ntc"/>
+                                                    <action selector="TimerBTAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="8r5-P2-ntc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-W6-hQj">
@@ -1348,7 +1348,7 @@ AVER : 0:00:00</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="SETTINGButton:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="kM5-HM-Zgz"/>
+                                                    <action selector="SettingBTAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="kM5-HM-Zgz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9v-kC-LX7">
@@ -1423,7 +1423,7 @@ AVER : 0:00:00</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="ResetButtonAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="WgU-cL-Wkg"/>
+                                                    <action selector="BreakButtonAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="WgU-cL-Wkg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1486,20 +1486,20 @@ AVER : 0:00:00</string>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1200" height="1200"/>
                     <connections>
-                        <outlet property="AllTimeLabel" destination="U9X-eI-rmp" id="psQ-ul-GVo"/>
+                        <outlet property="BreakButton" destination="Fdg-Sg-wdo" id="sYD-iF-zDa"/>
+                        <outlet property="BreakTimeLabel" destination="DlM-wM-FfM" id="EUc-Fd-i0B"/>
                         <outlet property="CircleView" destination="rIu-cW-XFT" id="oVt-XM-2X5"/>
                         <outlet property="CountTimeLabel" destination="f1w-7L-iLe" id="Slb-Sl-SrA"/>
-                        <outlet property="Label_to" destination="2hI-mG-3Aw" id="V3S-ym-ulL"/>
-                        <outlet property="Label_toTime" destination="2KP-aO-WJj" id="MqM-hL-ka0"/>
+                        <outlet property="GoalTimeLabel" destination="U9X-eI-rmp" id="psQ-ul-GVo"/>
                         <outlet property="LogButton" destination="c9v-kC-LX7" id="xXt-N2-N03"/>
-                        <outlet property="ResetButton" destination="Fdg-Sg-wdo" id="sYD-iF-zDa"/>
-                        <outlet property="SETTING_Button" destination="lXP-W6-hQj" id="dzq-0k-gYI"/>
+                        <outlet property="SettingButton" destination="lXP-W6-hQj" id="dzq-0k-gYI"/>
                         <outlet property="StartButton" destination="llx-bH-kJU" id="FLx-sb-zX9"/>
                         <outlet property="StopButton" destination="dy1-hd-kQ5" id="YG7-3X-tEo"/>
-                        <outlet property="SumTimeLabel" destination="DlM-wM-FfM" id="EUc-Fd-i0B"/>
-                        <outlet property="TIMER_Button" destination="yIX-N6-4uZ" id="f5Q-E1-ufj"/>
-                        <outlet property="View_labels" destination="hhX-DD-vjd" id="NT6-AF-qve"/>
+                        <outlet property="TimerButton" destination="yIX-N6-4uZ" id="f5Q-E1-ufj"/>
                         <outlet property="avarageLabel" destination="b5N-VH-SzQ" id="QjC-dU-ocu"/>
+                        <outlet property="finishTimeLabel" destination="2KP-aO-WJj" id="MqM-hL-ka0"/>
+                        <outlet property="finishTimeLabel_show" destination="2hI-mG-3Aw" id="V3S-ym-ulL"/>
+                        <outlet property="viewLabels" destination="hhX-DD-vjd" id="NT6-AF-qve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fr-Zm-M77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
