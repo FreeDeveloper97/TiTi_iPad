@@ -210,6 +210,7 @@ extension ViewController2 {
         sumTime2 = sumTime
         sumTime2 %= 3600
         
+        updateProgress()
         updateTimeLabels()
         startAction()
         finishTimeLabel.text = getFutureTime()
