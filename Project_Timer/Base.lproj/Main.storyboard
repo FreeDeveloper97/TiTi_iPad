@@ -1242,7 +1242,7 @@ AVER : 0:00:00</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스탑워치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEl-5b-eh5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스톱워치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEl-5b-eh5">
                                         <rect key="frame" x="310" y="230" width="80" height="27"/>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1323,23 +1323,10 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPc-HC-B2i">
-                                        <rect key="frame" x="181" y="591" width="338" height="59"/>
+                                        <rect key="frame" x="231" y="603" width="238" height="47"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-N6-4uZ">
-                                                <rect key="frame" x="124" y="4" width="90" height="51"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="tmy-y4-WMm"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="33"/>
-                                                <state key="normal" title="TIMER">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="TimerBTAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="8r5-P2-ntc"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-W6-hQj">
-                                                <rect key="frame" x="4" y="4" width="90" height="51"/>
+                                                <rect key="frame" x="4" y="4" width="90" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="zSk-YB-P5I"/>
                                                 </constraints>
@@ -1352,7 +1339,7 @@ AVER : 0:00:00</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9v-kC-LX7">
-                                                <rect key="frame" x="244" y="4" width="90" height="51"/>
+                                                <rect key="frame" x="144" y="4" width="90" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="4U4-CP-NBa"/>
                                                 </constraints>
@@ -1366,20 +1353,17 @@ AVER : 0:00:00</string>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="yIX-N6-4uZ" secondAttribute="bottom" constant="4" id="413-M4-GVE"/>
-                                            <constraint firstItem="c9v-kC-LX7" firstAttribute="leading" secondItem="yIX-N6-4uZ" secondAttribute="trailing" constant="30" id="BNs-cV-heh"/>
                                             <constraint firstItem="c9v-kC-LX7" firstAttribute="top" secondItem="VPc-HC-B2i" secondAttribute="top" constant="4" id="CXI-dx-ZgG"/>
-                                            <constraint firstItem="yIX-N6-4uZ" firstAttribute="top" secondItem="VPc-HC-B2i" secondAttribute="top" constant="4" id="E7r-wD-JnJ"/>
-                                            <constraint firstItem="yIX-N6-4uZ" firstAttribute="leading" secondItem="lXP-W6-hQj" secondAttribute="trailing" constant="30" id="HyY-2u-KUh"/>
                                             <constraint firstAttribute="trailing" secondItem="c9v-kC-LX7" secondAttribute="trailing" constant="4" id="M9B-9a-1JX"/>
                                             <constraint firstItem="lXP-W6-hQj" firstAttribute="top" secondItem="VPc-HC-B2i" secondAttribute="top" constant="4" id="NGx-KS-WYQ"/>
                                             <constraint firstAttribute="bottom" secondItem="c9v-kC-LX7" secondAttribute="bottom" constant="4" id="RR1-1Q-aXy"/>
                                             <constraint firstAttribute="bottom" secondItem="lXP-W6-hQj" secondAttribute="bottom" constant="4" id="Tf0-ZY-hu5"/>
+                                            <constraint firstItem="c9v-kC-LX7" firstAttribute="leading" secondItem="lXP-W6-hQj" secondAttribute="trailing" constant="50" id="VvQ-V6-i90"/>
                                             <constraint firstItem="lXP-W6-hQj" firstAttribute="leading" secondItem="VPc-HC-B2i" secondAttribute="leading" constant="4" id="qfe-dy-knB"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaf-80-URt">
-                                        <rect key="frame" x="136" y="523" width="428" height="53"/>
+                                        <rect key="frame" x="136" y="535" width="428" height="53"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llx-bH-kJU">
                                                 <rect key="frame" x="4" y="4" width="110" height="45"/>
@@ -1390,7 +1374,7 @@ AVER : 0:00:00</string>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="23"/>
                                                 <state key="normal" title="START">
-                                                    <color key="titleColor" name="Blue"/>
+                                                    <color key="titleColor" name="Background2"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="StartButtonAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="1dw-0J-6TI"/>
@@ -1478,7 +1462,7 @@ AVER : 0:00:00</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0nO-Ys-fr3"/>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="Background2"/>
                         <constraints>
                             <constraint firstItem="rIu-cW-XFT" firstAttribute="centerX" secondItem="nq1-A7-9IV" secondAttribute="centerX" id="T55-jr-ltV"/>
                             <constraint firstItem="rIu-cW-XFT" firstAttribute="centerY" secondItem="nq1-A7-9IV" secondAttribute="centerY" id="cZb-BS-tQh"/>
@@ -1495,7 +1479,6 @@ AVER : 0:00:00</string>
                         <outlet property="SettingButton" destination="lXP-W6-hQj" id="dzq-0k-gYI"/>
                         <outlet property="StartButton" destination="llx-bH-kJU" id="FLx-sb-zX9"/>
                         <outlet property="StopButton" destination="dy1-hd-kQ5" id="YG7-3X-tEo"/>
-                        <outlet property="TimerButton" destination="yIX-N6-4uZ" id="f5Q-E1-ufj"/>
                         <outlet property="avarageLabel" destination="b5N-VH-SzQ" id="QjC-dU-ocu"/>
                         <outlet property="finishTimeLabel" destination="2KP-aO-WJj" id="MqM-hL-ka0"/>
                         <outlet property="finishTimeLabel_show" destination="2hI-mG-3Aw" id="V3S-ym-ulL"/>
@@ -1510,6 +1493,9 @@ AVER : 0:00:00</string>
     <resources>
         <namedColor name="Background">
             <color red="0.58399999141693115" green="0.76499998569488525" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background2">
+            <color red="0.73390089863478536" green="0.60780593677965777" blue="0.41525299212090849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Blue">
             <color red="0.58039215686274515" green="0.76470588235294112" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
