@@ -354,6 +354,12 @@ extension ViewController2 : ChangeViewController {
         allTime = allTime - tempSeconds
         sum = sum + tempSeconds
         second = second + tempSeconds
+        second2 = second
+        second2 %= 3600
+        
+        setPerSeconds()
+        startAction()
+        Label_toTime.text = getFutureTime()
     }
     
     func removeSavedDate() {
@@ -536,7 +542,7 @@ extension ViewController2 : ChangeViewController {
     {
         //log 날짜 설정
         let now = Date()
-        let future = now.addingTimeInterval(TimeInterval(second))
+        let future = now.addingTimeInterval(TimeInterval(allTime))
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: future)
