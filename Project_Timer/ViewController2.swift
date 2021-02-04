@@ -38,7 +38,7 @@ class ViewController2: UIViewController {
     @IBOutlet var ModeButton: UIButton!
     
     
-    var BROWN = UIColor(named: "Background2")
+    var COLOR = UIColor(named: "Background2")
     let BUTTON = UIColor(named: "Button")
     let CLICK = UIColor(named: "Click")
     let RED = UIColor(named: "Text")
@@ -422,14 +422,14 @@ extension ViewController2 {
     }
     
     func stopColor() {
-        self.view.backgroundColor = BROWN
+        self.view.backgroundColor = COLOR
         CircleView.progressColor = UIColor.white
         StartButton.backgroundColor = BUTTON
         StopButton.backgroundColor = CLICK
         BreakButton.backgroundColor = BUTTON
-        StartButton.setTitleColor(BROWN, for: .normal)
+        StartButton.setTitleColor(COLOR, for: .normal)
         StopButton.setTitleColor(UIColor.white, for: .normal)
-        BreakButton.setTitleColor(BROWN, for: .normal)
+        BreakButton.setTitleColor(COLOR, for: .normal)
         CountTimeLabel.textColor = UIColor.white
         //예상종료시간 보이기, stop 버튼 제자리로 이동
         UIView.animate(withDuration: 0.3, animations: {
@@ -455,14 +455,14 @@ extension ViewController2 {
     
     func startColor() {
         self.view.backgroundColor = UIColor.black
-        CircleView.progressColor = BROWN!
+        CircleView.progressColor = COLOR!
         StartButton.backgroundColor = CLICK
         StopButton.backgroundColor = UIColor.clear
         BreakButton.backgroundColor = CLICK
         StartButton.setTitleColor(UIColor.white, for: .normal)
         StopButton.setTitleColor(UIColor.white, for: .normal)
         BreakButton.setTitleColor(UIColor.white, for: .normal)
-        CountTimeLabel.textColor = BROWN
+        CountTimeLabel.textColor = COLOR
         //예상종료시간 숨기기, stop 버튼 센터로 이동
         UIView.animate(withDuration: 0.3, animations: {
             self.finishTimeLabel_show.alpha = 0
@@ -503,9 +503,9 @@ extension ViewController2 {
     }
     
     func setColor() {
-        BROWN = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
-        StartButton.setTitleColor(BROWN, for: .normal)
-        BreakButton.setTitleColor(BROWN, for: .normal)
+        COLOR = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
+        StartButton.setTitleColor(COLOR, for: .normal)
+        BreakButton.setTitleColor(COLOR, for: .normal)
     }
 }
 

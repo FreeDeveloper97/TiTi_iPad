@@ -33,14 +33,14 @@ class SetTimerViewController2: UIViewController {
     var s: Int = 0
     var goalTime: Int = 21600
     
-    var BROWN = UIColor(named: "Background2")
+    var COLOR = UIColor(named: "Background2")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
         
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
-        BROWN = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
+        COLOR = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
         Label_timer.text = printTime(temp: goalTime)
         
         Text_H.keyboardType = .numberPad
@@ -119,7 +119,7 @@ class SetTimerViewController2: UIViewController {
     }
     
     @IBAction func Button_set(_ sender: UIButton) {
-        UserDefaults.standard.setColor(color: BROWN, forKey: "color")
+        UserDefaults.standard.setColor(color: COLOR, forKey: "color")
         UserDefaults.standard.set(goalTime, forKey: "allTime")
         print("set complite")
         SetTimerViewControllerDelegate.changeGoalTime()
@@ -133,7 +133,7 @@ class SetTimerViewController2: UIViewController {
     @IBAction func ColorBTAction(_ sender: Any) {
         if #available(iOS 14.0, *) {
             let picker = UIColorPickerViewController()
-            picker.selectedColor = BROWN!
+            picker.selectedColor = COLOR!
             picker.delegate = self
             self.present(picker, animated: true, completion: nil)
         } else {
@@ -153,10 +153,10 @@ class SetTimerViewController2: UIViewController {
     }
     
     func updateColor() {
-        Label_timer.textColor = BROWN
-        ColorButton.backgroundColor = BROWN
-        Button_set.setTitleColor(BROWN, for: .normal)
-        Button_set.layer.borderColor = BROWN?.cgColor
+        Label_timer.textColor = COLOR
+        ColorButton.backgroundColor = COLOR
+        Button_set.setTitleColor(COLOR, for: .normal)
+        Button_set.layer.borderColor = COLOR?.cgColor
         Button_Back.layer.borderColor = UIColor.white.cgColor
     }
     
@@ -168,14 +168,14 @@ extension SetTimerViewController2 : UIColorPickerViewControllerDelegate {
     @available(iOS 14.0, *)
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         print(viewController.selectedColor)
-        BROWN = viewController.selectedColor
+        COLOR = viewController.selectedColor
         updateColor()
     }
     
     @available(iOS 14.0, *)
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         print(viewController.selectedColor)
-        BROWN = viewController.selectedColor
+        COLOR = viewController.selectedColor
         updateColor()
     }
 }

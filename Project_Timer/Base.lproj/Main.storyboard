@@ -884,6 +884,9 @@ AVER : 0:00:00</string>
                                                 <state key="normal" title="LOG">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Nnf-jO-Ajw" kind="show" id="LE3-FS-7N3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1724,6 +1727,9 @@ AVER : 0:00:00</string>
             <point key="canvasLocation" x="795" y="1498"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LE3-FS-7N3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Background">
             <color red="0.58399999141693115" green="0.76499998569488525" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
