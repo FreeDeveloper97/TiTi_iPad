@@ -38,8 +38,7 @@ class ViewController2: UIViewController {
     @IBOutlet var ModeButton: UIButton!
     
     
-    let BACKGROUND = UIColor(named: "Background2")
-    let BROWN = UIColor(named: "Background2")
+    var BROWN = UIColor(named: "Background2")
     let BUTTON = UIColor(named: "Button")
     let CLICK = UIColor(named: "Click")
     let RED = UIColor(named: "Text")
@@ -67,6 +66,7 @@ class ViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setColor()
         setRadius()
         setBorder()
         setDatas()
@@ -147,6 +147,7 @@ extension ViewController2 : ChangeViewController2 {
 //    }
     
     func changeGoalTime() {
+        setColor()
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
         sumTime = 0
         sumTime2 = 0
@@ -421,7 +422,7 @@ extension ViewController2 {
     }
     
     func stopColor() {
-        self.view.backgroundColor = BACKGROUND
+        self.view.backgroundColor = BROWN
         CircleView.progressColor = UIColor.white
         StartButton.backgroundColor = BUTTON
         StopButton.backgroundColor = CLICK
@@ -499,6 +500,12 @@ extension ViewController2 {
         vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
         vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
         self.present(vcName!, animated: true, completion: nil)
+    }
+    
+    func setColor() {
+        BROWN = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
+        StartButton.setTitleColor(BROWN, for: .normal)
+        BreakButton.setTitleColor(BROWN, for: .normal)
     }
 }
 

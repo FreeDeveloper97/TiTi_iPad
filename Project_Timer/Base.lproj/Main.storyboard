@@ -1519,7 +1519,7 @@ AVER : 0:00:00</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdE-uO-Eaw">
-                                <rect key="frame" x="315.5" y="196" width="393.5" height="376"/>
+                                <rect key="frame" x="315.5" y="166" width="393.5" height="436"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:40:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-1x-IpB">
                                         <rect key="frame" x="130" y="41.5" width="133.5" height="47"/>
@@ -1620,7 +1620,7 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0A-yn-j9h">
-                                        <rect key="frame" x="52.5" y="313" width="288" height="58"/>
+                                        <rect key="frame" x="52.5" y="373" width="288" height="58"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixB-jP-Urr">
                                                 <rect key="frame" x="4" y="4" width="120" height="50"/>
@@ -1663,18 +1663,35 @@ AVER : 0:00:00</string>
                                             <constraint firstItem="ixB-jP-Urr" firstAttribute="top" secondItem="h0A-yn-j9h" secondAttribute="top" constant="4" id="pyC-JN-w9f"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-xB-72V">
+                                        <rect key="frame" x="96.5" y="303" width="200" height="50"/>
+                                        <color key="backgroundColor" name="Background2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CIQ-bw-bXV"/>
+                                            <constraint firstAttribute="width" constant="200" id="CJA-ei-99a"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="25"/>
+                                        <state key="normal" title="배경색 변경하기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ColorBTAction:" destination="59m-1a-g0y" eventType="touchUpInside" id="hVj-mE-6l1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gjb-1x-IpB" firstAttribute="top" secondItem="UKK-P9-VzG" secondAttribute="bottom" constant="8" id="5JB-zR-Ky4"/>
-                                    <constraint firstItem="h0A-yn-j9h" firstAttribute="top" secondItem="qpL-QV-R8Z" secondAttribute="bottom" constant="40" id="8wR-yW-a6W"/>
                                     <constraint firstItem="085-KL-SeC" firstAttribute="top" secondItem="msy-om-ER9" secondAttribute="bottom" constant="30" id="GyE-9l-ELJ"/>
+                                    <constraint firstItem="HNj-xB-72V" firstAttribute="top" secondItem="qpL-QV-R8Z" secondAttribute="bottom" constant="30" id="Gz8-ps-hn1"/>
                                     <constraint firstItem="UKK-P9-VzG" firstAttribute="top" secondItem="fdE-uO-Eaw" secondAttribute="top" constant="4" id="JA2-N1-abh"/>
                                     <constraint firstAttribute="trailing" secondItem="UKK-P9-VzG" secondAttribute="trailing" constant="150" id="LKO-zW-sOZ"/>
                                     <constraint firstAttribute="bottom" secondItem="h0A-yn-j9h" secondAttribute="bottom" constant="5" id="PWn-ta-pT4"/>
                                     <constraint firstItem="gjb-1x-IpB" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="QEX-eJ-nqZ"/>
+                                    <constraint firstItem="h0A-yn-j9h" firstAttribute="top" secondItem="HNj-xB-72V" secondAttribute="bottom" constant="20" id="UBb-f7-cgK"/>
                                     <constraint firstItem="UKK-P9-VzG" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="UjR-RL-BJP"/>
                                     <constraint firstItem="qpL-QV-R8Z" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="XXU-rI-w5O"/>
                                     <constraint firstItem="h0A-yn-j9h" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="Z9d-lM-bGF"/>
+                                    <constraint firstItem="HNj-xB-72V" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="c11-Ak-EaD"/>
                                     <constraint firstItem="msy-om-ER9" firstAttribute="top" secondItem="gjb-1x-IpB" secondAttribute="bottom" constant="18" id="cw1-xb-wvo"/>
                                     <constraint firstItem="qpL-QV-R8Z" firstAttribute="top" secondItem="085-KL-SeC" secondAttribute="bottom" constant="8" id="g6C-0F-pzq"/>
                                     <constraint firstItem="msy-om-ER9" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="gsK-6K-Hxc"/>
@@ -1694,6 +1711,7 @@ AVER : 0:00:00</string>
                     <connections>
                         <outlet property="Button_Back" destination="ez2-9C-tf6" id="s1z-23-8Gd"/>
                         <outlet property="Button_set" destination="ixB-jP-Urr" id="slV-g9-879"/>
+                        <outlet property="ColorButton" destination="HNj-xB-72V" id="Jab-VL-zgV"/>
                         <outlet property="Label_timer" destination="gjb-1x-IpB" id="IgY-IL-Wh0"/>
                         <outlet property="Label_toTime" destination="qpL-QV-R8Z" id="gBH-dP-jfK"/>
                         <outlet property="Text_H" destination="dCC-OX-fbW" id="inL-yA-h95"/>

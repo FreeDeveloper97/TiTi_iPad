@@ -20,7 +20,7 @@ class SetTimerViewController2: UIViewController {
     @IBOutlet var Text_S: UITextField!
     @IBOutlet var Button_set: UIButton!
     @IBOutlet var Button_Back: UIButton!
-    
+    @IBOutlet var ColorButton: UIButton!
     @IBOutlet var Label_toTime: UILabel!
     
     var SetTimerViewControllerDelegate : ChangeViewController2!
@@ -33,15 +33,14 @@ class SetTimerViewController2: UIViewController {
     var s: Int = 0
     var goalTime: Int = 21600
     
-    let BROWN = UIColor(named: "Background2")
-    
-    
+    var BROWN = UIColor(named: "Background2")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
         
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
+        BROWN = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
         Label_timer.text = printTime(temp: goalTime)
         
         Text_H.keyboardType = .numberPad
@@ -50,11 +49,12 @@ class SetTimerViewController2: UIViewController {
         
         Button_set.layer.cornerRadius = 10
         Button_set.layer.borderWidth = 3
-        Button_set.layer.borderColor = BROWN?.cgColor
         
         Button_Back.layer.cornerRadius = 10
         Button_Back.layer.borderWidth = 3
-        Button_Back.layer.borderColor = UIColor.white.cgColor
+        ColorButton.layer.cornerRadius = 10
+        
+        updateColor()
 
         Text_H.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
         Text_M.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
@@ -119,6 +119,7 @@ class SetTimerViewController2: UIViewController {
     }
     
     @IBAction func Button_set(_ sender: UIButton) {
+        UserDefaults.standard.setColor(color: BROWN, forKey: "color")
         UserDefaults.standard.set(goalTime, forKey: "allTime")
         print("set complite")
         SetTimerViewControllerDelegate.changeGoalTime()
@@ -127,6 +128,17 @@ class SetTimerViewController2: UIViewController {
     
     @IBAction func Button_Back_action(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func ColorBTAction(_ sender: Any) {
+        if #available(iOS 14.0, *) {
+            let picker = UIColorPickerViewController()
+            picker.selectedColor = BROWN!
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func getFutureTime() -> String
@@ -140,4 +152,32 @@ class SetTimerViewController2: UIViewController {
         return today
     }
     
+    func updateColor() {
+        Label_timer.textColor = BROWN
+        ColorButton.backgroundColor = BROWN
+        Button_set.setTitleColor(BROWN, for: .normal)
+        Button_set.layer.borderColor = BROWN?.cgColor
+        Button_Back.layer.borderColor = UIColor.white.cgColor
+    }
+    
 }
+
+
+extension SetTimerViewController2 : UIColorPickerViewControllerDelegate {
+    
+    @available(iOS 14.0, *)
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        print(viewController.selectedColor)
+        BROWN = viewController.selectedColor
+        updateColor()
+    }
+    
+    @available(iOS 14.0, *)
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        print(viewController.selectedColor)
+        BROWN = viewController.selectedColor
+        updateColor()
+    }
+}
+
+
