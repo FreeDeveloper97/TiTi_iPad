@@ -54,7 +54,6 @@ class ViewController: UIViewController {
     var sum : Int = 0
     var allTime : Int = 0
     
-    let BACKGROUND = UIColor(named: "Background")
     let BLUE = UIColor(named: "Blue")
     let BUTTON = UIColor(named: "Button")
     let CLICK = UIColor(named: "Click")
@@ -82,9 +81,10 @@ class ViewController: UIViewController {
     var array_time = [String](repeating: "", count: 7)
     //스탑회수 저장
     var stopCount: Int = 0
+    var VCNum: Int = 1
     
     override func viewDidLoad() {
-        
+        getVCNum()
         setRadius()
         setBorner()
         
@@ -141,6 +141,13 @@ class ViewController: UIViewController {
         CircleView.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
         //종료예상시간 보이기
         Label_toTime.text = getFutureTime()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //로그인이 이미 되어있는 경우라면 홈페이지로 이동한다.
+        if(VCNum == 2) {
+            goToViewController(where: "ViewController2")
+        }
     }
     
     @IBAction func StartButtonAction(_ sender: UIButton) {
@@ -446,7 +453,7 @@ extension ViewController : ChangeViewController {
     
     func stopColor()
     {
-        self.view.backgroundColor = BACKGROUND
+        self.view.backgroundColor = BLUE
         CircleView.progressColor = UIColor.white
         StartButton.backgroundColor = BUTTON
         StopButton.backgroundColor = CLICK
@@ -634,5 +641,9 @@ extension ViewController {
         vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
         vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
         self.present(vcName!, animated: true, completion: nil)
+    }
+    
+    func getVCNum() {
+        VCNum = UserDefaults.standard.value(forKey: "VCNum") as? Int ?? 1
     }
 }

@@ -63,9 +63,11 @@ class ViewController2: UIViewController {
     var array_day = [String](repeating: "", count: 7)
     var array_time = [String](repeating: "", count: 7)
     var stopCount: Int = 0
+    var VCNum: Int = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setVCNum()
         setColor()
         setRadius()
         setBorder()
@@ -110,43 +112,15 @@ class ViewController2: UIViewController {
         showSettingView()
     }
     @IBAction func ModeBTAction(_ sender: UIButton) {
+        UserDefaults.standard.set(1, forKey: "VCNum")
         goToViewController(where: "ViewController")
     }
 }
 
 extension ViewController2 : ChangeViewController2 {
     
-//    func updateViewController() {
-//        isFirst = true
-//        timeTrigger = true
-//        realTime = Timer()
-//
-//        getDatas()
-//        resetStopCount()
-//        resetAverage()
-//        saveTimes()
-//        checkAverage()
-//
-//        setAverage()
-//        updateTimeLabels()
-//        finishTimeLabel.text = getFutureTime()
-//
-//        stopColor()
-//        stopEnable()
-//    }
-//
-//    func changeTimer() {
-//        sumTime = UserDefaults.standard.value(forKey: "second") as? Int ?? 0
-//        sumTime2 = sumTime
-//        UserDefaults.standard.set(sumTime, forKey: "second2")
-//        CountTimeLabel.text = printTime(temp: sumTime)
-//        finishTimeLabel.text = getFutureTime()
-//        fixedSecond = 3600
-//        CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
-//        fromSecond = 0.0
-//    }
-    
     func changeGoalTime() {
+        isFirst = true
         setColor()
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
         sumTime = 0
@@ -506,6 +480,10 @@ extension ViewController2 {
         COLOR = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
         StartButton.setTitleColor(COLOR, for: .normal)
         BreakButton.setTitleColor(COLOR, for: .normal)
+    }
+    
+    func setVCNum() {
+        UserDefaults.standard.set(2, forKey: "VCNum")
     }
 }
 

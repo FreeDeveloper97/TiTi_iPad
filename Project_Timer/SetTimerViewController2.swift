@@ -119,11 +119,17 @@ class SetTimerViewController2: UIViewController {
     }
     
     @IBAction func Button_set(_ sender: UIButton) {
-        UserDefaults.standard.setColor(color: COLOR, forKey: "color")
-        UserDefaults.standard.set(goalTime, forKey: "allTime")
-        print("set complite")
-        SetTimerViewControllerDelegate.changeGoalTime()
-        self.dismiss(animated: true, completion: nil)
+        //경고창 추가
+        let alert = UIAlertController(title:"SET 하시겠습니까?",message: "누적시간이 초기화되며 새로운 기록이 시작됩니다!",preferredStyle: UIAlertController.Style.alert)
+        let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: nil)
+        let okAction = UIAlertAction(title: "SET", style: .default, handler:
+                                        {
+                                            action in
+                                            self.SET_action()
+                                        })
+        alert.addAction(cancel)
+        alert.addAction(okAction)
+        present(alert,animated: true,completion: nil)
     }
     
     @IBAction func Button_Back_action(_ sender: Any) {
@@ -158,6 +164,16 @@ class SetTimerViewController2: UIViewController {
         Button_set.setTitleColor(COLOR, for: .normal)
         Button_set.layer.borderColor = COLOR?.cgColor
         Button_Back.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    func SET_action() {
+        let second = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
+        UserDefaults.standard.set(second, forKey: "second2")
+        UserDefaults.standard.setColor(color: COLOR, forKey: "color")
+        UserDefaults.standard.set(goalTime, forKey: "allTime")
+        print("set complite")
+        SetTimerViewControllerDelegate.changeGoalTime()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
