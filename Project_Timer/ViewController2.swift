@@ -128,7 +128,7 @@ class ViewController2: UIViewController {
         algoOfBreakStart()
     }
     @IBAction func BreakButtonAction(_ sender: UIButton) {
-        //쉬는시간 알고리즘 미생성
+        algoOfBreakStop()
     }
     @IBAction func SettingBTAction(_ sender: UIButton) {
         showSettingView()
@@ -148,10 +148,11 @@ extension ViewController2 : ChangeViewController2 {
         sumTime = 0
         sumTime2 = 0
         breakTime = 0
+        breakTime2 = 0
         
         UserDefaults.standard.set(goalTime, forKey: "allTime2")
         UserDefaults.standard.set(sumTime, forKey: "sum2")
-//        UserDefaults.standard.set(breakTime, forKey: "breakTime")
+        UserDefaults.standard.set(breakTime, forKey: "breakTime")
         
         resetStopCount()
         resetAverage()
