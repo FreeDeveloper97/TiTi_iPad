@@ -50,6 +50,7 @@ class ViewController2: UIViewController {
     var sumTime2 : Int = 0
     var goalTime : Int = 0
     var breakTime : Int = 0
+    var breakTime2 : Int = 0
     var diffHrs = 0
     var diffMins = 0
     var diffSecs = 0
@@ -58,6 +59,7 @@ class ViewController2: UIViewController {
     var timeForPersent = 0
     var progressPer: Float = 0.0
     var fixedSecond: Int = 3600
+    var fixedBreak: Int = 300
     var fromSecond: Float = 0.0
     var showAvarage: Int = 0
     var array_day = [String](repeating: "", count: 7)
@@ -85,9 +87,17 @@ class ViewController2: UIViewController {
     }
     
     func checkTimeTrigger() {
-        realTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        realTime = Timer.scheduledTimer(timeInterval: 1, target: self,
+            selector: #selector(updateCounter), userInfo: nil, repeats: true)
         timeTrigger = false
     }
+    
+    func breakTimeTrigger() {
+        realTime = Timer.scheduledTimer(timeInterval: 1, target: self,
+            selector: #selector(updateBreaker), userInfo: nil, repeats: true)
+        timeTrigger = false
+    }
+    
     @objc func updateCounter(){
         sumTime += 1
         goalTime -= 1
@@ -99,11 +109,23 @@ class ViewController2: UIViewController {
         saveTimes()
     }
     
+    @objc func updateBreaker() {
+        breakTime += 1
+        breakTime2 = breakTime%fixedBreak
+        
+        updateBreakTimeLabels()
+        updateBreakProgress()
+        saveBreak()
+        finishTimeLabel.text = getFutureTime()
+    }
+    
     @IBAction func StartButtonAction(_ sender: UIButton) {
+        algoOfBreakStop()
         algoOfStart()
     }
     @IBAction func StopButtonAction(_ sender: UIButton) {
         algoOfStop()
+        algoOfBreakStart()
     }
     @IBAction func BreakButtonAction(_ sender: UIButton) {
         //쉬는시간 알고리즘 미생성
@@ -214,9 +236,12 @@ extension ViewController2 {
         sumTime = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
         showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
         stopCount = UserDefaults.standard.value(forKey: "stopCount") as? Int ?? 0
+        breakTime = UserDefaults.standard.value(forKey: "breakTime") as? Int ?? 0
         
         fixedSecond = 3600
+        fixedBreak = 300
         sumTime2 = sumTime%fixedSecond
+        breakTime2 = breakTime%fixedBreak
     }
     
     func setTimes() {
@@ -297,14 +322,31 @@ extension ViewController2 {
         print("Start")
     }
     
+    func breakStartAction() {
+        if(timeTrigger) {
+            breakTimeTrigger()
+        }
+        print("BreakStart")
+    }
+    
     func updateTimeLabels() {
         GoalTimeLabel.text = printTime(temp: goalTime)
         BreakTimeLabel.text = printTime(temp: breakTime)
         CountTimeLabel.text = printTime(temp: sumTime)
     }
     
+    func updateBreakTimeLabels() {
+        BreakTimeLabel.text = printTime(temp: breakTime)
+    }
+    
     func updateProgress() {
         progressPer = Float(sumTime2) / Float(fixedSecond)
+        CircleView.setProgressWithAnimation(duration: 0.0, value: progressPer, from: fromSecond)
+        fromSecond = progressPer
+    }
+    
+    func updateBreakProgress() {
+        progressPer = Float(breakTime2) / Float(fixedBreak)
         CircleView.setProgressWithAnimation(duration: 0.0, value: progressPer, from: fromSecond)
         fromSecond = progressPer
     }
@@ -317,6 +359,10 @@ extension ViewController2 {
     func saveTimes() {
         UserDefaults.standard.set(sumTime, forKey: "sum2")
         UserDefaults.standard.set(goalTime, forKey: "allTime2")
+    }
+    
+    func saveBreak() {
+        UserDefaults.standard.set(breakTime, forKey: "breakTime")
     }
     
     func printTime(temp : Int) -> String {
@@ -427,6 +473,16 @@ extension ViewController2 {
         }
     }
     
+    func breakStartColor() {
+        CircleView.progressColor = RED!
+        BreakTimeLabel.textColor = RED!
+    }
+    
+    func breakStopColor() {
+        CircleView.progressColor = UIColor.white
+        BreakTimeLabel.textColor = UIColor.white
+    }
+    
     func startColor() {
         self.view.backgroundColor = UIColor.black
         CircleView.progressColor = COLOR!
@@ -494,6 +550,7 @@ extension ViewController2 {
     func algoOfStart() {
         isStop = false
         startColor()
+        updateProgress()
         startAction()
         finishTimeLabel.text = getFutureTime()
         if(isFirst) {
@@ -514,5 +571,17 @@ extension ViewController2 {
         
         stopColor()
         stopEnable()
+    }
+    
+    func algoOfBreakStart() {
+        breakStartColor()
+        updateBreakProgress()
+        breakStartAction()
+    }
+    
+    func algoOfBreakStop() {
+        timeTrigger = true
+        realTime.invalidate()
+        breakStopColor()
     }
 }
