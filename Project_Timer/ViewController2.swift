@@ -55,6 +55,7 @@ class ViewController2: UIViewController {
     var diffMins = 0
     var diffSecs = 0
     var isStop = true
+    var isBreak = false
     var isFirst = false
     var timeForPersent = 0
     var progressPer: Float = 0.0
@@ -134,6 +135,7 @@ class ViewController2: UIViewController {
         showSettingView()
     }
     @IBAction func ModeBTAction(_ sender: UIButton) {
+        algoOfBreakStop()
         UserDefaults.standard.set(1, forKey: "VCNum")
         goToViewController(where: "ViewController")
     }
@@ -179,6 +181,11 @@ extension ViewController2 {
             timeTrigger = true
             let shared = UserDefaults.standard
             shared.set(Date(), forKey: "savedTime")
+        } else if(isBreak) {
+            realTime.invalidate()
+            timeTrigger = true
+            let shared = UserDefaults.standard
+            shared.set(Date(), forKey: "savedTime")
         }
     }
     
@@ -189,6 +196,12 @@ extension ViewController2 {
             if let savedDate = UserDefaults.standard.object(forKey: "savedTime") as? Date {
                 (diffHrs, diffMins, diffSecs) = ViewController.getTimeDifference(startDate: savedDate)
                 refresh(hours: diffHrs, mins: diffMins, secs: diffSecs)
+                removeSavedDate()
+            }
+        } else if(isBreak) {
+            if let savedDate = UserDefaults.standard.object(forKey: "savedTime") as? Date {
+                (diffHrs, diffMins, diffSecs) = ViewController.getTimeDifference(startDate: savedDate)
+                refreshBreak(hours: diffHrs, mins: diffMins, secs: diffSecs)
                 removeSavedDate()
             }
         }
@@ -206,11 +219,23 @@ extension ViewController2 {
         goalTime = goalTime - tempSeconds
         sumTime = sumTime + tempSeconds
         sumTime2 = sumTime
-        sumTime2 %= 3600
+        sumTime2 %= fixedSecond
         
         updateProgress()
         updateTimeLabels()
         startAction()
+        finishTimeLabel.text = getFutureTime()
+    }
+    
+    func refreshBreak (hours: Int, mins: Int, secs: Int) {
+        let tempSeconds = hours*3600 + mins*60 + secs
+        
+        breakTime += tempSeconds
+        breakTime2 = breakTime%fixedBreak
+        
+        updateBreakProgress()
+        updateBreakTimeLabels()
+        breakStartAction()
         finishTimeLabel.text = getFutureTime()
     }
     
@@ -575,12 +600,14 @@ extension ViewController2 {
     }
     
     func algoOfBreakStart() {
+        isBreak = true
         breakStartColor()
         updateBreakProgress()
         breakStartAction()
     }
     
     func algoOfBreakStop() {
+        isBreak = false
         timeTrigger = true
         realTime.invalidate()
         breakStopColor()
