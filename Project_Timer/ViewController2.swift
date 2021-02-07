@@ -79,6 +79,7 @@ class ViewController2: UIViewController {
         
         stopColor()
         stopEnable()
+        allStopColor()
         
         setBackground()
         setIsFirst()
@@ -129,6 +130,7 @@ class ViewController2: UIViewController {
         algoOfBreakStart()
     }
     @IBAction func BreakButtonAction(_ sender: UIButton) {
+        allStopColor()
         algoOfBreakStop()
     }
     @IBAction func SettingBTAction(_ sender: UIButton) {
@@ -566,6 +568,12 @@ extension ViewController2 {
     
     func setVCNum() {
         UserDefaults.standard.set(2, forKey: "VCNum")
+    }
+    
+    func allStopColor() {
+        BreakButton.isUserInteractionEnabled = false
+        BreakButton.backgroundColor = CLICK
+        BreakButton.setTitleColor(UIColor.white, for: .normal)
     }
 }
 
