@@ -333,7 +333,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMX-cZ-IQM">
-                                        <rect key="frame" x="20" y="68.5" width="168" height="62"/>
+                                        <rect key="frame" x="20" y="63.5" width="168" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TI-1J-GE7">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -383,7 +383,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRt-bI-wzu">
-                                        <rect key="frame" x="20" y="380.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="20" y="375.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-Db-r9l">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -433,7 +433,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhg-VX-CSW">
-                                        <rect key="frame" x="40.5" y="146.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="40.5" y="141.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-K4-YYn">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -483,7 +483,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7v2-dU-yMB">
-                                        <rect key="frame" x="40.5" y="458.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="40.5" y="453.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-Jy-sY7">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -533,7 +533,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-jL-iV4">
-                                        <rect key="frame" x="40.5" y="302.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="40.5" y="297.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgz-hj-Z2k">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -583,7 +583,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIG-CF-bfO">
-                                        <rect key="frame" x="20" y="224.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="20" y="219.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6U-VB-ZCd">
                                                 <rect key="frame" x="4" y="34.5" width="73" height="20"/>
@@ -632,7 +632,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Na-Zj-JzR">
-                                        <rect key="frame" x="20" y="536.5" width="186.5" height="62"/>
+                                        <rect key="frame" x="20" y="531.5" width="186.5" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적시간  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxu-XR-5H9">
                                                 <rect key="frame" x="4" y="35" width="73" height="20"/>
@@ -692,7 +692,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="Backbutton_action:" destination="ZOa-8O-R8V" eventType="touchUpInside" id="p8V-Z3-SyL"/>
                                             <action selector="Button_Back_action:" destination="Nnf-jO-Ajw" eventType="touchUpInside" id="xEQ-XL-vQx"/>
                                         </connections>
                                     </button>
@@ -714,8 +713,8 @@
                                     <constraint firstItem="7v2-dU-yMB" firstAttribute="top" secondItem="TRt-bI-wzu" secondAttribute="bottom" constant="16" id="XEK-L7-kXe"/>
                                     <constraint firstItem="qhg-VX-CSW" firstAttribute="top" secondItem="DMX-cZ-IQM" secondAttribute="bottom" constant="16" id="XVG-s1-KmG"/>
                                     <constraint firstItem="7ch-jL-iV4" firstAttribute="top" secondItem="dIG-CF-bfO" secondAttribute="bottom" constant="16" id="h11-iU-OzC"/>
-                                    <constraint firstItem="Vx1-sH-K1f" firstAttribute="top" secondItem="2Na-Zj-JzR" secondAttribute="bottom" constant="15" id="rV0-iW-dQ0"/>
-                                    <constraint firstItem="DMX-cZ-IQM" firstAttribute="top" secondItem="sCx-ym-zvx" secondAttribute="bottom" constant="40" id="rYD-25-5h7"/>
+                                    <constraint firstItem="Vx1-sH-K1f" firstAttribute="top" secondItem="2Na-Zj-JzR" secondAttribute="bottom" constant="20" id="rV0-iW-dQ0"/>
+                                    <constraint firstItem="DMX-cZ-IQM" firstAttribute="top" secondItem="sCx-ym-zvx" secondAttribute="bottom" constant="35" id="rYD-25-5h7"/>
                                     <constraint firstItem="2Na-Zj-JzR" firstAttribute="top" secondItem="7v2-dU-yMB" secondAttribute="bottom" constant="16" id="rdC-aR-pFM"/>
                                     <constraint firstItem="TRt-bI-wzu" firstAttribute="leading" secondItem="fMc-0z-Cw1" secondAttribute="leading" constant="20" id="tfK-MB-fFb"/>
                                     <constraint firstItem="dIG-CF-bfO" firstAttribute="leading" secondItem="fMc-0z-Cw1" secondAttribute="leading" constant="20" id="y4Z-hI-S3O"/>
@@ -1168,7 +1167,6 @@ AVER : 0:00:00</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="Button_set:" destination="mBZ-WW-u2z" eventType="touchUpInside" id="eZP-8F-oPr"/>
-                                                    <action selector="SetButton:" destination="ZOa-8O-R8V" eventType="touchUpInside" id="YkV-wk-7Aq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfO-KY-Ynr">
@@ -1182,7 +1180,6 @@ AVER : 0:00:00</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="Backbutton_action:" destination="ZOa-8O-R8V" eventType="touchUpInside" id="eQ7-r5-gG3"/>
                                                     <action selector="Button_Back_action:" destination="mBZ-WW-u2z" eventType="touchUpInside" id="Tpo-I8-lZl"/>
                                                 </connections>
                                             </button>
@@ -1522,7 +1519,7 @@ AVER : 0:00:00</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdE-uO-Eaw">
-                                <rect key="frame" x="315.5" y="166" width="393.5" height="436"/>
+                                <rect key="frame" x="315.5" y="104" width="393.5" height="560.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:40:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-1x-IpB">
                                         <rect key="frame" x="130" y="41.5" width="133.5" height="47"/>
@@ -1623,7 +1620,7 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0A-yn-j9h">
-                                        <rect key="frame" x="52.5" y="373" width="288" height="58"/>
+                                        <rect key="frame" x="52.5" y="497.5" width="288" height="58"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixB-jP-Urr">
                                                 <rect key="frame" x="4" y="4" width="120" height="50"/>
@@ -1637,7 +1634,6 @@ AVER : 0:00:00</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="Button_set:" destination="59m-1a-g0y" eventType="touchUpInside" id="stu-k0-kkF"/>
-                                                    <action selector="SetButton:" destination="ZOa-8O-R8V" eventType="touchUpInside" id="Wz9-Z6-M9l"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-9C-tf6">
@@ -1651,7 +1647,6 @@ AVER : 0:00:00</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="Backbutton_action:" destination="ZOa-8O-R8V" eventType="touchUpInside" id="EdE-rn-PHN"/>
                                                     <action selector="Button_Back_action:" destination="59m-1a-g0y" eventType="touchUpInside" id="ase-TE-H5A"/>
                                                 </connections>
                                             </button>
@@ -1681,24 +1676,49 @@ AVER : 0:00:00</string>
                                             <action selector="ColorBTAction:" destination="59m-1a-g0y" eventType="touchUpInside" id="hVj-mE-6l1"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-oP-4e4">
+                                        <rect key="frame" x="121.5" y="432.5" width="150" height="46"/>
+                                        <color key="backgroundColor" name="Click"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="s9e-tg-9PQ"/>
+                                            <constraint firstAttribute="width" constant="150" id="zaE-yx-8v2"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="보이기"/>
+                                            <segment title="숨기기"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="set_persent:" destination="59m-1a-g0y" eventType="valueChanged" id="hLB-OX-Oyb"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 공부시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n7-3o-BMX">
+                                        <rect key="frame" x="128" y="383" width="137" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gjb-1x-IpB" firstAttribute="top" secondItem="UKK-P9-VzG" secondAttribute="bottom" constant="8" id="5JB-zR-Ky4"/>
+                                    <constraint firstItem="6n7-3o-BMX" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="G9w-Z1-4po"/>
                                     <constraint firstItem="085-KL-SeC" firstAttribute="top" secondItem="msy-om-ER9" secondAttribute="bottom" constant="30" id="GyE-9l-ELJ"/>
                                     <constraint firstItem="HNj-xB-72V" firstAttribute="top" secondItem="qpL-QV-R8Z" secondAttribute="bottom" constant="30" id="Gz8-ps-hn1"/>
                                     <constraint firstItem="UKK-P9-VzG" firstAttribute="top" secondItem="fdE-uO-Eaw" secondAttribute="top" constant="4" id="JA2-N1-abh"/>
                                     <constraint firstAttribute="trailing" secondItem="UKK-P9-VzG" secondAttribute="trailing" constant="150" id="LKO-zW-sOZ"/>
                                     <constraint firstAttribute="bottom" secondItem="h0A-yn-j9h" secondAttribute="bottom" constant="5" id="PWn-ta-pT4"/>
                                     <constraint firstItem="gjb-1x-IpB" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="QEX-eJ-nqZ"/>
-                                    <constraint firstItem="h0A-yn-j9h" firstAttribute="top" secondItem="HNj-xB-72V" secondAttribute="bottom" constant="20" id="UBb-f7-cgK"/>
                                     <constraint firstItem="UKK-P9-VzG" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="UjR-RL-BJP"/>
+                                    <constraint firstItem="PdJ-oP-4e4" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="XDf-Ct-zDG"/>
                                     <constraint firstItem="qpL-QV-R8Z" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="XXU-rI-w5O"/>
                                     <constraint firstItem="h0A-yn-j9h" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="Z9d-lM-bGF"/>
+                                    <constraint firstItem="PdJ-oP-4e4" firstAttribute="top" secondItem="6n7-3o-BMX" secondAttribute="bottom" constant="20" id="aRL-cI-qAq"/>
                                     <constraint firstItem="HNj-xB-72V" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="c11-Ak-EaD"/>
                                     <constraint firstItem="msy-om-ER9" firstAttribute="top" secondItem="gjb-1x-IpB" secondAttribute="bottom" constant="18" id="cw1-xb-wvo"/>
                                     <constraint firstItem="qpL-QV-R8Z" firstAttribute="top" secondItem="085-KL-SeC" secondAttribute="bottom" constant="8" id="g6C-0F-pzq"/>
                                     <constraint firstItem="msy-om-ER9" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="gsK-6K-Hxc"/>
+                                    <constraint firstItem="h0A-yn-j9h" firstAttribute="top" secondItem="PdJ-oP-4e4" secondAttribute="bottom" constant="20" id="h6E-JI-eJU"/>
                                     <constraint firstItem="085-KL-SeC" firstAttribute="centerX" secondItem="fdE-uO-Eaw" secondAttribute="centerX" id="lA3-q9-1i2"/>
+                                    <constraint firstItem="6n7-3o-BMX" firstAttribute="top" secondItem="HNj-xB-72V" secondAttribute="bottom" constant="30" id="s0R-2a-YxH"/>
                                     <constraint firstItem="UKK-P9-VzG" firstAttribute="leading" secondItem="fdE-uO-Eaw" secondAttribute="leading" constant="150" id="scy-WY-Dmk"/>
                                 </constraints>
                             </view>
@@ -1720,6 +1740,7 @@ AVER : 0:00:00</string>
                         <outlet property="Text_H" destination="dCC-OX-fbW" id="inL-yA-h95"/>
                         <outlet property="Text_M" destination="qC5-IG-g3y" id="7f1-NP-Haj"/>
                         <outlet property="Text_S" destination="jAl-mk-gXe" id="R9u-hV-qkW"/>
+                        <outlet property="controlShowAverage" destination="PdJ-oP-4e4" id="Ard-hn-R4V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p57-tW-C2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1728,7 +1749,7 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LE3-FS-7N3"/>
+        <segue reference="fxY-bf-T0i"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Background">

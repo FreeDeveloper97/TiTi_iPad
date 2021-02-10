@@ -149,6 +149,7 @@ extension ViewController2 : ChangeViewController2 {
         isFirst = true
         setColor()
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
+        showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
         sumTime = 0
         sumTime2 = 0
         breakTime = 0
@@ -159,12 +160,13 @@ extension ViewController2 : ChangeViewController2 {
         UserDefaults.standard.set(breakTime, forKey: "breakTime")
         
         resetStopCount()
-        resetAverage()
+        resetProgress()
         updateTimeLabels()
         finishTimeLabel.text = getFutureTime()
         
         stopColor()
         stopEnable()
+        checkAverage()
     }
 }
 
@@ -307,7 +309,7 @@ extension ViewController2 {
         avarageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
     }
     
-    func resetAverage() {
+    func resetProgress() {
         CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
         fromSecond = 0.0
     }
@@ -600,11 +602,12 @@ extension ViewController2 {
         
         saveLogData()
         saveStopCount()
-        setAverage()
         setTimes()
         
         stopColor()
         stopEnable()
+        checkAverage()
+        setAverage()
     }
     
     func algoOfBreakStart() {

@@ -22,6 +22,7 @@ class SetTimerViewController2: UIViewController {
     @IBOutlet var Button_Back: UIButton!
     @IBOutlet var ColorButton: UIButton!
     @IBOutlet var Label_toTime: UILabel!
+    @IBOutlet var controlShowAverage: UISegmentedControl!
     
     var SetTimerViewControllerDelegate : ChangeViewController2!
     
@@ -32,6 +33,7 @@ class SetTimerViewController2: UIViewController {
     var m: Int = 0
     var s: Int = 0
     var goalTime: Int = 21600
+    var showAverage: Int = 0
     
     var COLOR = UIColor(named: "Background2")
     
@@ -40,6 +42,7 @@ class SetTimerViewController2: UIViewController {
         hideKeyboard()
         
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
+        showAverage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
         COLOR = UserDefaults.standard.colorForKey(key: "color") as? UIColor ?? UIColor(named: "Background2")
         Label_timer.text = printTime(temp: goalTime)
         
@@ -62,6 +65,8 @@ class SetTimerViewController2: UIViewController {
         
         //종료예정시간 보이기
         Label_toTime.text = getFutureTime()
+        
+        controlShowAverage.selectedSegmentIndex = showAverage
     }
     @objc func textFieldDidChange(textField: UITextField){
         H = Text_H.text!
@@ -147,6 +152,18 @@ class SetTimerViewController2: UIViewController {
         }
     }
     
+    @IBAction func set_persent(_ sender: UISegmentedControl) {
+        switch controlShowAverage.selectedSegmentIndex {
+        case 0:
+            showAverage = 0
+            print("0")
+        case 1:
+            showAverage = 1
+            print("1")
+        default: return
+        }
+    }
+    
     func getFutureTime() -> String
     {
         //log 날짜 설정
@@ -171,6 +188,7 @@ class SetTimerViewController2: UIViewController {
         UserDefaults.standard.set(second, forKey: "second2")
         UserDefaults.standard.setColor(color: COLOR, forKey: "color")
         UserDefaults.standard.set(goalTime, forKey: "allTime")
+        UserDefaults.standard.set(showAverage, forKey: "showPersent")
         print("set complite")
         SetTimerViewControllerDelegate.changeGoalTime()
         self.dismiss(animated: true, completion: nil)
