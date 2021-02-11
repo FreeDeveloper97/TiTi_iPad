@@ -30,59 +30,55 @@ class LogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let day1 = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
-        let day2 = UserDefaults.standard.value(forKey: "day2") as? String ?? "NO DATA"
-        let day3 = UserDefaults.standard.value(forKey: "day3") as? String ?? "NO DATA"
-        let day4 = UserDefaults.standard.value(forKey: "day4") as? String ?? "NO DATA"
-        let day5 = UserDefaults.standard.value(forKey: "day5") as? String ?? "NO DATA"
-        let day6 = UserDefaults.standard.value(forKey: "day6") as? String ?? "NO DATA"
-        let day7 = UserDefaults.standard.value(forKey: "day7") as? String ?? "NO DATA"
-        let time1 = UserDefaults.standard.value(forKey: "time1") as? String ?? "NO DATA"
-        let time2 = UserDefaults.standard.value(forKey: "time2") as? String ?? "NO DATA"
-        let time3 = UserDefaults.standard.value(forKey: "time3") as? String ?? "NO DATA"
-        let time4 = UserDefaults.standard.value(forKey: "time4") as? String ?? "NO DATA"
-        let time5 = UserDefaults.standard.value(forKey: "time5") as? String ?? "NO DATA"
-        let time6 = UserDefaults.standard.value(forKey: "time6") as? String ?? "NO DATA"
-        let time7 = UserDefaults.standard.value(forKey: "time7") as? String ?? "NO DATA"
-        
-        Label_day1.text = day1
-        Label_day2.text = day2
-        Label_day3.text = day3
-        Label_day4.text = day4
-        Label_day5.text = day5
-        Label_day6.text = day6
-        Label_day7.text = day7
-        Label_time1.text = time1
-        Label_time2.text = time2
-        Label_time3.text = time3
-        Label_time4.text = time4
-        Label_time5.text = time5
-        Label_time6.text = time6
-        Label_time7.text = time7
+//        setDummyData()
+        setData()
         
         Button_back.layer.borderWidth = 3
         Button_back.layer.borderColor = UIColor.white.cgColor
         Button_back.layer.cornerRadius = 10
-        
-//        Label_day1.text = day1
-//        Label_day2.text = "10월 7일"
-//        Label_day3.text = "10월 6일"
-//        Label_day4.text = "10월 5일"
-//        Label_day5.text = "10월 4일"
-//        Label_day6.text = "10월 3일"
-//        Label_day7.text = "10월 2일"
-//        Label_time1.text = time1
-//        Label_time2.text = "4:03:41"
-//        Label_time3.text = "6:08:14"
-//        Label_time4.text = "4:03:39"
-//        Label_time5.text = "5:44:07"
-//        Label_time6.text = "4:58:23"
-//        Label_time7.text = "3:37:20"
     }
     
     @IBAction func Button_Back_action(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+extension LogViewController {
+    
+    func setData() {
+        Label_day1.text = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
+        Label_day2.text = UserDefaults.standard.value(forKey: "day2") as? String ?? "NO DATA"
+        Label_day3.text = UserDefaults.standard.value(forKey: "day3") as? String ?? "NO DATA"
+        Label_day4.text = UserDefaults.standard.value(forKey: "day4") as? String ?? "NO DATA"
+        Label_day5.text = UserDefaults.standard.value(forKey: "day5") as? String ?? "NO DATA"
+        Label_day6.text = UserDefaults.standard.value(forKey: "day6") as? String ?? "NO DATA"
+        Label_day7.text = UserDefaults.standard.value(forKey: "day7") as? String ?? "NO DATA"
+        Label_time1.text = UserDefaults.standard.value(forKey: "time1") as? String ?? "NO DATA"
+        Label_time2.text = UserDefaults.standard.value(forKey: "time2") as? String ?? "NO DATA"
+        Label_time3.text = UserDefaults.standard.value(forKey: "time3") as? String ?? "NO DATA"
+        Label_time4.text = UserDefaults.standard.value(forKey: "time4") as? String ?? "NO DATA"
+        Label_time5.text = UserDefaults.standard.value(forKey: "time5") as? String ?? "NO DATA"
+        Label_time6.text = UserDefaults.standard.value(forKey: "time6") as? String ?? "NO DATA"
+        Label_time7.text = UserDefaults.standard.value(forKey: "time7") as? String ?? "NO DATA"
+    }
+    
+    func setDummyData() {
+        Label_day1.text = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
+        Label_day2.text = "2월 10일"
+        Label_day3.text = "2월 9일"
+        Label_day4.text = "2월 8일"
+        Label_day5.text = "2월 7일"
+        Label_day6.text = "2월 6일"
+        Label_day7.text = "2월 5일"
+
+        Label_time1.text = UserDefaults.standard.value(forKey: "time1") as? String ?? "NO DATA"
+        Label_time2.text = "4:03:41"
+        Label_time3.text = "6:08:14"
+        Label_time4.text = "4:03:39"
+        Label_time5.text = "5:44:07"
+        Label_time6.text = "4:58:23"
+        Label_time7.text = "3:37:20"
+    }
 }

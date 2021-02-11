@@ -297,11 +297,12 @@ extension ViewController : ChangeViewController {
         ResetButton.setTitleColor(UIColor.white, for: .normal)
         ResetButton.isUserInteractionEnabled = false
         
-        endGame()
+//        endGame()
+        isStop = true
+        realTime.invalidate()
+        timeTrigger = true
         getTimeData()
         sum = 0
-        timeTrigger = true
-        realTime = Timer()
         print("reset Button complite")
         
         UserDefaults.standard.set(second, forKey: "second2")
