@@ -57,7 +57,6 @@ class ViewController2: UIViewController {
     var isStop = true
     var isBreak = false
     var isFirst = false
-    var timeForPersent = 0
     var progressPer: Float = 0.0
     var fixedSecond: Int = 3600
     var fixedBreak: Int = 300

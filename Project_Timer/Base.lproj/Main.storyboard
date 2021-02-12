@@ -1022,21 +1022,21 @@ AVER : 0:00:00</string>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="1200" height="1200"/>
                     <connections>
-                        <outlet property="AllTimeLabel" destination="FQJ-tz-ND8" id="NjY-gf-bj3"/>
+                        <outlet property="AverageLabel" destination="l7t-o3-kah" id="dHl-9k-omE"/>
                         <outlet property="CircleView" destination="Z0K-zv-PIN" id="K1I-MC-hK8"/>
                         <outlet property="CountTimeLabel" destination="EB9-cb-w4v" id="ib0-mb-W4c"/>
-                        <outlet property="Label_to" destination="qs4-2C-6ZO" id="edo-1n-110"/>
-                        <outlet property="Label_toTime" destination="XXw-iS-PIr" id="Yfi-jy-lfF"/>
+                        <outlet property="GoalTimeLabel" destination="FQJ-tz-ND8" id="NjY-gf-bj3"/>
                         <outlet property="LogButton" destination="luT-Lk-upa" id="PRC-v0-ruw"/>
                         <outlet property="ModeButton" destination="7JW-7w-l9v" id="JMb-e7-jly"/>
                         <outlet property="ResetButton" destination="7gd-VZ-GbR" id="qb3-br-uln"/>
-                        <outlet property="SETTING_Button" destination="M3c-sp-Fuo" id="eQk-8V-Eeo"/>
+                        <outlet property="SettingButton" destination="M3c-sp-Fuo" id="eQk-8V-Eeo"/>
                         <outlet property="StartButton" destination="lUx-K6-5JM" id="ANn-Me-WzX"/>
                         <outlet property="StopButton" destination="k5h-tf-b1u" id="uFU-TB-RgS"/>
                         <outlet property="SumTimeLabel" destination="TEY-kf-2bw" id="oVB-Of-v5a"/>
-                        <outlet property="TIMER_Button" destination="6XC-RG-lgG" id="4pe-nd-xAt"/>
-                        <outlet property="View_labels" destination="Lae-bR-Gbs" id="RJI-AB-tLo"/>
-                        <outlet property="persentLabel" destination="l7t-o3-kah" id="dHl-9k-omE"/>
+                        <outlet property="TimerButton" destination="6XC-RG-lgG" id="4pe-nd-xAt"/>
+                        <outlet property="finishTimeLabel" destination="XXw-iS-PIr" id="Yfi-jy-lfF"/>
+                        <outlet property="finishTimeLabel_show" destination="qs4-2C-6ZO" id="edo-1n-110"/>
+                        <outlet property="viewLabels" destination="Lae-bR-Gbs" id="RJI-AB-tLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWH-XT-mGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1749,7 +1749,7 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fxY-bf-T0i"/>
+        <segue reference="LE3-FS-7N3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Background">
