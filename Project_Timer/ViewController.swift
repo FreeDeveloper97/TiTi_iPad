@@ -18,8 +18,6 @@
 //  Copyright © 2020 FDEE.
 
 import UIKit
-
-
 import AudioToolbox
 import AVFoundation
 
@@ -56,7 +54,7 @@ class ViewController: UIViewController {
     var diffMins = 0
     var diffSecs = 0
     var isStop = true
-    var isRESET = false
+    var isFirst = false
     var progressPer: Float = 0.0
     var fixedSecond: Int = 0
     var fromSecond: Float = 0.0
@@ -73,7 +71,7 @@ class ViewController: UIViewController {
         setBorner()
         getDatas()
         
-        updateTimeLabels()
+        setTimes()
         stopColor()
         stopEnable()
         
@@ -90,31 +88,44 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func StartButtonAction(_ sender: UIButton) {
-        //persent 추가! RESET 후 시작시 시작하는 시간 저장!
-        if(isRESET)
-        {
-            let startTime = UserDefaults.standard
-            startTime.set(Date(), forKey: "startTime")
-            print("startTime SAVE")
-            isRESET = false
-            fixedSecond = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
-            //log 추가
-            setLogData()
+    func checkTimeTrigger() {
+        realTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timeTrigger = false
+    }
+    
+    @objc func updateCounter(){
+        if timerTime < 61 {
+            CountTimeLabel.textColor = TEXT
+            CircleView.progressColor = TEXT!
         }
-        startColor()
-        startAction()
-        isStop = false
-        finishTimeLabel.text = getFutureTime()
+        if timerTime < 1 {
+            endGame()
+            stopColor()
+            stopEnable()
+            CountTimeLabel.text = "종료"
+//            AudioServicesPlaySystemSound(1254)
+            //오디오 재생 추가
+            playAudioFromProject()
+//            AudioServicesPlaySystemSound(4095)
+        }
+        else {
+            timerTime = timerTime - 1
+            sumTime = sumTime + 1
+            goalTime = goalTime - 1
+            
+            updateTimeLabes()
+            saveTimes()
+            printLogs()
+            updateProgress()
+        }
     }
     
+    @IBAction func StartButtonAction(_ sender: UIButton) {
+        algoOfStart()
+    }
     @IBAction func StopButtonAction(_ sender: UIButton) {
-        isStop = true
-        endGame()
-        stopColor()
-        stopEnable()
+        algoOfStop()
     }
-    
     @IBAction func ResetButtonAction(_ sender: UIButton) {
         ResetButton.backgroundColor = CLICK
         ResetButton.setTitleColor(UIColor.white, for: .normal)
@@ -152,42 +163,12 @@ class ViewController: UIViewController {
     }
     
     
-    @objc func updateCounter(){
-        if timerTime < 61 {
-            CountTimeLabel.textColor = TEXT
-            CircleView.progressColor = TEXT!
-        }
-        if timerTime < 1 {
-            endGame()
-            stopColor()
-            stopEnable()
-            CountTimeLabel.text = "종료"
-//            AudioServicesPlaySystemSound(1254)
-            //오디오 재생 추가
-            playAudioFromProject()
-//            AudioServicesPlaySystemSound(4095)
-        }
-        else {
-            timerTime = timerTime - 1
-            sumTime = sumTime + 1
-            goalTime = goalTime - 1
-            setPerSeconds()
-        }
-        
-    }
     
-    func checkTimeTrigger() {
-        realTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        timeTrigger = false
-    }
+    
+    
     
     func endGame() {
-        isStop = true
-        realTime.invalidate()
-        timeTrigger = true
-        //log 저장
         saveLogData()
-        //stopCount 증가
         stopCount+=1
         UserDefaults.standard.set(stopCount, forKey: "stopCount")
         checkPersent()
@@ -330,7 +311,7 @@ extension ViewController : ChangeViewController {
             sumTime = sumTime + tempSeconds
             timerTime = timerTime - tempSeconds
         }
-        setPerSeconds()
+        updateProgress()
         startAction()
         if(timerTime - tempSeconds < 0)
         {
@@ -351,29 +332,32 @@ extension ViewController : ChangeViewController {
         print("Start")
     }
     
-    func setPerSeconds()
-    {
+    func updateTimeLabes() {
         GoalTimeLabel.text = printTime(temp: goalTime)
         SumTimeLabel.text = printTime(temp: sumTime)
         CountTimeLabel.text = printTime(temp: timerTime)
-        print("update : " + String(timerTime))
+    }
+    
+    func saveTimes() {
         UserDefaults.standard.set(sumTime, forKey: "sum2")
         UserDefaults.standard.set(timerTime, forKey: "second2")
         UserDefaults.standard.set(goalTime, forKey: "allTime2")
-        
-        //persent 추가!
-//        checkPersent()
-        //프로그래스 추가!
+    }
+    
+    func printLogs() {
+        print("timer : " + String(timerTime))
+        print("goalTime : " + String(goalTime))
+    }
+    
+    func updateProgress() {
         progressPer = Float(fixedSecond - timerTime) / Float(fixedSecond)
-        print("fixedSecond : " + String(fixedSecond))
-        print("second : " + String(timerTime))
         CircleView.setProgressWithAnimation(duration: 0.0, value: progressPer, from: fromSecond)
         fromSecond = progressPer
     }
     
     func persentReset()
     {
-        isRESET = true
+        isFirst = true
 //        persentLabel.text = "빡공률 : 0.0%"
         AverageLabel.textColor = UIColor.white
         //프로그래스 추가!
@@ -576,7 +560,7 @@ extension ViewController {
     
     func setIsFirst() {
         if (UserDefaults.standard.object(forKey: "startTime") == nil) {
-            isRESET = true
+            isFirst = true
         }
     }
     
@@ -640,10 +624,60 @@ extension ViewController {
         CircleView.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
     }
     
-    func updateTimeLabels() {
+    func setTimes() {
         GoalTimeLabel.text = printTime(temp: goalTime)
         CountTimeLabel.text = printTime(temp: timerTime)
         SumTimeLabel.text = printTime(temp: sumTime)
         finishTimeLabel.text = getFutureTime()
+    }
+    
+    func updateTimeLabels() {
+        GoalTimeLabel.text = printTime(temp: goalTime)
+        CountTimeLabel.text = printTime(temp: timerTime)
+        SumTimeLabel.text = printTime(temp: sumTime)
+    }
+    
+    func firstStop() {
+        let startTime = UserDefaults.standard
+        startTime.set(Date(), forKey: "startTime")
+        print("startTime SAVE")
+        setLogData()
+    }
+    
+    func saveStopCount() {
+        stopCount+=1
+        UserDefaults.standard.set(stopCount, forKey: "stopCount")
+    }
+}
+
+
+
+extension ViewController {
+    
+    func algoOfStart() {
+        isStop = false
+        startColor()
+        startAction()
+        finishTimeLabel.text = getFutureTime()
+        if(isFirst) {
+            firstStop()
+            isFirst = false
+        }
+    }
+    
+    func algoOfStop() {
+        isStop = true
+        timeTrigger = true
+        realTime.invalidate()
+        
+        endGame()
+        saveLogData()
+        saveStopCount()
+        setTimes()
+        
+        stopColor()
+        stopEnable()
+        checkPersent()
+        setAverage()
     }
 }
