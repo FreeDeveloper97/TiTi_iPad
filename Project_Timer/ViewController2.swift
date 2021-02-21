@@ -108,6 +108,7 @@ class ViewController2: UIViewController {
         updateProgress()
         printLogs()
         saveTimes()
+        showNowTime()
     }
     
     @objc func updateBreaker() {
@@ -118,6 +119,7 @@ class ViewController2: UIViewController {
         updateBreakProgress()
         saveBreak()
         finishTimeLabel.text = getFutureTime()
+        showNowTime()
     }
     
     @IBAction func StartButtonAction(_ sender: UIButton) {
@@ -287,6 +289,7 @@ extension ViewController2 {
     }
     //평균내용 설정
     func setAverage() {
+        avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 23)
         if(stopCount == 0) {
             avarageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
         } else {
@@ -495,11 +498,16 @@ extension ViewController2 {
             self.viewLabels.alpha = 1
         })
         //보이기 숨기기 설정
-        if(showAvarage == 0) {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.avarageLabel.alpha = 1
-            })
-        }
+//        if(showAvarage == 0) {
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.avarageLabel.alpha = 1
+//            })
+//        }
+//        if(showAvarage == 1) {
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.avarageLabel.alpha = 0
+//            })
+//        }
     }
     
     func breakStartColor() {
@@ -531,7 +539,7 @@ extension ViewController2 {
             self.SettingButton.alpha = 0
             self.LogButton.alpha = 0
             self.viewLabels.alpha = 0
-            self.avarageLabel.alpha = 0
+            self.avarageLabel.alpha = 1
             self.ModeButton.layer.borderColor = nil
         })
     }
@@ -576,6 +584,15 @@ extension ViewController2 {
         BreakButton.backgroundColor = CLICK
         BreakButton.setTitleColor(UIColor.white, for: .normal)
     }
+    
+    func showNowTime() {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        let today = dateFormatter.string(from: now)
+        avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
+        avarageLabel.text = "\n\(today)"
+    }
 }
 
 
@@ -592,6 +609,7 @@ extension ViewController2 {
             firstStart()
             isFirst = false
         }
+        showNowTime()
     }
     
     func algoOfStop() {

@@ -94,10 +94,6 @@ class ViewController: UIViewController {
     }
     
     @objc func updateCounter(){
-        if timerTime < 61 {
-            TimerLabel.textColor = RED
-            CircleView.progressColor = RED!
-        }
         if timerTime < 1 {
             algoOfStop()
             TimerLabel.text = "종료"
@@ -105,8 +101,11 @@ class ViewController: UIViewController {
             //오디오 재생 추가
             playAudioFromProject()
 //            AudioServicesPlaySystemSound(4095)
-        }
-        else {
+        } else {
+            if timerTime < 61 {
+                TimerLabel.textColor = RED
+                CircleView.progressColor = RED!
+            }
             timerTime -= 1
             sumTime += 1
             goalTime -= 1
@@ -115,6 +114,7 @@ class ViewController: UIViewController {
             saveTimes()
             printLogs()
             updateProgress()
+            showNowTime()
         }
     }
     
@@ -239,6 +239,7 @@ extension ViewController {
     }
     
     func setAverage() {
+        AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 23)
         if(stopCount == 0) {
             AverageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
         } else {
@@ -519,11 +520,11 @@ extension ViewController {
             self.viewLabels.alpha = 1
         })
         //보이기 숨기기 설정
-        if(showAverage == 0) {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.AverageLabel.alpha = 1
-            })
-        }
+//        if(showAverage == 0) {
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.AverageLabel.alpha = 1
+//            })
+//        }
     }
     
     func startColor() {
@@ -546,7 +547,7 @@ extension ViewController {
             self.TimerButton.alpha = 0
             self.LogButton.alpha = 0
             self.viewLabels.alpha = 0
-            self.AverageLabel.alpha = 0
+            self.AverageLabel.alpha = 1
             self.ModeButton.layer.borderColor = nil
         })
     }
@@ -576,6 +577,15 @@ extension ViewController {
         LogButton.isUserInteractionEnabled = false
         ModeButton.isUserInteractionEnabled = false
     }
+    
+    func showNowTime() {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        let today = dateFormatter.string(from: now)
+        AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
+        AverageLabel.text = "\n\(today)"
+    }
 }
 
 
@@ -591,6 +601,7 @@ extension ViewController {
             firstStop()
             isFirst = false
         }
+        showNowTime()
     }
     
     func algoOfStop() {
