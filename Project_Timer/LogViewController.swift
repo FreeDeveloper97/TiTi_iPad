@@ -26,6 +26,14 @@ class LogViewController: UIViewController {
     @IBOutlet var Label_time6: UILabel!
     @IBOutlet var Label_time7: UILabel!
     
+    @IBOutlet var Label_break1: UILabel!
+    @IBOutlet var Label_break2: UILabel!
+    @IBOutlet var Label_break3: UILabel!
+    @IBOutlet var Label_break4: UILabel!
+    @IBOutlet var Label_break5: UILabel!
+    @IBOutlet var Label_break6: UILabel!
+    @IBOutlet var Label_break7: UILabel!
+    
     @IBOutlet var Button_back: UIButton!
     
     override func viewDidLoad() {
@@ -48,13 +56,14 @@ class LogViewController: UIViewController {
 extension LogViewController {
     
     func setData() {
-        Label_day1.text = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
-        Label_day2.text = UserDefaults.standard.value(forKey: "day2") as? String ?? "NO DATA"
-        Label_day3.text = UserDefaults.standard.value(forKey: "day3") as? String ?? "NO DATA"
-        Label_day4.text = UserDefaults.standard.value(forKey: "day4") as? String ?? "NO DATA"
-        Label_day5.text = UserDefaults.standard.value(forKey: "day5") as? String ?? "NO DATA"
-        Label_day6.text = UserDefaults.standard.value(forKey: "day6") as? String ?? "NO DATA"
-        Label_day7.text = UserDefaults.standard.value(forKey: "day7") as? String ?? "NO DATA"
+        Label_day1.text = translate(input: UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA")
+        Label_day2.text = translate(input: UserDefaults.standard.value(forKey: "day2") as? String ?? "NO DATA")
+        Label_day3.text = translate(input: UserDefaults.standard.value(forKey: "day3") as? String ?? "NO DATA")
+        Label_day4.text = translate(input: UserDefaults.standard.value(forKey: "day4") as? String ?? "NO DATA")
+        Label_day5.text = translate(input: UserDefaults.standard.value(forKey: "day5") as? String ?? "NO DATA")
+        Label_day6.text = translate(input: UserDefaults.standard.value(forKey: "day6") as? String ?? "NO DATA")
+        Label_day7.text = translate(input: UserDefaults.standard.value(forKey: "day7") as? String ?? "NO DATA")
+        
         Label_time1.text = UserDefaults.standard.value(forKey: "time1") as? String ?? "NO DATA"
         Label_time2.text = UserDefaults.standard.value(forKey: "time2") as? String ?? "NO DATA"
         Label_time3.text = UserDefaults.standard.value(forKey: "time3") as? String ?? "NO DATA"
@@ -62,6 +71,14 @@ extension LogViewController {
         Label_time5.text = UserDefaults.standard.value(forKey: "time5") as? String ?? "NO DATA"
         Label_time6.text = UserDefaults.standard.value(forKey: "time6") as? String ?? "NO DATA"
         Label_time7.text = UserDefaults.standard.value(forKey: "time7") as? String ?? "NO DATA"
+        
+        Label_break1.text = UserDefaults.standard.value(forKey: "break1") as? String ?? "NO DATA"
+        Label_break2.text = UserDefaults.standard.value(forKey: "break2") as? String ?? "NO DATA"
+        Label_break3.text = UserDefaults.standard.value(forKey: "break3") as? String ?? "NO DATA"
+        Label_break4.text = UserDefaults.standard.value(forKey: "break4") as? String ?? "NO DATA"
+        Label_break5.text = UserDefaults.standard.value(forKey: "break5") as? String ?? "NO DATA"
+        Label_break6.text = UserDefaults.standard.value(forKey: "break6") as? String ?? "NO DATA"
+        Label_break7.text = UserDefaults.standard.value(forKey: "break7") as? String ?? "NO DATA"
     }
     
     func setDummyData() {
@@ -80,5 +97,19 @@ extension LogViewController {
         Label_time5.text = "5:44:07"
         Label_time6.text = "4:58:23"
         Label_time7.text = "3:37:20"
+    }
+    
+    func translate(input: String) -> String {
+        if(input == "NO DATA") {
+            return "-/-"
+        } else {
+            print(input)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "M월 d일"
+            let exported = dateFormatter.date(from: input)!
+            let newDateFormatter = DateFormatter()
+            newDateFormatter.dateFormat = "M/d"
+            return newDateFormatter.string(from: exported)
+        }
     }
 }
