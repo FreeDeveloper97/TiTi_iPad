@@ -2423,12 +2423,27 @@ AVER : 0:00:00</string>
                                     <constraint firstItem="HIV-mr-c7X" firstAttribute="centerX" secondItem="7Wl-v4-3WJ" secondAttribute="centerX" id="xsV-xm-NCC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-VR-DVl">
+                                <rect key="frame" x="614" y="30" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Dpw-jZ-S27"/>
+                                    <constraint firstAttribute="height" constant="30" id="VJk-uZ-SLa"/>
+                                </constraints>
+                                <state key="normal" title="GRAPH">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RBs-CL-zQM" kind="show" id="e2i-6O-BUg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S0d-xd-TTL"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Wl-v4-3WJ" firstAttribute="centerX" secondItem="cCA-l3-37M" secondAttribute="centerX" id="HbI-SX-DNN"/>
                             <constraint firstItem="7Wl-v4-3WJ" firstAttribute="centerY" secondItem="cCA-l3-37M" secondAttribute="centerY" id="fYO-OV-z6C"/>
+                            <constraint firstItem="RS9-VR-DVl" firstAttribute="top" secondItem="S0d-xd-TTL" secondAttribute="top" constant="30" id="uOa-vz-VnQ"/>
+                            <constraint firstItem="S0d-xd-TTL" firstAttribute="trailing" secondItem="RS9-VR-DVl" secondAttribute="trailing" constant="30" id="wLA-T7-UM5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rtd-fi-aJu"/>
@@ -2460,6 +2475,39 @@ AVER : 0:00:00</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOU-6a-TeF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1491" y="830"/>
+        </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="RCd-AL-oO4">
+            <objects>
+                <viewController id="RBs-CL-zQM" customClass="GraphViewController" customModule="TiTi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C25-Py-UlJ">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-9A-Lew">
+                                <rect key="frame" x="102" y="10" width="500" height="708"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="LfZ-WB-HQX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Cr-vh-vjp"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mAY-9A-Lew" firstAttribute="top" secondItem="0Cr-vh-vjp" secondAttribute="top" constant="10" id="ONU-23-3g5"/>
+                            <constraint firstItem="mAY-9A-Lew" firstAttribute="centerX" secondItem="C25-Py-UlJ" secondAttribute="centerX" id="dVJ-db-Q2a"/>
+                            <constraint firstItem="0Cr-vh-vjp" firstAttribute="bottom" secondItem="mAY-9A-Lew" secondAttribute="bottom" constant="10" id="zDz-nK-nVx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="djU-C6-S6B"/>
+                    <connections>
+                        <outlet property="viewOfView" destination="mAY-9A-Lew" id="vjM-T7-3Rt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnM-Cc-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137.5" y="829.6875"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
