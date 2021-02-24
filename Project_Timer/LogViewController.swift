@@ -82,21 +82,29 @@ extension LogViewController {
     }
     
     func setDummyData() {
-        Label_day1.text = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
-        Label_day2.text = "2월 10일"
-        Label_day3.text = "2월 9일"
-        Label_day4.text = "2월 8일"
-        Label_day5.text = "2월 7일"
-        Label_day6.text = "2월 6일"
-        Label_day7.text = "2월 5일"
+        Label_day1.text = "2/24"
+        Label_day2.text = "2/23"
+        Label_day3.text = "2/22"
+        Label_day4.text = "2/21"
+        Label_day5.text = "2/20"
+        Label_day6.text = "2/19"
+        Label_day7.text = "2/18"
 
-        Label_time1.text = UserDefaults.standard.value(forKey: "time1") as? String ?? "NO DATA"
+        Label_time1.text = "2:35:20"
         Label_time2.text = "4:03:41"
         Label_time3.text = "6:08:14"
         Label_time4.text = "4:03:39"
         Label_time5.text = "5:44:07"
         Label_time6.text = "4:58:23"
         Label_time7.text = "3:37:20"
+        
+        Label_break1.text = "0:35:20"
+        Label_break2.text = "2:01:00"
+        Label_break3.text = "2:32:56"
+        Label_break4.text = "1:05:00"
+        Label_break5.text = "1:40:08"
+        Label_break6.text = "2:02:15"
+        Label_break7.text = "0:37:50"
     }
     
     func translate(input: String) -> String {

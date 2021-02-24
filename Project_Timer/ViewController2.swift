@@ -36,6 +36,7 @@ class ViewController2: UIViewController {
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
     @IBOutlet var ModeButton: UIButton!
+    @IBOutlet var nowTimeLabel: UILabel!
     
     
     var COLOR = UIColor(named: "Background2")
@@ -499,17 +500,8 @@ extension ViewController2 {
             self.LogButton.alpha = 1
             self.viewLabels.alpha = 1
         })
-        //보이기 숨기기 설정
-//        if(showAvarage == 0) {
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.avarageLabel.alpha = 1
-//            })
-//        }
-//        if(showAvarage == 1) {
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.avarageLabel.alpha = 0
-//            })
-//        }
+        self.nowTimeLabel.text = "현재시각"
+        self.nowTimeLabel.alpha = 0
     }
     
     func breakStartColor() {
@@ -543,6 +535,7 @@ extension ViewController2 {
             self.viewLabels.alpha = 0
             self.avarageLabel.alpha = 1
             self.ModeButton.layer.borderColor = nil
+            self.nowTimeLabel.alpha = 1
         })
     }
     
@@ -593,7 +586,8 @@ extension ViewController2 {
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: now)
         avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
-        avarageLabel.text = "\n\(today)"
+        nowTimeLabel.text = "\n현재시각"
+        avarageLabel.text = "\(today)"
     }
 }
 

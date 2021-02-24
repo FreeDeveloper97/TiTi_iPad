@@ -127,11 +127,6 @@ struct ContentView: View {
         return (CGFloat(value) / CGFloat(max)) * 130
     }
     
-//    func getHrs (value : Int) -> String {
-//        let minute = Int(value) - Int(value/60) * 60
-//        return String(Int(value/60)) + ":" + String(minute)
-//    }
-    
     func getMaxInTotalTime (value : [Daily]) -> Int {
         let sMax: Int = getStudyTimes().max()!
         let bMax: Int = getBreakTimes().max()!
@@ -219,7 +214,6 @@ extension ContentView {
     }
     
     func appendDailyDatas(){
-        
         for i in 1...7 {
             let id = i
             let day = translate(input: UserDefaults.standard.value(forKey: "day\(i)") as? String ?? "NO DATA")
@@ -231,10 +225,15 @@ extension ContentView {
     
     func getAverageTime(value: [Int]) -> Int {
         var sum: Int = 0
+        var zeroCount: Int = 0
         for i in value {
-            sum += i
+            if i == 0 {
+                zeroCount += 1
+            } else {
+                sum += i
+            }
         }
-        return sum/value.count
+        return sum/(value.count - zeroCount)
     }
     
     func getStudyTimes() -> [Int] {
@@ -249,5 +248,29 @@ extension ContentView {
     
     func reset() {
         DailyDatas = []
+    }
+    
+    func appendDumyDatas(){
+        DailyDatas.append(Daily(id: 1, day: "2/24",
+                                studyTime: translate2(input: "2:35:20"),
+                                breakTime: translate2(input: "0:35:20")))
+        DailyDatas.append(Daily(id: 2, day: "2/23",
+                                studyTime: translate2(input: "4:03:41"),
+                                breakTime: translate2(input: "2:01:00")))
+        DailyDatas.append(Daily(id: 3, day: "2/22",
+                                studyTime: translate2(input: "6:08:14"),
+                                breakTime: translate2(input: "2:32:56")))
+        DailyDatas.append(Daily(id: 4, day: "2/21",
+                                studyTime: translate2(input: "4:03:39"),
+                                breakTime: translate2(input: "1:05:00")))
+        DailyDatas.append(Daily(id: 5, day: "2/20",
+                                studyTime: translate2(input: "5:44:07"),
+                                breakTime: translate2(input: "1:40:08")))
+        DailyDatas.append(Daily(id: 6, day: "2/19",
+                                studyTime: translate2(input: "4:58:23"),
+                                breakTime: translate2(input: "2:02:15")))
+        DailyDatas.append(Daily(id: 7, day: "2/18",
+                                studyTime: translate2(input: "3:37:20"),
+                                breakTime: translate2(input: "0:37:50")))
     }
 }

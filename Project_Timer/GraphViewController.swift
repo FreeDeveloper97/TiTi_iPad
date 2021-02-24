@@ -20,6 +20,7 @@ class GraphViewController: UIViewController {
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
         hostingController.view.frame = viewOfView.bounds
         ContentView().appendDailyDatas()
+//        ContentView().appendDumyDatas()
         addChild(hostingController)
         viewOfView.addSubview(hostingController.view)
     }

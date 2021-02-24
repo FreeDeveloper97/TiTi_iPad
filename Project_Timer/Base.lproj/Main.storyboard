@@ -752,7 +752,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7t-o3-kah">
-                                        <rect key="frame" x="273" y="50" width="154" height="54"/>
+                                        <rect key="frame" x="273" y="60" width="154" height="54"/>
                                         <string key="text">STOP : 0 
 AVER : 0:00:00</string>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP40g" family="HGGGothicssi_Pro" pointSize="23"/>
@@ -760,10 +760,10 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lae-bR-Gbs">
-                                        <rect key="frame" x="141" y="124" width="418" height="35"/>
+                                        <rect key="frame" x="136" y="128" width="428" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 남은시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-xf-jCw">
-                                                <rect key="frame" x="4" y="4" width="130" height="27"/>
+                                                <rect key="frame" x="4" y="3" width="130" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="r3h-7U-UVc"/>
                                                 </constraints>
@@ -772,7 +772,7 @@ AVER : 0:00:00</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="누적 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwZ-C7-FaI">
-                                                <rect key="frame" x="284" y="4" width="130" height="27"/>
+                                                <rect key="frame" x="294" y="3" width="130" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="Gw5-EQ-LLa"/>
                                                 </constraints>
@@ -783,21 +783,21 @@ AVER : 0:00:00</string>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="lwZ-C7-FaI" secondAttribute="trailing" constant="4" id="3cu-Yg-fur"/>
-                                            <constraint firstItem="lwZ-C7-FaI" firstAttribute="leading" secondItem="dRe-xf-jCw" secondAttribute="trailing" constant="150" id="9WK-2T-jva"/>
+                                            <constraint firstItem="lwZ-C7-FaI" firstAttribute="leading" secondItem="dRe-xf-jCw" secondAttribute="trailing" constant="160" id="9WK-2T-jva"/>
                                             <constraint firstItem="dRe-xf-jCw" firstAttribute="leading" secondItem="Lae-bR-Gbs" secondAttribute="leading" constant="4" id="Lwf-pV-F0W"/>
-                                            <constraint firstItem="lwZ-C7-FaI" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="top" constant="4" id="WXh-jE-szN"/>
-                                            <constraint firstAttribute="bottom" secondItem="lwZ-C7-FaI" secondAttribute="bottom" constant="4" id="aiX-6F-8tX"/>
-                                            <constraint firstItem="dRe-xf-jCw" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="top" constant="4" id="bGj-3Z-Bap"/>
-                                            <constraint firstAttribute="bottom" secondItem="dRe-xf-jCw" secondAttribute="bottom" constant="4" id="mpe-z8-KhE"/>
+                                            <constraint firstItem="lwZ-C7-FaI" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="top" constant="3" id="WXh-jE-szN"/>
+                                            <constraint firstAttribute="bottom" secondItem="lwZ-C7-FaI" secondAttribute="bottom" constant="3" id="aiX-6F-8tX"/>
+                                            <constraint firstItem="dRe-xf-jCw" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="top" constant="3" id="bGj-3Z-Bap"/>
+                                            <constraint firstAttribute="bottom" secondItem="dRe-xf-jCw" secondAttribute="bottom" constant="3" id="mpe-z8-KhE"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Num-hl-uhT">
-                                        <rect key="frame" x="126" y="164" width="448" height="48"/>
+                                        <rect key="frame" x="121" y="165" width="458" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-kf-2bw">
-                                                <rect key="frame" x="284" y="4" width="160" height="40"/>
+                                                <rect key="frame" x="294" y="3" width="160" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="XNe-za-QLC"/>
+                                                    <constraint firstAttribute="height" constant="35" id="XNe-za-QLC"/>
                                                     <constraint firstAttribute="width" constant="160" id="sFg-54-12B"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="43"/>
@@ -805,9 +805,9 @@ AVER : 0:00:00</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQJ-tz-ND8">
-                                                <rect key="frame" x="4" y="4" width="160" height="40"/>
+                                                <rect key="frame" x="4" y="3" width="160" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="FMq-tM-02o"/>
+                                                    <constraint firstAttribute="height" constant="35" id="FMq-tM-02o"/>
                                                     <constraint firstAttribute="width" constant="160" id="fta-Ud-TtP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="43"/>
@@ -816,13 +816,13 @@ AVER : 0:00:00</string>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="FQJ-tz-ND8" secondAttribute="bottom" constant="4" id="Bqb-gJ-G7r"/>
+                                            <constraint firstAttribute="bottom" secondItem="FQJ-tz-ND8" secondAttribute="bottom" constant="3" id="Bqb-gJ-G7r"/>
                                             <constraint firstItem="FQJ-tz-ND8" firstAttribute="leading" secondItem="Num-hl-uhT" secondAttribute="leading" constant="4" id="EY9-WG-0Ne"/>
-                                            <constraint firstItem="TEY-kf-2bw" firstAttribute="top" secondItem="Num-hl-uhT" secondAttribute="top" constant="4" id="G1U-n6-Yet"/>
-                                            <constraint firstItem="TEY-kf-2bw" firstAttribute="leading" secondItem="FQJ-tz-ND8" secondAttribute="trailing" constant="120" id="Z0U-Qf-wKA"/>
-                                            <constraint firstAttribute="bottom" secondItem="TEY-kf-2bw" secondAttribute="bottom" constant="4" id="bRB-hH-ntj"/>
+                                            <constraint firstItem="TEY-kf-2bw" firstAttribute="top" secondItem="Num-hl-uhT" secondAttribute="top" constant="3" id="G1U-n6-Yet"/>
+                                            <constraint firstItem="TEY-kf-2bw" firstAttribute="leading" secondItem="FQJ-tz-ND8" secondAttribute="trailing" constant="130" id="Z0U-Qf-wKA"/>
+                                            <constraint firstAttribute="bottom" secondItem="TEY-kf-2bw" secondAttribute="bottom" constant="3" id="bRB-hH-ntj"/>
                                             <constraint firstAttribute="trailing" secondItem="TEY-kf-2bw" secondAttribute="trailing" constant="4" id="hg2-Uj-HPI"/>
-                                            <constraint firstItem="FQJ-tz-ND8" firstAttribute="top" secondItem="Num-hl-uhT" secondAttribute="top" constant="4" id="xCJ-H9-Np4"/>
+                                            <constraint firstItem="FQJ-tz-ND8" firstAttribute="top" secondItem="Num-hl-uhT" secondAttribute="top" constant="3" id="xCJ-H9-Np4"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEA-AW-JwX">
@@ -971,6 +971,12 @@ AVER : 0:00:00</string>
                                             <action selector="ModeBTAction:" destination="Y4Z-eW-hHu" eventType="touchUpInside" id="6YR-uC-QgU"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재시각" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mee-Dy-lTF">
+                                        <rect key="frame" x="320.5" y="35" width="59" height="20"/>
+                                        <fontDescription key="fontDescription" name="HGGGothicssiP40g" family="HGGGothicssi_Pro" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="700" id="2DK-XA-E6R"/>
@@ -979,13 +985,14 @@ AVER : 0:00:00</string>
                                     <constraint firstItem="l7t-o3-kah" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="99y-oZ-uDu"/>
                                     <constraint firstItem="Num-hl-uhT" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="Cqt-7J-YM0"/>
                                     <constraint firstItem="tRB-sj-GBm" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="EGv-gb-58f"/>
-                                    <constraint firstItem="Lae-bR-Gbs" firstAttribute="top" secondItem="l7t-o3-kah" secondAttribute="bottom" constant="20" id="FZ0-uk-j3O"/>
                                     <constraint firstItem="Lae-bR-Gbs" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="HJy-FU-q5C"/>
+                                    <constraint firstItem="l7t-o3-kah" firstAttribute="top" secondItem="mee-Dy-lTF" secondAttribute="bottom" constant="5" id="JyO-NG-A4f"/>
+                                    <constraint firstItem="mee-Dy-lTF" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="KDh-n1-9dp"/>
                                     <constraint firstItem="7JW-7w-l9v" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="PWr-0k-Tyr"/>
                                     <constraint firstItem="qs4-2C-6ZO" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="QDI-Fp-Wfc"/>
-                                    <constraint firstItem="Num-hl-uhT" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="bottom" constant="5" id="e9X-IQ-PG0"/>
+                                    <constraint firstItem="Num-hl-uhT" firstAttribute="top" secondItem="Lae-bR-Gbs" secondAttribute="bottom" constant="4" id="e9X-IQ-PG0"/>
                                     <constraint firstItem="XEA-AW-JwX" firstAttribute="centerX" secondItem="Z0K-zv-PIN" secondAttribute="centerX" id="eoF-kl-58Q"/>
-                                    <constraint firstItem="l7t-o3-kah" firstAttribute="top" secondItem="Z0K-zv-PIN" secondAttribute="top" constant="50" id="fuE-AA-eLa"/>
+                                    <constraint firstItem="Lae-bR-Gbs" firstAttribute="top" secondItem="Z0K-zv-PIN" secondAttribute="top" constant="128" id="hho-Vl-uMr"/>
                                     <constraint firstItem="qs4-2C-6ZO" firstAttribute="top" secondItem="EB9-cb-w4v" secondAttribute="bottom" constant="20" id="hzi-Oc-Fe1"/>
                                     <constraint firstItem="EB9-cb-w4v" firstAttribute="top" secondItem="7JW-7w-l9v" secondAttribute="bottom" constant="15" id="nzo-a3-CgE"/>
                                     <constraint firstAttribute="bottom" secondItem="XEA-AW-JwX" secondAttribute="bottom" constant="50" id="p4s-LU-5cc"/>
@@ -993,6 +1000,7 @@ AVER : 0:00:00</string>
                                     <constraint firstItem="EB9-cb-w4v" firstAttribute="centerY" secondItem="Z0K-zv-PIN" secondAttribute="centerY" id="wdO-Zy-osl"/>
                                     <constraint firstAttribute="height" constant="700" id="xsW-ui-9h3"/>
                                     <constraint firstItem="XXw-iS-PIr" firstAttribute="top" secondItem="qs4-2C-6ZO" secondAttribute="bottom" constant="5" id="y7b-nf-fZV"/>
+                                    <constraint firstItem="mee-Dy-lTF" firstAttribute="top" secondItem="Z0K-zv-PIN" secondAttribute="top" constant="35" id="ypt-Tp-d81"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1019,6 +1027,7 @@ AVER : 0:00:00</string>
                         <outlet property="TimerLabel" destination="EB9-cb-w4v" id="ib0-mb-W4c"/>
                         <outlet property="finishTimeLabel" destination="XXw-iS-PIr" id="Yfi-jy-lfF"/>
                         <outlet property="finishTimeLabel_show" destination="qs4-2C-6ZO" id="edo-1n-110"/>
+                        <outlet property="nowTimeLabel" destination="mee-Dy-lTF" id="VzA-j2-q55"/>
                         <outlet property="viewLabels" destination="Lae-bR-Gbs" id="RJI-AB-tLo"/>
                     </connections>
                 </viewController>
@@ -1237,7 +1246,7 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-VH-SzQ">
-                                        <rect key="frame" x="273" y="50" width="154" height="54"/>
+                                        <rect key="frame" x="273" y="60" width="154" height="54"/>
                                         <string key="text">STOP : 0 
 AVER : 0:00:00</string>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="23"/>
@@ -1245,10 +1254,10 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhX-DD-vjd">
-                                        <rect key="frame" x="141" y="124" width="418" height="35"/>
+                                        <rect key="frame" x="136" y="128" width="428" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 남은시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrg-Ia-4x8">
-                                                <rect key="frame" x="4" y="4" width="130" height="27"/>
+                                                <rect key="frame" x="4" y="3" width="130" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="s6T-qq-kCM"/>
                                                 </constraints>
@@ -1256,8 +1265,8 @@ AVER : 0:00:00</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쉰 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrd-QO-YFm">
-                                                <rect key="frame" x="284" y="4" width="130" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴식 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrd-QO-YFm">
+                                                <rect key="frame" x="294" y="3" width="130" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="iaF-cY-bkM"/>
                                                 </constraints>
@@ -1267,32 +1276,32 @@ AVER : 0:00:00</string>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="jrd-QO-YFm" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="top" constant="4" id="5nr-ET-hD9"/>
+                                            <constraint firstItem="jrd-QO-YFm" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="top" constant="3" id="5nr-ET-hD9"/>
                                             <constraint firstAttribute="trailing" secondItem="jrd-QO-YFm" secondAttribute="trailing" constant="4" id="AzZ-Dc-IdW"/>
                                             <constraint firstItem="Vrg-Ia-4x8" firstAttribute="leading" secondItem="hhX-DD-vjd" secondAttribute="leading" constant="4" id="GH0-z8-lKj"/>
-                                            <constraint firstAttribute="bottom" secondItem="jrd-QO-YFm" secondAttribute="bottom" constant="4" id="NWI-z6-Vp4"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vrg-Ia-4x8" secondAttribute="bottom" constant="4" id="Otx-7r-ZDx"/>
-                                            <constraint firstItem="jrd-QO-YFm" firstAttribute="leading" secondItem="Vrg-Ia-4x8" secondAttribute="trailing" constant="150" id="UMJ-c7-cWX"/>
-                                            <constraint firstItem="Vrg-Ia-4x8" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="top" constant="4" id="bUV-uW-LD5"/>
+                                            <constraint firstAttribute="bottom" secondItem="jrd-QO-YFm" secondAttribute="bottom" constant="3" id="NWI-z6-Vp4"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vrg-Ia-4x8" secondAttribute="bottom" constant="3" id="Otx-7r-ZDx"/>
+                                            <constraint firstItem="jrd-QO-YFm" firstAttribute="leading" secondItem="Vrg-Ia-4x8" secondAttribute="trailing" constant="160" id="UMJ-c7-cWX"/>
+                                            <constraint firstItem="Vrg-Ia-4x8" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="top" constant="3" id="bUV-uW-LD5"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icF-nv-f0S">
-                                        <rect key="frame" x="126" y="164" width="448" height="48"/>
+                                        <rect key="frame" x="121" y="165" width="458" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlM-wM-FfM">
-                                                <rect key="frame" x="284" y="4" width="160" height="40"/>
+                                                <rect key="frame" x="294" y="3" width="160" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="AU2-cF-mxf"/>
-                                                    <constraint firstAttribute="height" constant="40" id="F20-P5-XEb"/>
+                                                    <constraint firstAttribute="height" constant="35" id="F20-P5-XEb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="43"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9X-eI-rmp">
-                                                <rect key="frame" x="4" y="4" width="160" height="40"/>
+                                                <rect key="frame" x="4" y="3" width="160" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="AXC-ed-ay8"/>
+                                                    <constraint firstAttribute="height" constant="35" id="AXC-ed-ay8"/>
                                                     <constraint firstAttribute="width" constant="160" id="OtP-HF-emZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="43"/>
@@ -1302,12 +1311,12 @@ AVER : 0:00:00</string>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="U9X-eI-rmp" firstAttribute="leading" secondItem="icF-nv-f0S" secondAttribute="leading" constant="4" id="7mb-4C-tI9"/>
-                                            <constraint firstItem="DlM-wM-FfM" firstAttribute="top" secondItem="icF-nv-f0S" secondAttribute="top" constant="4" id="DCB-AM-e1b"/>
-                                            <constraint firstAttribute="bottom" secondItem="DlM-wM-FfM" secondAttribute="bottom" constant="4" id="KEj-DC-pGM"/>
-                                            <constraint firstItem="DlM-wM-FfM" firstAttribute="leading" secondItem="U9X-eI-rmp" secondAttribute="trailing" constant="120" id="OoT-GO-uba"/>
-                                            <constraint firstAttribute="bottom" secondItem="U9X-eI-rmp" secondAttribute="bottom" constant="4" id="Sl8-md-g4d"/>
+                                            <constraint firstItem="DlM-wM-FfM" firstAttribute="top" secondItem="icF-nv-f0S" secondAttribute="top" constant="3" id="DCB-AM-e1b"/>
+                                            <constraint firstAttribute="bottom" secondItem="DlM-wM-FfM" secondAttribute="bottom" constant="3" id="KEj-DC-pGM"/>
+                                            <constraint firstItem="DlM-wM-FfM" firstAttribute="leading" secondItem="U9X-eI-rmp" secondAttribute="trailing" constant="130" id="OoT-GO-uba"/>
+                                            <constraint firstAttribute="bottom" secondItem="U9X-eI-rmp" secondAttribute="bottom" constant="3" id="Sl8-md-g4d"/>
                                             <constraint firstAttribute="trailing" secondItem="DlM-wM-FfM" secondAttribute="trailing" constant="4" id="U6I-st-LtK"/>
-                                            <constraint firstItem="U9X-eI-rmp" firstAttribute="top" secondItem="icF-nv-f0S" secondAttribute="top" constant="4" id="p9C-f5-khc"/>
+                                            <constraint firstItem="U9X-eI-rmp" firstAttribute="top" secondItem="icF-nv-f0S" secondAttribute="top" constant="3" id="p9C-f5-khc"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPc-HC-B2i">
@@ -1439,22 +1448,30 @@ AVER : 0:00:00</string>
                                             <action selector="ModeBTAction:" destination="B1F-Jt-VZM" eventType="touchUpInside" id="DbB-0T-2Gf"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재시각" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKf-Px-LEu">
+                                        <rect key="frame" x="320.5" y="35" width="59" height="20"/>
+                                        <fontDescription key="fontDescription" name="HGGGothicssiP40g" family="HGGGothicssi_Pro" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="hhX-DD-vjd" firstAttribute="top" secondItem="rIu-cW-XFT" secondAttribute="top" constant="128" id="25Z-Xh-5vy"/>
+                                    <constraint firstItem="b5N-VH-SzQ" firstAttribute="top" secondItem="cKf-Px-LEu" secondAttribute="bottom" constant="5" id="3Sb-na-ops"/>
                                     <constraint firstItem="2KP-aO-WJj" firstAttribute="top" secondItem="2hI-mG-3Aw" secondAttribute="bottom" constant="5" id="5aJ-Z0-WYE"/>
+                                    <constraint firstItem="cKf-Px-LEu" firstAttribute="top" secondItem="rIu-cW-XFT" secondAttribute="top" constant="35" id="Fv1-FB-xWL"/>
                                     <constraint firstItem="2KP-aO-WJj" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="G0y-vq-PMu"/>
                                     <constraint firstItem="f1w-7L-iLe" firstAttribute="centerY" secondItem="rIu-cW-XFT" secondAttribute="centerY" id="MBO-r5-H0b"/>
                                     <constraint firstItem="b5N-VH-SzQ" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="Oho-W3-Mhv"/>
                                     <constraint firstItem="2hI-mG-3Aw" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="TWH-Vd-7po"/>
-                                    <constraint firstItem="b5N-VH-SzQ" firstAttribute="top" secondItem="rIu-cW-XFT" secondAttribute="top" constant="50" id="Uup-N9-8GP"/>
                                     <constraint firstItem="hhX-DD-vjd" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="YGp-3A-laX"/>
                                     <constraint firstItem="VPc-HC-B2i" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="c4M-BT-2ob"/>
+                                    <constraint firstItem="cKf-Px-LEu" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="cj1-AJ-wog"/>
                                     <constraint firstItem="f1w-7L-iLe" firstAttribute="top" secondItem="Gyk-Ta-LxX" secondAttribute="bottom" constant="15" id="ezS-5S-AYg"/>
                                     <constraint firstItem="Gyk-Ta-LxX" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="gv5-Pz-yRk"/>
-                                    <constraint firstItem="icF-nv-f0S" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="bottom" constant="5" id="iDE-fu-8du"/>
+                                    <constraint firstItem="icF-nv-f0S" firstAttribute="top" secondItem="hhX-DD-vjd" secondAttribute="bottom" constant="4" id="iDE-fu-8du"/>
                                     <constraint firstItem="VPc-HC-B2i" firstAttribute="top" secondItem="oaf-80-URt" secondAttribute="bottom" constant="15" id="iwT-K2-cR8"/>
                                     <constraint firstItem="icF-nv-f0S" firstAttribute="centerX" secondItem="rIu-cW-XFT" secondAttribute="centerX" id="jPv-Nw-gne"/>
-                                    <constraint firstItem="hhX-DD-vjd" firstAttribute="top" secondItem="b5N-VH-SzQ" secondAttribute="bottom" constant="20" id="jWW-xC-dXr"/>
                                     <constraint firstAttribute="bottom" secondItem="VPc-HC-B2i" secondAttribute="bottom" constant="50" id="mBk-4b-8UH"/>
                                     <constraint firstAttribute="width" constant="700" id="nDu-t6-vCr"/>
                                     <constraint firstAttribute="height" constant="700" id="o2R-Sa-I15"/>
@@ -1486,6 +1503,7 @@ AVER : 0:00:00</string>
                         <outlet property="avarageLabel" destination="b5N-VH-SzQ" id="QjC-dU-ocu"/>
                         <outlet property="finishTimeLabel" destination="2KP-aO-WJj" id="MqM-hL-ka0"/>
                         <outlet property="finishTimeLabel_show" destination="2hI-mG-3Aw" id="V3S-ym-ulL"/>
+                        <outlet property="nowTimeLabel" destination="cKf-Px-LEu" id="eGz-7f-9UK"/>
                         <outlet property="viewLabels" destination="hhX-DD-vjd" id="NT6-AF-qve"/>
                     </connections>
                 </viewController>
@@ -2424,13 +2442,14 @@ AVER : 0:00:00</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-VR-DVl">
-                                <rect key="frame" x="614" y="30" width="60" height="30"/>
+                                <rect key="frame" x="594" y="30" width="80" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Dpw-jZ-S27"/>
+                                    <constraint firstAttribute="width" constant="80" id="Dpw-jZ-S27"/>
                                     <constraint firstAttribute="height" constant="30" id="VJk-uZ-SLa"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="20"/>
                                 <state key="normal" title="GRAPH">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="Blue"/>
                                 </state>
                                 <connections>
                                     <segue destination="RBs-CL-zQM" kind="show" id="e2i-6O-BUg"/>
@@ -2511,7 +2530,7 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z9L-jN-5Wc"/>
+        <segue reference="Rdu-GK-Tzr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Background">

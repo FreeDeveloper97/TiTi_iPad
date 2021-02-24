@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
     @IBOutlet var ModeButton: UIButton!
+    @IBOutlet var nowTimeLabel: UILabel!
     
     let BLUE = UIColor(named: "Blue")
     let BUTTON = UIColor(named: "Button")
@@ -437,16 +438,6 @@ extension ViewController {
         fromSecond = 0.0
     }
     
-    //빡공률 -> 종료회수, 평균시간 보이기로 변경
-    func checkPersent() {
-        //정지회수 보이기
-        var print = "STOP : " + String(stopCount)
-        let aver = (Int)(sumTime/stopCount)
-        print += "\nAVER : " + printTime(temp: aver)
-        //정지회수, 평균 시간 보이기
-        AverageLabel.text = print
-    }
-    
     func saveLogData() {
         UserDefaults.standard.set(printTime(temp: sumTime), forKey: "time1")
     }
@@ -523,12 +514,8 @@ extension ViewController {
             self.LogButton.alpha = 1
             self.viewLabels.alpha = 1
         })
-        //보이기 숨기기 설정
-//        if(showAverage == 0) {
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.AverageLabel.alpha = 1
-//            })
-//        }
+        self.nowTimeLabel.text = "현재시각"
+        self.nowTimeLabel.alpha = 0
     }
     
     func startColor() {
@@ -553,6 +540,7 @@ extension ViewController {
             self.viewLabels.alpha = 0
             self.AverageLabel.alpha = 1
             self.ModeButton.layer.borderColor = nil
+            self.nowTimeLabel.alpha = 1
         })
     }
     
@@ -588,7 +576,8 @@ extension ViewController {
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: now)
         AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
-        AverageLabel.text = "\n\(today)"
+        nowTimeLabel.text = "\n현재시각"
+        AverageLabel.text = "\(today)"
     }
 }
 
@@ -619,7 +608,7 @@ extension ViewController {
         
         stopColor()
         stopEnable()
-        checkPersent()
+        checkAverage()
         setAverage()
     }
     
