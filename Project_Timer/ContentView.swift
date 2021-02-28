@@ -214,8 +214,8 @@ extension ContentView {
     }
     
     func appendDailyDatas(){
-        for i in 1...7 {
-            let id = i
+        for i in (1...7).reversed() {
+            let id = 8-i
             let day = translate(input: UserDefaults.standard.value(forKey: "day\(i)") as? String ?? "NO DATA")
             let studyTime = translate2(input: UserDefaults.standard.value(forKey: "time\(i)") as? String ?? "NO DATA")
             let breakTime = translate2(input: UserDefaults.standard.value(forKey: "break\(i)") as? String ?? "NO DATA")
@@ -233,7 +233,12 @@ extension ContentView {
                 sum += i
             }
         }
-        return sum/(value.count - zeroCount)
+        let result: Int = value.count - zeroCount
+        if result == 0 {
+            return 0
+        } else {
+            return sum/(value.count - zeroCount)
+        }
     }
     
     func getStudyTimes() -> [Int] {
