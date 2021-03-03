@@ -103,6 +103,7 @@ class ViewController: UIViewController {
             //오디오 재생 추가
             playAudioFromProject()
 //            AudioServicesPlaySystemSound(4095)
+            saveTimes()
         } else {
             if timerTime < 61 {
                 TimerLabel.textColor = RED
@@ -160,6 +161,7 @@ extension ViewController : ChangeViewController {
         UserDefaults.standard.set(goalTime, forKey: "allTime2")
         UserDefaults.standard.set(sumTime, forKey: "sum2")
         UserDefaults.standard.set(0, forKey: "breakTime")
+        UserDefaults.standard.set(nil, forKey: "startTime")
         //정지 회수 저장
         stopCount = 0
         UserDefaults.standard.set(0, forKey: "stopCount")
