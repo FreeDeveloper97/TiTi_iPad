@@ -475,6 +475,7 @@ extension ViewController2 {
         let now = Date()
         let future = now.addingTimeInterval(TimeInterval(goalTime))
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: future)
         return today
@@ -504,7 +505,7 @@ extension ViewController2 {
             self.LogButton.alpha = 1
             self.viewLabels.alpha = 1
         })
-        self.nowTimeLabel.text = "Now Time"
+        self.nowTimeLabel.text = "Now Time".localized()
         self.nowTimeLabel.alpha = 0
     }
     
@@ -587,10 +588,11 @@ extension ViewController2 {
     func showNowTime() {
         let now = Date()
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: now)
         avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
-        nowTimeLabel.text = "\nNow Time"
+        nowTimeLabel.text = "\n" + "Now Time".localized()
         avarageLabel.text = "\(today)"
     }
 }
