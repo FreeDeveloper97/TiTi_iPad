@@ -22,7 +22,6 @@
 		932EE05A2490A78400B00774 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EE0592490A78400B00774 /* SetViewController.swift */; };
 		935411AB25402D89008CB6DD /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935411AA25402D89008CB6DD /* SetTimerViewController.swift */; };
 		93A892B124C14D4700F89180 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A892B024C14D4700F89180 /* CircularProgressView.swift */; };
-		93A892B324C1544A00F89180 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A892B224C1544A00F89180 /* Test.swift */; };
 		93B08521248DDF2F00E215BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B08520248DDF2F00E215BD /* AppDelegate.swift */; };
 		93B08523248DDF2F00E215BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B08522248DDF2F00E215BD /* SceneDelegate.swift */; };
 		93B08525248DDF2F00E215BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B08524248DDF2F00E215BD /* ViewController.swift */; };
@@ -47,7 +46,6 @@
 		932EE0592490A78400B00774 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		935411AA25402D89008CB6DD /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		93A892B024C14D4700F89180 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		93A892B224C1544A00F89180 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		93B0851D248DDF2F00E215BD /* TiTi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiTi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B08520248DDF2F00E215BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93B08522248DDF2F00E215BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				87EA080325E5463B00E17CF9 /* ContentView.swift */,
 				87EA080625E5465300E17CF9 /* GraphViewController.swift */,
 				93A892B024C14D4700F89180 /* CircularProgressView.swift */,
-				93A892B224C1544A00F89180 /* Test.swift */,
 				932EE0592490A78400B00774 /* SetViewController.swift */,
 				93B08529248DDF3000E215BD /* Assets.xcassets */,
 				93B0852B248DDF3000E215BD /* LaunchScreen.storyboard */,
@@ -222,7 +219,6 @@
 				870920F925CC364A00CD0E3F /* SetTimerViewController2.swift in Sources */,
 				87EA080725E5465300E17CF9 /* GraphViewController.swift in Sources */,
 				9312E4CC252231E600025C81 /* LogViewController.swift in Sources */,
-				93A892B324C1544A00F89180 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,7 +78,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="초" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JzT-zW-yDc">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="S" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JzT-zW-yDc">
                                                 <rect key="frame" x="224" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -89,7 +89,7 @@
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VMj-2m-QFW">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="H" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VMj-2m-QFW">
                                                 <rect key="frame" x="4" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -100,7 +100,7 @@
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxs-3D-0qF">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxs-3D-0qF">
                                                 <rect key="frame" x="114" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -152,7 +152,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="초" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-LB-6qB">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="S" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-LB-6qB">
                                                 <rect key="frame" x="224" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -163,7 +163,7 @@
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I13-7w-Qbo">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="H" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I13-7w-Qbo">
                                                 <rect key="frame" x="4" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -174,7 +174,7 @@
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="puu-rL-Uka">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="puu-rL-Uka">
                                                 <rect key="frame" x="114" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -665,7 +665,7 @@ AVER : 0:00:00</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="초" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ9-Vq-2ga">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="S" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ9-Vq-2ga">
                                                 <rect key="frame" x="224" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -676,7 +676,7 @@ AVER : 0:00:00</string>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH5-dP-J5x">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="H" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PH5-dP-J5x">
                                                 <rect key="frame" x="4" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -687,7 +687,7 @@ AVER : 0:00:00</string>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-2A-MvE">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-2A-MvE">
                                                 <rect key="frame" x="114" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -1141,7 +1141,7 @@ AVER : 0:00:00</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="초" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAl-mk-gXe">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="S" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAl-mk-gXe">
                                                 <rect key="frame" x="224" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -1152,7 +1152,7 @@ AVER : 0:00:00</string>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-OX-fbW">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="H" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-OX-fbW">
                                                 <rect key="frame" x="4" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>
@@ -1163,7 +1163,7 @@ AVER : 0:00:00</string>
                                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-IG-g3y">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-IG-g3y">
                                                 <rect key="frame" x="114" y="4" width="80" height="50"/>
                                                 <color key="backgroundColor" name="Click"/>
                                                 <constraints>

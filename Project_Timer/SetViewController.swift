@@ -108,7 +108,7 @@ class SetViewController: UIViewController {
     
     @IBAction func SetButton(_ sender: UIButton) {
         //경고창 추가
-        let alert = UIAlertController(title:"SET 하시겠습니까?",message: "누적시간이 초기화되며 새로운 기록이 시작됩니다!",preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title:"Would you like to set up?",message: "The Total Time is reset and a new record starts!",preferredStyle: UIAlertController.Style.alert)
         let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: nil)
         let okAction = UIAlertAction(title: "SET", style: .default, handler:
                                         {

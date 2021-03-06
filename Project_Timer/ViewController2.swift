@@ -504,7 +504,7 @@ extension ViewController2 {
             self.LogButton.alpha = 1
             self.viewLabels.alpha = 1
         })
-        self.nowTimeLabel.text = "현재시각"
+        self.nowTimeLabel.text = "Now Time"
         self.nowTimeLabel.alpha = 0
     }
     
@@ -590,7 +590,7 @@ extension ViewController2 {
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: now)
         avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
-        nowTimeLabel.text = "\n현재시각"
+        nowTimeLabel.text = "\nNow Time"
         avarageLabel.text = "\(today)"
     }
 }
