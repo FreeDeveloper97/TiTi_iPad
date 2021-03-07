@@ -312,6 +312,9 @@
                         <outlet property="S2TextField" destination="zDI-LB-6qB" id="iSt-MW-N3X"/>
                         <outlet property="SecondLabel" destination="t6g-Cf-4te" id="NTS-V4-SLL"/>
                         <outlet property="SetButton" destination="mWZ-1V-pzc" id="Eku-DI-HDR"/>
+                        <outlet property="averageLabel" destination="8rc-aY-uQY" id="jfb-Mg-rNL"/>
+                        <outlet property="timerLabel" destination="Xa7-O0-5gA" id="Vdz-cS-DAK"/>
+                        <outlet property="totalLabel" destination="bDa-Kx-1hg" id="TkY-pf-UP5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oe-kd-h2v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -612,6 +615,8 @@ AVER : 0:00:00</string>
                         <outlet property="finishTimeLabel" destination="XXw-iS-PIr" id="Yfi-jy-lfF"/>
                         <outlet property="finishTimeLabel_show" destination="qs4-2C-6ZO" id="edo-1n-110"/>
                         <outlet property="nowTimeLabel" destination="mee-Dy-lTF" id="VzA-j2-q55"/>
+                        <outlet property="sumLabel" destination="lwZ-C7-FaI" id="Nzh-hI-D6o"/>
+                        <outlet property="totalLabel" destination="dRe-xf-jCw" id="uyd-0U-qWc"/>
                         <outlet property="viewLabels" destination="Lae-bR-Gbs" id="RJI-AB-tLo"/>
                     </connections>
                 </viewController>
@@ -806,6 +811,8 @@ AVER : 0:00:00</string>
                         <outlet property="Text_H" destination="PH5-dP-J5x" id="n7s-Zg-wKe"/>
                         <outlet property="Text_M" destination="cyn-2A-MvE" id="Rxa-jB-PW7"/>
                         <outlet property="Text_S" destination="dZ9-Vq-2ga" id="wy9-Cb-xu7"/>
+                        <outlet property="endLabel" destination="cfc-Ta-whW" id="fya-2E-abf"/>
+                        <outlet property="timerLabel" destination="Izv-xn-5o3" id="nS9-bh-Ggg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcZ-v0-FmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1088,6 +1095,8 @@ AVER : 0:00:00</string>
                         <outlet property="finishTimeLabel" destination="2KP-aO-WJj" id="MqM-hL-ka0"/>
                         <outlet property="finishTimeLabel_show" destination="2hI-mG-3Aw" id="V3S-ym-ulL"/>
                         <outlet property="nowTimeLabel" destination="cKf-Px-LEu" id="eGz-7f-9UK"/>
+                        <outlet property="restLabel" destination="jrd-QO-YFm" id="qpn-vB-qiN"/>
+                        <outlet property="totalLabel" destination="Vrg-Ia-4x8" id="qHK-SB-vCB"/>
                         <outlet property="viewLabels" destination="hhX-DD-vjd" id="NT6-AF-qve"/>
                     </connections>
                 </viewController>
@@ -1325,7 +1334,10 @@ AVER : 0:00:00</string>
                         <outlet property="Text_H" destination="dCC-OX-fbW" id="inL-yA-h95"/>
                         <outlet property="Text_M" destination="qC5-IG-g3y" id="7f1-NP-Haj"/>
                         <outlet property="Text_S" destination="jAl-mk-gXe" id="R9u-hV-qkW"/>
+                        <outlet property="averageLabel" destination="6n7-3o-BMX" id="RjM-HJ-7Vo"/>
                         <outlet property="controlShowAverage" destination="PdJ-oP-4e4" id="Ard-hn-R4V"/>
+                        <outlet property="endLabel" destination="085-KL-SeC" id="6RY-Qv-DOC"/>
+                        <outlet property="totalLabel" destination="UKK-P9-VzG" id="hf4-3L-yIz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p57-tW-C2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1341,10 +1353,10 @@ AVER : 0:00:00</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-v4-3WJ">
-                                <rect key="frame" x="168.5" y="43.5" width="367.5" height="641"/>
+                                <rect key="frame" x="172.5" y="43.5" width="359.5" height="641"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-mr-c7X">
-                                        <rect key="frame" x="31.5" y="54" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="54" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUi-Rr-BOt">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1434,14 +1446,14 @@ AVER : 0:00:00</string>
                                             <constraint firstItem="lYE-zj-pzP" firstAttribute="top" secondItem="HIV-mr-c7X" secondAttribute="top" constant="3" id="u1J-ad-0Wq"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study Time Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWR-eh-JAY">
-                                        <rect key="frame" x="120" y="3" width="127.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study Records" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWR-eh-JAY">
+                                        <rect key="frame" x="120" y="3" width="119.5" height="21"/>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7V-WO-Rs4">
-                                        <rect key="frame" x="31.5" y="129" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="129" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQ0-gC-ghu">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1532,7 +1544,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-1l-eE2">
-                                        <rect key="frame" x="31.5" y="204" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="204" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iie-bR-8ns">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1623,7 +1635,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-lR-oIt">
-                                        <rect key="frame" x="31.5" y="279" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="279" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNA-f4-zJN">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1714,7 +1726,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcR-uF-uZU">
-                                        <rect key="frame" x="31.5" y="354" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="354" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhs-51-pi3">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1805,7 +1817,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ih7-zg-5UT">
-                                        <rect key="frame" x="31.5" y="429" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="429" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSq-4k-fUU">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1896,7 +1908,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2I-sb-qQr">
-                                        <rect key="frame" x="31.5" y="504" width="304.5" height="62"/>
+                                        <rect key="frame" x="27.5" y="504" width="304.5" height="62"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pS5-lN-vdE">
                                                 <rect key="frame" x="118" y="4" width="69.5" height="54"/>
@@ -1987,7 +1999,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E04-vM-2jV">
-                                        <rect key="frame" x="133.5" y="596" width="100" height="40"/>
+                                        <rect key="frame" x="129.5" y="596" width="100" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Cdy-k2-vlS"/>
                                             <constraint firstAttribute="height" constant="40" id="zbo-f6-lnU"/>
@@ -2073,6 +2085,21 @@ AVER : 0:00:00</string>
                         <outlet property="Label_time5" destination="xr9-4r-dzL" id="NqW-tZ-wmK"/>
                         <outlet property="Label_time6" destination="89S-fT-8Rs" id="TAP-FU-WRG"/>
                         <outlet property="Label_time7" destination="zy9-gg-O9b" id="UgI-0j-EdD"/>
+                        <outlet property="restL1" destination="vUu-YD-KM3" id="u8U-A3-wOr"/>
+                        <outlet property="restL2" destination="bOj-hZ-uB2" id="9go-Ac-3jv"/>
+                        <outlet property="restL3" destination="gGd-Hj-dI7" id="hY9-qg-qgL"/>
+                        <outlet property="restL4" destination="mxf-fZ-0jT" id="79q-IK-HMc"/>
+                        <outlet property="restL5" destination="2T7-dz-Ay2" id="D2f-aS-ey9"/>
+                        <outlet property="restL6" destination="Xzr-h1-k4G" id="flW-T7-Oy4"/>
+                        <outlet property="restL7" destination="YGq-RF-PGx" id="p0B-k1-lxg"/>
+                        <outlet property="studyL1" destination="NDy-Y8-s3S" id="VGu-Il-1E5"/>
+                        <outlet property="studyL2" destination="v04-7u-k2s" id="Gog-2q-2z8"/>
+                        <outlet property="studyL3" destination="XUk-QT-MEM" id="G6P-EO-5f5"/>
+                        <outlet property="studyL4" destination="PLp-6l-S7U" id="Mlc-Nl-mgk"/>
+                        <outlet property="studyL5" destination="X1t-Zc-bt2" id="WP3-T9-JPd"/>
+                        <outlet property="studyL6" destination="iBs-A2-wTC" id="mM5-3X-6e3"/>
+                        <outlet property="studyL7" destination="SC9-tr-4fO" id="moq-1R-fez"/>
+                        <outlet property="studyTitleL" destination="cWR-eh-JAY" id="avI-y0-ggf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOU-6a-TeF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2114,7 +2141,7 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z9L-jN-5Wc"/>
+        <segue reference="Rdu-GK-Tzr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="Background">

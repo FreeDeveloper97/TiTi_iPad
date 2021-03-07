@@ -33,12 +33,15 @@ class ViewController: UIViewController {
     @IBOutlet var TimerButton: UIButton!
     @IBOutlet var AverageLabel: UILabel!
     @IBOutlet var LogButton: UIButton!
-    @IBOutlet var finishTimeLabel_show: UILabel!
     @IBOutlet var finishTimeLabel: UILabel!
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
-    @IBOutlet var ModeButton: UIButton!
     @IBOutlet var nowTimeLabel: UILabel!
+    
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var sumLabel: UILabel!
+    @IBOutlet var ModeButton: UIButton!
+    @IBOutlet var finishTimeLabel_show: UILabel!
     
     let BLUE = UIColor(named: "Blue")
     let BUTTON = UIColor(named: "Button")
@@ -69,6 +72,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getVCNum()
+        setLocalizable()
+        
         setRadius()
         setBorner()
         getDatas()
@@ -582,6 +587,13 @@ extension ViewController {
         AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
         nowTimeLabel.text = "\n" + "Now Time".localized()
         AverageLabel.text = "\(today)"
+    }
+    
+    func setLocalizable() {
+        totalLabel.text = "Total Time".localized()
+        sumLabel.text = "Sum Time".localized()
+        ModeButton.setTitle("Timer".localized(), for: .normal)
+        finishTimeLabel_show.text = "End Time".localized()
     }
 }
 

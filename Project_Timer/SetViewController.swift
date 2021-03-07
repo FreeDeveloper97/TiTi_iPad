@@ -17,18 +17,20 @@ class SetViewController: UIViewController {
 
     @IBOutlet var SetButton: UIButton!
     @IBOutlet var BackButton: UIButton!
-    
     @IBOutlet var H1TextField: UITextField!
     @IBOutlet var M1TextField: UITextField!
     @IBOutlet var S1TextField: UITextField!
     @IBOutlet var H2TextField: UITextField!
     @IBOutlet var M2TextField: UITextField!
     @IBOutlet var S2TextField: UITextField!
-    
     @IBOutlet var AllTimeLabel: UILabel!
     @IBOutlet var SecondLabel: UILabel!
     
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var averageLabel: UILabel!
     @IBOutlet var Control_persent: UISegmentedControl!
+    
     
     var setViewControllerDelegate : ChangeViewController!
     var allTime : Int = 21600
@@ -54,6 +56,7 @@ class SetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
+        setLocalizable()
         
         allTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         AllTimeLabel.text = printTime(temp: allTime)
@@ -108,7 +111,7 @@ class SetViewController: UIViewController {
     
     @IBAction func SetButton(_ sender: UIButton) {
         //경고창 추가
-        let alert = UIAlertController(title:"Would you like to set up?",message: "The Total Time is reset and a new record starts!",preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title:"Would you like to set up?".localized(),message: "The Total Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
         let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: nil)
         let okAction = UIAlertAction(title: "SET", style: .default, handler:
                                         {
@@ -229,6 +232,14 @@ class SetViewController: UIViewController {
         print("set complite")
         setViewControllerDelegate.updateViewController()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setLocalizable() {
+        totalLabel.text = "Total Time2".localized()
+        timerLabel.text = "Timer Time".localized()
+        averageLabel.text = "Average Study Time".localized()
+        Control_persent.setTitle("Show".localized(), forSegmentAt: 0)
+        Control_persent.setTitle("Hide".localized(), forSegmentAt: 1)
     }
 }
 

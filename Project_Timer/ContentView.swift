@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack {
                 Spacer(minLength: 10)
                 /* 차트화면 타이틀 */
-                Text("Study Time")
+                Text("Study Time".localized())
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -27,7 +27,7 @@ struct ContentView: View {
                 /* ----차트화면---- */
                 VStack {
                     //평균시간 텍스트
-                    Text("Average : " + getHrs(value: getAverageTime(value: getStudyTimes())))
+                    Text("Average : ".localized() + getHrs(value: getAverageTime(value: getStudyTimes())))
                         .fontWeight(.regular)
                         .foregroundColor(.white)
                         .font(.system(size:17))
@@ -67,7 +67,7 @@ struct ContentView: View {
                 /* ----차트끝---- */
                 
                 /* 차트화면 타이틀 */
-                Text("Rest Time")
+                Text("Rest Time".localized())
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -76,7 +76,7 @@ struct ContentView: View {
                 /* ----차트화면---- */
                 VStack {
                     //평균시간 텍스트
-                    Text("Average : " + getHrs(value: getAverageTime(value: getBreakTimes())))
+                    Text("Average : ".localized() + getHrs(value: getAverageTime(value: getBreakTimes())))
                         .fontWeight(.regular)
                         .foregroundColor(.white)
                         .font(.system(size:17))

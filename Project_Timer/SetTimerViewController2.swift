@@ -20,9 +20,14 @@ class SetTimerViewController2: UIViewController {
     @IBOutlet var Text_S: UITextField!
     @IBOutlet var Button_set: UIButton!
     @IBOutlet var Button_Back: UIButton!
-    @IBOutlet var ColorButton: UIButton!
     @IBOutlet var Label_toTime: UILabel!
+    
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var endLabel: UILabel!
+    @IBOutlet var ColorButton: UIButton!
+    @IBOutlet var averageLabel: UILabel!
     @IBOutlet var controlShowAverage: UISegmentedControl!
+    
     
     var SetTimerViewControllerDelegate : ChangeViewController2!
     
@@ -40,6 +45,7 @@ class SetTimerViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
+        setLocalizable()
         
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         showAverage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
@@ -125,7 +131,7 @@ class SetTimerViewController2: UIViewController {
     
     @IBAction func Button_set(_ sender: UIButton) {
         //경고창 추가
-        let alert = UIAlertController(title:"Would you like to set up?",message: "The Total Time is reset and a new record starts!",preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title:"Would you like to set up?".localized(),message: "The Total Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
         let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: nil)
         let okAction = UIAlertAction(title: "SET", style: .default, handler:
                                         {
@@ -170,6 +176,7 @@ class SetTimerViewController2: UIViewController {
         let now = Date()
         let future = now.addingTimeInterval(TimeInterval(goalTime))
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: future)
         return today
@@ -194,6 +201,14 @@ class SetTimerViewController2: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func setLocalizable() {
+        totalLabel.text = "Total Time2".localized()
+        endLabel.text = "End Time".localized()
+        ColorButton.setTitle("Change Color".localized(), for: .normal)
+        averageLabel.text = "Average Study Time".localized()
+        controlShowAverage.setTitle("Show".localized(), forSegmentAt: 0)
+        controlShowAverage.setTitle("Hide".localized(), forSegmentAt: 1)
+    }
 }
 
 

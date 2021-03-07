@@ -31,12 +31,16 @@ class ViewController2: UIViewController {
     @IBOutlet var SettingButton: UIButton!
     @IBOutlet var avarageLabel: UILabel!
     @IBOutlet var LogButton: UIButton!
-    @IBOutlet var finishTimeLabel_show: UILabel!
     @IBOutlet var finishTimeLabel: UILabel!
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
-    @IBOutlet var ModeButton: UIButton!
     @IBOutlet var nowTimeLabel: UILabel!
+    
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var restLabel: UILabel!
+    @IBOutlet var ModeButton: UIButton!
+    @IBOutlet var finishTimeLabel_show: UILabel!
+    
     
     
     var COLOR = UIColor(named: "Background2")
@@ -72,6 +76,8 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setVCNum()
+        setLocalizable()
+        
         setColor()
         setRadius()
         setBorder()
@@ -594,6 +600,13 @@ extension ViewController2 {
         avarageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
         nowTimeLabel.text = "\n" + "Now Time".localized()
         avarageLabel.text = "\(today)"
+    }
+    
+    func setLocalizable() {
+        totalLabel.text = "Total Time".localized()
+        restLabel.text = "Rest Time".localized()
+        ModeButton.setTitle("Stopwatch".localized(), for: .normal)
+        finishTimeLabel_show.text = "End Time".localized()
     }
 }
 

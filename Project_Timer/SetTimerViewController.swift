@@ -16,8 +16,11 @@ class SetTimerViewController: UIViewController {
     @IBOutlet var Text_S: UITextField!
     @IBOutlet var Button_set: UIButton!
     @IBOutlet var Button_Back: UIButton!
-    
     @IBOutlet var Label_toTime: UILabel!
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
+    
     
     var SetTimerViewControllerDelegate : ChangeViewController!
     
@@ -36,6 +39,7 @@ class SetTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
+        setLocalizable()
         
         second = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
         Label_timer.text = printTime(temp: second)
@@ -131,9 +135,15 @@ class SetTimerViewController: UIViewController {
         let now = Date()
         let future = now.addingTimeInterval(TimeInterval(second))
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "hh:mm a"
         let today = dateFormatter.string(from: future)
         return today
+    }
+    
+    func setLocalizable() {
+        timerLabel.text = "Timer Time".localized()
+        endLabel.text = "End Time".localized()
     }
     
 }
