@@ -131,9 +131,9 @@ class SetTimerViewController2: UIViewController {
     
     @IBAction func Button_set(_ sender: UIButton) {
         //경고창 추가
-        let alert = UIAlertController(title:"Would you like to set up?".localized(),message: "The Total Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
-        let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: nil)
-        let okAction = UIAlertAction(title: "SET", style: .default, handler:
+        let alert = UIAlertController(title:"Do you want to set it up?".localized(),message: "The Target, Sum Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
+        let cancel = UIAlertAction(title: "CANCEL", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "SET", style: .destructive, handler:
                                         {
                                             action in
                                             self.SET_action()
@@ -202,7 +202,7 @@ class SetTimerViewController2: UIViewController {
     }
     
     func setLocalizable() {
-        totalLabel.text = "Total Time2".localized()
+        totalLabel.text = "Target Time2".localized()
         endLabel.text = "End Time".localized()
         ColorButton.setTitle("Change Color".localized(), for: .normal)
         averageLabel.text = "Average Study Time".localized()

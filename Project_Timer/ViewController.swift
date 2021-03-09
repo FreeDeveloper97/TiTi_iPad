@@ -590,7 +590,7 @@ extension ViewController {
     }
     
     func setLocalizable() {
-        totalLabel.text = "Total Time".localized()
+        totalLabel.text = "Target Time".localized()
         sumLabel.text = "Sum Time".localized()
         ModeButton.setTitle("Timer".localized(), for: .normal)
         finishTimeLabel_show.text = "End Time".localized()
