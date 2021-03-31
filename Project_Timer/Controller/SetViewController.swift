@@ -26,16 +26,14 @@ class SetViewController: UIViewController {
     @IBOutlet var AllTimeLabel: UILabel!
     @IBOutlet var SecondLabel: UILabel!
     
-    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var targetLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var averageLabel: UILabel!
     @IBOutlet var Control_persent: UISegmentedControl!
     
-    
     var setViewControllerDelegate : ChangeViewController!
     var allTime : Int = 21600
     var second : Int = 2400
-    //빡공률 보이기
     var showPersent: Int = 0
     
     var H1 = ""
@@ -110,7 +108,6 @@ class SetViewController: UIViewController {
     }
     
     @IBAction func SetButton(_ sender: UIButton) {
-        //경고창 추가
         let alert = UIAlertController(title:"Do you want to set it up?".localized(),message: "The Target, Sum Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
         let cancel = UIAlertAction(title: "CANCEL", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "SET", style: .destructive, handler:
@@ -235,22 +232,11 @@ class SetViewController: UIViewController {
     }
     
     func setLocalizable() {
-        totalLabel.text = "Target Time2".localized()
+        targetLabel.text = "Target Time2".localized()
         timerLabel.text = "Timer Time".localized()
         averageLabel.text = "Average Study Time".localized()
         Control_persent.setTitle("Show".localized(), forSegmentAt: 0)
         Control_persent.setTitle("Hide".localized(), forSegmentAt: 1)
-    }
-}
-
-extension UIViewController {
-    func hideKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
 

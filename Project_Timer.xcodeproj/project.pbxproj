@@ -73,6 +73,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		871E99C72614A092003A5EE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93A892B024C14D4700F89180 /* CircularProgressView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		871E99C82614A0A1003A5EE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93B08520248DDF2F00E215BD /* AppDelegate.swift */,
+				93B08524248DDF2F00E215BD /* ViewController.swift */,
+				87FF895025C42D5F00437FD5 /* ViewController2.swift */,
+				9312E4CB252231E600025C81 /* LogViewController.swift */,
+				87EA080625E5465300E17CF9 /* GraphViewController.swift */,
+				87EA080325E5463B00E17CF9 /* ContentView.swift */,
+				932EE0592490A78400B00774 /* SetViewController.swift */,
+				935411AA25402D89008CB6DD /* SetTimerViewController.swift */,
+				870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		871E99C92614A0AA003A5EE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93B08529248DDF3000E215BD /* Assets.xcassets */,
+				93B08526248DDF2F00E215BD /* Main.storyboard */,
+				93B0852B248DDF3000E215BD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		87BF47D225B6E0E400EE2819 /* component */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,24 +147,14 @@
 		93B0851F248DDF2F00E215BD /* Project_Timer */ = {
 			isa = PBXGroup;
 			children = (
+				871E99C72614A092003A5EE7 /* Model */,
+				871E99C92614A0AA003A5EE7 /* View */,
+				871E99C82614A0A1003A5EE7 /* Controller */,
 				87BF47D225B6E0E400EE2819 /* component */,
 				93544DA12524BFC8009368C1 /* fonts */,
-				93B08520248DDF2F00E215BD /* AppDelegate.swift */,
-				93B08526248DDF2F00E215BD /* Main.storyboard */,
 				872A525325F3E07E008D9F4B /* Localizable.strings */,
 				93B08534248DEEBA00E215BD /* Project_Timer.entitlements */,
 				93B08522248DDF2F00E215BD /* SceneDelegate.swift */,
-				93B08524248DDF2F00E215BD /* ViewController.swift */,
-				87FF895025C42D5F00437FD5 /* ViewController2.swift */,
-				935411AA25402D89008CB6DD /* SetTimerViewController.swift */,
-				870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */,
-				9312E4CB252231E600025C81 /* LogViewController.swift */,
-				87EA080325E5463B00E17CF9 /* ContentView.swift */,
-				87EA080625E5465300E17CF9 /* GraphViewController.swift */,
-				93A892B024C14D4700F89180 /* CircularProgressView.swift */,
-				932EE0592490A78400B00774 /* SetViewController.swift */,
-				93B08529248DDF3000E215BD /* Assets.xcassets */,
-				93B0852B248DDF3000E215BD /* LaunchScreen.storyboard */,
 				93B0852E248DDF3000E215BD /* Info.plist */,
 			);
 			path = Project_Timer;

@@ -21,7 +21,6 @@ class SetTimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
     
-    
     var SetTimerViewControllerDelegate : ChangeViewController!
     
     var H = ""

@@ -36,7 +36,7 @@ class LogViewController: UIViewController {
     
     @IBOutlet var Button_back: UIButton!
     
-    @IBOutlet var studyTitleL: UILabel!
+    @IBOutlet var studyTitle: UILabel!
     @IBOutlet var studyL1: UILabel!
     @IBOutlet var studyL2: UILabel!
     @IBOutlet var studyL3: UILabel!
@@ -141,7 +141,7 @@ extension LogViewController {
     }
     
     func setLocalizable() {
-        studyTitleL.text = "Study Records".localized()
+        studyTitle.text = "Study Records".localized()
         studyL1.text = "Study :".localized()
         studyL2.text = "Study :".localized()
         studyL3.text = "Study :".localized()

@@ -28,7 +28,6 @@ class SetTimerViewController2: UIViewController {
     @IBOutlet var averageLabel: UILabel!
     @IBOutlet var controlShowAverage: UISegmentedControl!
     
-    
     var SetTimerViewControllerDelegate : ChangeViewController2!
     
     var H = ""
@@ -46,6 +45,7 @@ class SetTimerViewController2: UIViewController {
         super.viewDidLoad()
         hideKeyboard()
         setLocalizable()
+        setRadius()
         
         goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         showAverage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
@@ -55,13 +55,6 @@ class SetTimerViewController2: UIViewController {
         Text_H.keyboardType = .numberPad
         Text_M.keyboardType = .numberPad
         Text_S.keyboardType = .numberPad
-        
-        Button_set.layer.cornerRadius = 10
-        Button_set.layer.borderWidth = 3
-        
-        Button_Back.layer.cornerRadius = 10
-        Button_Back.layer.borderWidth = 3
-        ColorButton.layer.cornerRadius = 10
         
         updateColor()
 
@@ -84,6 +77,50 @@ class SetTimerViewController2: UIViewController {
         Label_timer.text = printTime(temp: goalTime)
         Label_toTime.text = getFutureTime()
     }
+    
+    @IBAction func Button_set(_ sender: UIButton) {
+        //경고창 추가
+        let alert = UIAlertController(title:"Do you want to set it up?".localized(),message: "The Target, Sum Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
+        let cancel = UIAlertAction(title: "CANCEL", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "SET", style: .destructive, handler:
+                                        {
+                                            action in
+                                            self.SET_action()
+                                        })
+        alert.addAction(cancel)
+        alert.addAction(okAction)
+        present(alert,animated: true,completion: nil)
+    }
+    
+    @IBAction func Button_Back_action(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func ColorBTAction(_ sender: Any) {
+        if #available(iOS 14.0, *) {
+            let picker = UIColorPickerViewController()
+            picker.selectedColor = COLOR!
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    @IBAction func set_persent(_ sender: UISegmentedControl) {
+        switch controlShowAverage.selectedSegmentIndex {
+        case 0:
+            showAverage = 0
+            print("0")
+        case 1:
+            showAverage = 1
+            print("1")
+        default: return
+        }
+    }
+}
+
+extension SetTimerViewController2 {
     
     func check()
     {
@@ -129,49 +166,7 @@ class SetTimerViewController2: UIViewController {
         return returnString
     }
     
-    @IBAction func Button_set(_ sender: UIButton) {
-        //경고창 추가
-        let alert = UIAlertController(title:"Do you want to set it up?".localized(),message: "The Target, Sum Time will be reset and a new record starts!".localized(),preferredStyle: UIAlertController.Style.alert)
-        let cancel = UIAlertAction(title: "CANCEL", style: .default, handler: nil)
-        let okAction = UIAlertAction(title: "SET", style: .destructive, handler:
-                                        {
-                                            action in
-                                            self.SET_action()
-                                        })
-        alert.addAction(cancel)
-        alert.addAction(okAction)
-        present(alert,animated: true,completion: nil)
-    }
-    
-    @IBAction func Button_Back_action(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func ColorBTAction(_ sender: Any) {
-        if #available(iOS 14.0, *) {
-            let picker = UIColorPickerViewController()
-            picker.selectedColor = COLOR!
-            picker.delegate = self
-            self.present(picker, animated: true, completion: nil)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-    @IBAction func set_persent(_ sender: UISegmentedControl) {
-        switch controlShowAverage.selectedSegmentIndex {
-        case 0:
-            showAverage = 0
-            print("0")
-        case 1:
-            showAverage = 1
-            print("1")
-        default: return
-        }
-    }
-    
-    func getFutureTime() -> String
-    {
+    func getFutureTime() -> String {
         //log 날짜 설정
         let now = Date()
         let future = now.addingTimeInterval(TimeInterval(goalTime))
@@ -199,6 +194,15 @@ class SetTimerViewController2: UIViewController {
         print("set complite")
         SetTimerViewControllerDelegate.changeGoalTime()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setRadius() {
+        Button_set.layer.cornerRadius = 10
+        Button_set.layer.borderWidth = 3
+        
+        Button_Back.layer.cornerRadius = 10
+        Button_Back.layer.borderWidth = 3
+        ColorButton.layer.cornerRadius = 10
     }
     
     func setLocalizable() {

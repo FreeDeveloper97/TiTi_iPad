@@ -36,9 +36,10 @@ class ViewController: UIViewController {
     @IBOutlet var finishTimeLabel: UILabel!
     @IBOutlet var viewLabels: UIView!
     @IBOutlet var CircleView: CircularProgressView!
+    @IBOutlet var CircleView2: CircularProgressView!
     @IBOutlet var nowTimeLabel: UILabel!
     
-    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var targetLabel: UILabel!
     @IBOutlet var sumLabel: UILabel!
     @IBOutlet var ModeButton: UIButton!
     @IBOutlet var finishTimeLabel_show: UILabel!
@@ -68,6 +69,8 @@ class ViewController: UIViewController {
     var array_break = [String](repeating: "", count: 7)
     var stopCount: Int = 0
     var VCNum: Int = 1
+    var totalTime: Int = 0
+    var beforePer2: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +86,7 @@ class ViewController: UIViewController {
         stopEnable()
         
         setBackground()
-        setIsFirst()
+        checkIsFirst()
         checkAverage()
         setProgress()
     }
@@ -103,11 +106,8 @@ class ViewController: UIViewController {
     @objc func updateCounter(){
         if timerTime < 1 {
             algoOfStop()
-            TimerLabel.text = "종료"
-//            AudioServicesPlaySystemSound(1254)
-            //오디오 재생 추가
+            TimerLabel.text = "FINISH".localized()
             playAudioFromProject()
-//            AudioServicesPlaySystemSound(4095)
             saveTimes()
         } else {
             if timerTime < 61 {
@@ -231,7 +231,7 @@ extension ViewController {
         finishTimeLabel.text = getFutureTime()
     }
     
-    func setIsFirst() {
+    func checkIsFirst() {
         if (UserDefaults.standard.object(forKey: "startTime") == nil) {
             isFirst = true
         }
@@ -273,6 +273,7 @@ extension ViewController {
         showAverage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
         stopCount = UserDefaults.standard.value(forKey: "stopCount") as? Int ?? 0
         fixedSecond = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
+        totalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
     }
     
     func setBorner() {
@@ -296,6 +297,10 @@ extension ViewController {
         progressPer = Float(fixedSecond - timerTime) / Float(fixedSecond)
         fromSecond = progressPer
         CircleView.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
+        //circle2
+        CircleView2.trackColor = UIColor.clear
+        beforePer2 = Float(sumTime)/Float(totalTime)
+        CircleView2.setProgressWithAnimation(duration: 1.0, value: beforePer2, from: 0.0)
     }
     
     func setTimes() {
@@ -435,14 +440,23 @@ extension ViewController {
         progressPer = Float(fixedSecond - timerTime) / Float(fixedSecond)
         CircleView.setProgressWithAnimation(duration: 0.0, value: progressPer, from: fromSecond)
         fromSecond = progressPer
+        //circle2
+        let temp = Float(sumTime)/Float(totalTime)
+        CircleView2.setProgressWithAnimation(duration: 0.0, value: temp, from: beforePer2)
+        beforePer2 = temp
     }
     
     func persentReset() {
         isFirst = true
+        UserDefaults.standard.set(nil, forKey: "startTime")
         AverageLabel.textColor = UIColor.white
         fixedSecond = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
         CircleView.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
         fromSecond = 0.0
+        //circle2
+        totalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
+        CircleView2.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
+        beforePer2 = 0.0
     }
     
     func saveLogData() {
@@ -500,6 +514,7 @@ extension ViewController {
     func stopColor() {
         self.view.backgroundColor = BLUE
         CircleView.progressColor = UIColor.white
+        CircleView2.progressColor = UIColor.black
         StartButton.backgroundColor = BUTTON
         StopButton.backgroundColor = CLICK
         RestartButton.backgroundColor = BUTTON
@@ -529,6 +544,7 @@ extension ViewController {
     func startColor() {
         self.view.backgroundColor = UIColor.black
         CircleView.progressColor = BLUE!
+        CircleView2.progressColor = UIColor.white
         StartButton.backgroundColor = CLICK
         StopButton.backgroundColor = UIColor.clear
         RestartButton.backgroundColor = CLICK
@@ -590,7 +606,7 @@ extension ViewController {
     }
     
     func setLocalizable() {
-        totalLabel.text = "Target Time".localized()
+        targetLabel.text = "Target Time".localized()
         sumLabel.text = "Sum Time".localized()
         ModeButton.setTitle("Timer".localized(), for: .normal)
         finishTimeLabel_show.text = "End Time".localized()
