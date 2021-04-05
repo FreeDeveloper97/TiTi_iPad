@@ -41,6 +41,8 @@ class ViewController2: UIViewController {
     @IBOutlet var restLabel: UILabel!
     @IBOutlet var ModeButton: UIButton!
     @IBOutlet var finishTimeLabel_show: UILabel!
+    @IBOutlet var taskButton: UIButton!
+    @IBOutlet var taskLine: UIView!
     
     
     var COLOR = UIColor(named: "Background2")
@@ -74,6 +76,8 @@ class ViewController2: UIViewController {
     var VCNum: Int = 2
     var totalTime: Int = 0
     var beforePer2: Float = 0.0
+    var task: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +99,7 @@ class ViewController2: UIViewController {
         checkAverage()
         
         setFirstProgress()
+        setTask()
     }
     
     func checkTimeTrigger() {
@@ -151,6 +156,9 @@ class ViewController2: UIViewController {
         UserDefaults.standard.set(1, forKey: "VCNum")
         goToViewController(where: "ViewController")
     }
+    @IBAction func taskButton(_ sender: Any) {
+        showTaskView()
+    }
 }
 
 extension ViewController2 : ChangeViewController2 {
@@ -181,6 +189,10 @@ extension ViewController2 : ChangeViewController2 {
         stopEnable()
         checkAverage()
         allStopColor()
+    }
+    
+    func changeTask() {
+        setTask()
     }
 }
 
@@ -268,6 +280,7 @@ extension ViewController2 {
         StopButton.layer.cornerRadius = 10
         BreakButton.layer.cornerRadius = 10
         ModeButton.layer.cornerRadius = 10
+        taskButton.layer.cornerRadius = 10
     }
     
     func setBorder() {
@@ -364,6 +377,12 @@ extension ViewController2 {
     
     func showSettingView() {
         let setVC = storyboard?.instantiateViewController(withIdentifier: "SetTimerViewController2") as! SetTimerViewController2
+            setVC.SetTimerViewControllerDelegate = self
+            present(setVC,animated: true,completion: nil)
+    }
+    
+    func showTaskView() {
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "taskSelectViewController") as! taskSelectViewController
             setVC.SetTimerViewControllerDelegate = self
             present(setVC,animated: true,completion: nil)
     }
@@ -526,9 +545,11 @@ extension ViewController2 {
             self.SettingButton.alpha = 1
             self.LogButton.alpha = 1
             self.viewLabels.alpha = 1
+            self.taskLine.alpha = 1
         })
         self.nowTimeLabel.text = "Now Time".localized()
         self.nowTimeLabel.alpha = 0
+        self.view.layoutIfNeeded()
     }
     
     func breakStartColor() {
@@ -564,7 +585,9 @@ extension ViewController2 {
             self.avarageLabel.alpha = 1
             self.ModeButton.layer.borderColor = nil
             self.nowTimeLabel.alpha = 1
+            self.taskLine.alpha = 0
         })
+        self.view.layoutIfNeeded()
     }
     
     func stopEnable() {
@@ -624,6 +647,11 @@ extension ViewController2 {
         restLabel.text = "Rest Time".localized()
         ModeButton.setTitle("Stopwatch".localized(), for: .normal)
         finishTimeLabel_show.text = "End Time".localized()
+    }
+    
+    func setTask() {
+        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task"
+        taskButton.setTitle(task, for: .normal)
     }
 }
 

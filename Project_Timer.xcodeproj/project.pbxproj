@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		870920F925CC364A00CD0E3F /* SetTimerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */; };
 		872A525125F3E07E008D9F4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 872A525325F3E07E008D9F4B /* Localizable.strings */; };
+		87577973261B05E30055C674 /* taskSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87577972261B05E30055C674 /* taskSelectViewController.swift */; };
 		8787DFDA25B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */; };
 		8787DFDB25B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */; };
 		8787DFDC25B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */; };
@@ -37,6 +38,7 @@
 		872A525525F3E092008D9F4B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		872A525625F3E093008D9F4B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		872A525725F3E093008D9F4B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		87577972261B05E30055C674 /* taskSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskSelectViewController.swift; sourceTree = "<group>"; };
 		8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_20G.otf; sourceTree = "<group>"; };
 		8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_60G.otf; sourceTree = "<group>"; };
 		8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_99G.otf; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				932EE0592490A78400B00774 /* SetViewController.swift */,
 				935411AA25402D89008CB6DD /* SetTimerViewController.swift */,
 				870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */,
+				87577972261B05E30055C674 /* taskSelectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				93B08525248DDF2F00E215BD /* ViewController.swift in Sources */,
 				87EA080425E5463B00E17CF9 /* ContentView.swift in Sources */,
 				932EE05A2490A78400B00774 /* SetViewController.swift in Sources */,
+				87577973261B05E30055C674 /* taskSelectViewController.swift in Sources */,
 				87FF895425C42DBF00437FD5 /* ViewController2.swift in Sources */,
 				93A892B124C14D4700F89180 /* CircularProgressView.swift in Sources */,
 				935411AB25402D89008CB6DD /* SetTimerViewController.swift in Sources */,
