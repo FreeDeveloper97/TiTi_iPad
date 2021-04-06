@@ -77,6 +77,8 @@ class ViewController2: UIViewController {
     var totalTime: Int = 0
     var beforePer2: Float = 0.0
     var task: String = ""
+    //하루 그래프를 위한 구조
+    var daily = Daily()
     
     
     override func viewDidLoad() {
@@ -99,6 +101,8 @@ class ViewController2: UIViewController {
         checkAverage()
         
         setFirstProgress()
+        
+        daily.load()
         setTask()
     }
     
@@ -134,6 +138,8 @@ class ViewController2: UIViewController {
         updateBreakProgress()
         saveBreak()
         finishTimeLabel.text = getFutureTime()
+        //하루 그래프 휴식시간 저장
+        daily.breakTime = breakTime
     }
     
     @IBAction func StartButtonAction(_ sender: UIButton) {
@@ -189,6 +195,8 @@ extension ViewController2 : ChangeViewController2 {
         stopEnable()
         checkAverage()
         allStopColor()
+        //하루 그래프 초기화
+        daily.reset()
     }
     
     func changeTask() {
@@ -670,6 +678,8 @@ extension ViewController2 {
             isFirst = false
         }
         showNowTime()
+        //하루 그래프 데이터 생성
+        daily.startTask(task)
     }
     
     func algoOfStop() {
@@ -685,6 +695,9 @@ extension ViewController2 {
         stopEnable()
         checkAverage()
         setAverage()
+        //하루 그래프 데이터 계산
+        daily.stopTask()
+        daily.save()
     }
     
     func algoOfBreakStart() {
@@ -699,5 +712,7 @@ extension ViewController2 {
         timeTrigger = true
         realTime.invalidate()
         breakStopColor()
+        //하루 그래프 데이터 저장
+        daily.save()
     }
 }
