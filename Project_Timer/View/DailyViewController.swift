@@ -12,12 +12,16 @@ import Foundation
 class DailyViewController: UIViewController {
 
     @IBOutlet var progress: UIView!
+    @IBOutlet var sumTime: UILabel!
     @IBOutlet var taskTitle: UILabel!
     @IBOutlet var taskTime: UILabel!
     @IBOutlet var taskPersent: UILabel!
-    var printTitle: String = ""
-    var printTime: String = ""
-    var printPersent: String = ""
+    var printTitle: [String] = []
+    var printTime: [String] = []
+    var printPersent: [String] = []
+    var colors: [UIColor] = []
+    var counts: Int = 0
+    var sum: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +30,59 @@ class DailyViewController: UIViewController {
         daily.load()
         print(daily.tasks)
         
-        let width = progress.bounds.width
-        let height = progress.bounds.height
-        var tasks = daily.tasks
-        tasks["breakTime"] = daily.breakTime
+        var temp = daily.tasks
+        temp["breakTime"] = daily.breakTime
+        counts = temp.count
+        appendColors()
+        
+        let tasks = temp.sorted(by: { $0.1 < $1.1 } )
         
         var array: [Int] = []
         for (key, value) in tasks {
-            printTitle += "\(key)\n"
-            printTime += "\(printTime(temp: value))\n"
+            printTitle.append(key)
+            printTime.append(printTime(temp: value))
             array.append(value)
         }
         
+        let width = progress.bounds.width
+        let height = progress.bounds.height
         makeProgress(array, width, height)
-        
-        taskTitle.text = printTitle
-        taskTime.text = printTime
-        taskPersent.text = printPersent
+        var p1 = ""
+        var p2 = ""
+        var p3 = ""
+        for i in (0..<tasks.count).reversed() {
+            p1 += "\(printTitle[i])\n"
+            p2 += "\(printTime[i])\n"
+            p3 += "\(printPersent[i])\n"
+        }
+        taskTitle.text = p1
+        taskTime.text = p2
+        taskPersent.text = p3
     }
-    
-
-    
-
 }
 
 
 extension DailyViewController {
+    
+    func appendColors() {
+        //19 37 70
+        var R: CGFloat = 1
+        var G: CGFloat = 8
+        var B: CGFloat = 40
+        let perR = (255-R)/CGFloat(counts)
+        let perG = (255-G)/CGFloat(counts)
+        let perB = (255-B)/CGFloat(counts)
+        R = 255
+        G = 255
+        B = 255
+        
+        for _ in 0..<counts {
+            colors.append(UIColor(R, G, B, 1.0))
+            R -= perR
+            G -= perG
+            B -= perB
+        }
+    }
     
     func printTime(temp : Int) -> String
     {
@@ -67,27 +98,25 @@ extension DailyViewController {
     }
     
     func makeProgress(_ datas: [Int], _ width: CGFloat, _ height: CGFloat) {
-        var sum = 0
+        print(datas)
+        sum = 0
         for i in 0..<datas.count {
             sum += datas[i]
         }
+        
+        sumTime.text = printTime(temp: sum)
+        
         var value: Float = 1
-        for i in 0..<datas.count {
+        for i in 0..<counts {
             let prog = CircularProgressView(frame: CGRect(x: 0, y: 0, width: width, height: height))
             prog.trackColor = UIColor.clear
-            if(i%3 == 0) {
-                prog.progressColor = UIColor.orange
-            } else if(i%3 == 1) {
-                prog.progressColor = UIColor.red
-            } else {
-                prog.progressColor = UIColor.yellow
-            }
+            prog.progressColor = colors[i%7]
             print(value)
             prog.setProgressWithAnimation(duration: 1, value: value, from: 0)
             let per = Float(datas[i])/Float(sum)
             value -= per
             progress.addSubview(prog)
-            printPersent += "\(String(format: "%.1f", per*100))" + "%\n"
+            printPersent.append(String(format: "%.1f", per*100) + "%")
         }
         
     }
