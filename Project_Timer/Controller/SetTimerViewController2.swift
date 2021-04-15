@@ -23,7 +23,7 @@ class SetTimerViewController2: UIViewController {
     @IBOutlet var Button_Back: UIButton!
     @IBOutlet var Label_toTime: UILabel!
     
-    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var targetLabel: UILabel!
     @IBOutlet var endLabel: UILabel!
     @IBOutlet var ColorButton: UIButton!
     @IBOutlet var averageLabel: UILabel!
@@ -207,7 +207,7 @@ extension SetTimerViewController2 {
     }
     
     func setLocalizable() {
-        totalLabel.text = "Target Time2".localized()
+        targetLabel.text = "Target Time2".localized()
         endLabel.text = "End Time".localized()
         ColorButton.setTitle("Change Color".localized(), for: .normal)
         averageLabel.text = "Average Study Time".localized()

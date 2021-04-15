@@ -605,6 +605,7 @@ extension ViewController2 {
         SettingButton.isUserInteractionEnabled = true
         LogButton.isUserInteractionEnabled = true
         ModeButton.isUserInteractionEnabled = true
+        taskButton.isUserInteractionEnabled = true
     }
     
     func startEnable() {
@@ -614,6 +615,7 @@ extension ViewController2 {
         SettingButton.isUserInteractionEnabled = false
         LogButton.isUserInteractionEnabled = false
         ModeButton.isUserInteractionEnabled = false
+        taskButton.isUserInteractionEnabled = false
     }
     
     func goToViewController(where: String) {
