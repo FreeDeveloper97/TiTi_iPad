@@ -27,12 +27,16 @@ class DailyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var daily = Daily()
-        daily.load()
-        print(daily.tasks)
+        var temp: [String:Int] = [:]
         
-        var temp = daily.tasks
-        temp["breakTime"] = daily.breakTime
+//        var daily = Daily()
+//        daily.load()
+//        print(daily.tasks)
+//        temp = daily.tasks
+//        temp["breakTime"] = daily.breakTime
+        temp = addDumy()
+        
+        
         counts = temp.count
         appendColors()
         
@@ -86,7 +90,7 @@ extension DailyViewController {
 //        }
         //case 2
         for i in 1...12 {
-            colors.append(UIColor(named: "Test\(i)")!)
+            colors.append(UIColor(named: "CC\(i)")!)
         }
     }
     
@@ -149,5 +153,23 @@ extension DailyViewController {
         value -= f
         progress.addSubview(block)
         return value
+    }
+    
+    func addDumy() -> [String:Int] {
+        var temp: [String:Int] = [:]
+//        temp["ios 프로그래밍"] = 2100
+//        temp["OS 공부"] = 4680
+//        temp["DB 공부"] = 3900
+//        temp["통계학 공부"] = 2700
+//        temp["영어 공부"] = 2280
+//        temp["swift 프로그래밍"] = 2400
+//        temp["수업"] = 2160
+//        temp["시스템 분석 공부"] = 1800
+//        temp["문학세계 공부"] = 1200
+        temp["코딩테스트 공부"] = 2200
+        temp["자바스크립트 공부"] = 1980
+        temp["휴식 시간"] = 2500
+        
+        return temp
     }
 }
