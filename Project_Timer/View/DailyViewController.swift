@@ -66,6 +66,25 @@ class DailyViewController: UIViewController {
 extension DailyViewController {
     
     func appendColors() {
+        //case 1
+//        //19 37 70
+//        var R: CGFloat = 1
+//        var G: CGFloat = 8
+//        var B: CGFloat = 40
+//        let perR = (255-R)/CGFloat(counts)
+//        let perG = (255-G)/CGFloat(counts)
+//        let perB = (255-B)/CGFloat(counts)
+//        R = 255
+//        G = 255
+//        B = 255
+//
+//        for _ in 0..<counts {
+//            colors.append(UIColor(R, G, B, 1.0))
+//            R -= perR
+//            G -= perG
+//            B -= perB
+//        }
+        //case 2
         for i in 1...12 {
             colors.append(UIColor(named: "Test\(i)")!)
         }
@@ -100,7 +119,7 @@ extension DailyViewController {
         for i in 0..<counts {
             let prog = CircularProgressView(frame: CGRect(x: 0, y: 0, width: width, height: height))
             prog.trackColor = UIColor.clear
-            prog.progressColor = colors[i%12]
+            prog.progressColor = colors[i%colors.count]
             print(value)
             prog.setProgressWithAnimation(duration: 1, value: value, from: 0)
             
