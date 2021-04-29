@@ -22,6 +22,7 @@
 		87BF47D525B6E12A00EE2819 /* timer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87BF47D425B6E12A00EE2819 /* timer.mp3 */; };
 		87EA080425E5463B00E17CF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EA080325E5463B00E17CF9 /* ContentView.swift */; };
 		87EA080725E5465300E17CF9 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EA080625E5465300E17CF9 /* GraphViewController.swift */; };
+		87F59CAE263AF91F00EFFC15 /* GraphViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F59CAD263AF91E00EFFC15 /* GraphViewController2.swift */; };
 		87FF895425C42DBF00437FD5 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF895025C42D5F00437FD5 /* ViewController2.swift */; };
 		9312E4CC252231E600025C81 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312E4CB252231E600025C81 /* LogViewController.swift */; };
 		932EE05A2490A78400B00774 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EE0592490A78400B00774 /* SetViewController.swift */; };
@@ -54,6 +55,7 @@
 		87BF47D425B6E12A00EE2819 /* timer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer.mp3; sourceTree = "<group>"; };
 		87EA080325E5463B00E17CF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		87EA080625E5465300E17CF9 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		87F59CAD263AF91E00EFFC15 /* GraphViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController2.swift; sourceTree = "<group>"; };
 		87FF895025C42D5F00437FD5 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		9312E4CB252231E600025C81 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		932EE0592490A78400B00774 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +101,6 @@
 				87FF895025C42D5F00437FD5 /* ViewController2.swift */,
 				9312E4CB252231E600025C81 /* LogViewController.swift */,
 				87EA080625E5465300E17CF9 /* GraphViewController.swift */,
-				87EA080325E5463B00E17CF9 /* ContentView.swift */,
 				932EE0592490A78400B00774 /* SetViewController.swift */,
 				935411AA25402D89008CB6DD /* SetTimerViewController.swift */,
 				870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */,
@@ -125,6 +126,15 @@
 				87BF47D425B6E12A00EE2819 /* timer.mp3 */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		87F59CAC263AF8FE00EFFC15 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				87F59CAD263AF91E00EFFC15 /* GraphViewController2.swift */,
+				87EA080325E5463B00E17CF9 /* ContentView.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		93544DA12524BFC8009368C1 /* fonts */ = {
@@ -159,6 +169,7 @@
 		93B0851F248DDF2F00E215BD /* Project_Timer */ = {
 			isa = PBXGroup;
 			children = (
+				87F59CAC263AF8FE00EFFC15 /* Test */,
 				871E99C72614A092003A5EE7 /* Model */,
 				871E99C92614A0AA003A5EE7 /* View */,
 				871E99C82614A0A1003A5EE7 /* Controller */,
@@ -260,6 +271,7 @@
 				87FF895425C42DBF00437FD5 /* ViewController2.swift in Sources */,
 				875A6FF4261BFF800026F575 /* DailyViewController.swift in Sources */,
 				93A892B124C14D4700F89180 /* CircularProgressView.swift in Sources */,
+				87F59CAE263AF91F00EFFC15 /* GraphViewController2.swift in Sources */,
 				935411AB25402D89008CB6DD /* SetTimerViewController.swift in Sources */,
 				93B08521248DDF2F00E215BD /* AppDelegate.swift in Sources */,
 				93B08523248DDF2F00E215BD /* SceneDelegate.swift in Sources */,

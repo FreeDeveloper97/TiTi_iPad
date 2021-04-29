@@ -8,6 +8,7 @@
 
 import UIKit
 struct Daily: Codable {
+    var day: Date = Date()
     var fixedTotalTime: Int = 0
     var fixedSumTime: Int = 0
     var fixedTimerTime: Int = 0
@@ -48,6 +49,5 @@ struct Daily: Codable {
     }
     
     mutating func load() {
-        self = Storage.retrive("daily.json", from: .documents, as: Daily.self) ?? Daily()
-    }
+        self = Storage.retrive("daily.json", from: .documents, as: Daily.self) ?? Daily()    }
 }
