@@ -17,7 +17,6 @@ class GraphViewController2: UIViewController {
     @IBOutlet var sumTime: UILabel!
     @IBOutlet var taskTitle: UILabel!
     @IBOutlet var taskTime: UILabel!
-    @IBOutlet var taskPersent: UILabel!
     @IBOutlet var today: UILabel!
     
     @IBOutlet var time_05: UIView!
@@ -57,47 +56,50 @@ class GraphViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setRadius()
-        dumyComor()
+//        dumyComor()
         
         //7days
         let hostingController = UIHostingController(rootView: ContentView())
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
         hostingController.view.frame = viewOfView.bounds
-//        ContentView().appendDailyDatas()
-        ContentView().appendDumyDatas()
+        ContentView().appendDailyDatas()
+//        ContentView().appendDumyDatas()
         addChild(hostingController)
         viewOfView.addSubview(hostingController.view)
         
         //today
         var daily = Daily()
         daily.load()
-        
-        today.text = getDay(day: daily.day)
-        let temp: [String:Int] = daily.tasks
-//        let temp = addDumy()
-        counts = temp.count
-        appendColors()
-        
-        let tasks = temp.sorted(by: { $0.1 < $1.1 } )
-        
-        var array: [Int] = []
-        for (key, value) in tasks {
-            printTitle.append(key)
-            printTime.append(printTime(temp: value))
-            array.append(value)
+        if(daily.tasks != [:]) {
+            today.text = getDay(day: daily.day)
+            let temp: [String:Int] = daily.tasks
+//            let temp = addDumy()
+            counts = temp.count
+            appendColors()
+            
+            let tasks = temp.sorted(by: { $0.1 < $1.1 } )
+            
+            var array: [Int] = []
+            for (key, value) in tasks {
+                printTitle.append(key)
+                printTime.append(printTime(temp: value))
+                array.append(value)
+            }
+            
+            let width = progress.bounds.width
+            let height = progress.bounds.height
+            makeProgress(array, width, height)
+            var p1 = ""
+            var p2 = ""
+            for i in (0..<tasks.count).reversed() {
+                p1 += "\(printTitle[i])\n"
+                p2 += "\(printTime[i])\n"
+            }
+            taskTitle.text = p1
+            taskTime.text = p2
+        } else {
+            print("no data")
         }
-        
-        let width = progress.bounds.width
-        let height = progress.bounds.height
-        makeProgress(array, width, height)
-        var p1 = ""
-        var p2 = ""
-        for i in (0..<tasks.count).reversed() {
-            p1 += "\(printTitle[i])\n"
-            p2 += "\(printTime[i])\n"
-        }
-        taskTitle.text = p1
-        taskTime.text = p2
     }
     override func viewDidDisappear(_ animated: Bool) {
         ContentView().reset()
