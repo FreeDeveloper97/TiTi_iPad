@@ -70,6 +70,9 @@ class StopwatchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        modeStopWatch.setTitleColor(UIColor.darkGray, for: .normal)
+        modeStopWatch.isUserInteractionEnabled = false
+        tempBT.alpha = 0
         setVCNum()
         setLocalizable()
         
@@ -140,7 +143,7 @@ class StopwatchViewController: UIViewController {
     @IBAction func timerBTAction(_ sender: Any) {
         algoOfBreakStop()
         UserDefaults.standard.set(1, forKey: "VCNum")
-        goToViewController(where: "ViewController")
+        goToViewController(where: "TimerViewController")
     }
     
     @IBAction func startStopBTAction(_ sender: Any) {
@@ -289,10 +292,6 @@ extension StopwatchViewController {
     }
     
     func setBorder() {
-        tempBT.layer.borderWidth = 5
-        tempBT.layer.borderColor = UIColor.white.cgColor
-        settingBT.layer.borderWidth = 5
-        settingBT.layer.borderColor = UIColor.white.cgColor
         startStopBT.layer.borderWidth = 5
         startStopBT.layer.borderColor = RED?.cgColor
     }
@@ -534,9 +533,7 @@ extension StopwatchViewController {
         self.view.backgroundColor = COLOR
         outterProgress.progressColor = UIColor.white
         innerProgress.progressColor = UIColor.black
-        tempBT.backgroundColor = UIColor.white
-        settingBT.backgroundColor = UIColor.white
-        startStopBT.backgroundColor = UIColor.white
+        startStopBT.backgroundColor = RED!
 //        StartButton.backgroundColor = BUTTON
 //        StopButton.backgroundColor = CLICK
 //        BreakButton.backgroundColor = BUTTON
@@ -549,7 +546,6 @@ extension StopwatchViewController {
 //            self.finishTimeLabel_show.alpha = 1
 //            self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: 0)
 //            self.ModeButton.layer.borderColor = UIColor.white.cgColor
-            self.tempBT.alpha = 1
             self.settingBT.alpha = 1
         })
         //animation test
@@ -559,14 +555,13 @@ extension StopwatchViewController {
             self.log.alpha = 1
             self.lineLeft.alpha = 1
             self.lineRight.alpha = 1
+            self.taskLeft.alpha = 1
+            self.taskRight.alpha = 1
 //            self.StartButton.alpha = 1
 //            self.BreakButton.alpha = 1
 //            self.SettingButton.alpha = 1
 //            self.LogButton.alpha = 1
 //            self.viewLabels.alpha = 1
-            self.taskLeft.alpha = 1
-            self.taskRight.alpha = 1
-            
         })
 //        self.nowTimeLabel.text = "Now Time".localized()
 //        self.nowTimeLabel.alpha = 0
@@ -587,8 +582,6 @@ extension StopwatchViewController {
         self.view.backgroundColor = UIColor.black
         outterProgress.progressColor = COLOR!
         innerProgress.progressColor = UIColor.white
-        tempBT.backgroundColor = UIColor.clear
-        settingBT.backgroundColor = UIColor.clear
         startStopBT.backgroundColor = UIColor.clear
 //        StartButton.backgroundColor = CLICK
 //        StopButton.backgroundColor = UIColor.clear
@@ -606,6 +599,8 @@ extension StopwatchViewController {
             self.lineRight.alpha = 0
             self.tempBT.alpha = 0
             self.settingBT.alpha = 0
+            self.taskLeft.alpha = 0
+            self.taskRight.alpha = 0
 //            self.finishTimeLabel_show.alpha = 0
 //            self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: -15)
 //            self.StartButton.alpha = 0
@@ -616,8 +611,6 @@ extension StopwatchViewController {
 //            self.avarageLabel.alpha = 1
 //            self.ModeButton.layer.borderColor = nil
 //            self.nowTimeLabel.alpha = 1
-            self.taskLeft.alpha = 0
-            self.taskRight.alpha = 0
         })
         self.view.layoutIfNeeded()
     }
