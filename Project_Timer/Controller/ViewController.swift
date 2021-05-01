@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //로그인이 이미 되어있는 경우라면 홈페이지로 이동한다.
         if(VCNum == 2) {
-            goToViewController(where: "ViewController2")
+            goToViewController(where: "StopwatchViewController")
         }
     }
     
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
         showTimerView()
     }
     @IBAction func ModeBTAction(_ sender: UIButton) {
-        goToViewController(where: "ViewController2")
+        goToViewController(where: "StopwatchViewController")
     }
 }
 
