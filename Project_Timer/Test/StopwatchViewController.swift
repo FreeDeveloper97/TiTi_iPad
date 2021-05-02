@@ -70,8 +70,21 @@ class StopwatchViewController: UIViewController {
     //하루 그래프를 위한 구조
     var daily = Daily()
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+        }
+        if UIDevice.current.orientation.isFlat {
+            print("Flat")
+        } else {
+            print("Portrait")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+        
         modeStopWatch.backgroundColor = UIColor.gray
         modeStopWatchLabel.textColor = UIColor.gray
         modeStopWatch.isUserInteractionEnabled = false
@@ -97,6 +110,22 @@ class StopwatchViewController: UIViewController {
         
         daily.load()
         setTask()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+
+    @objc func deviceRotated(){
+        if UIDevice.current.orientation.isLandscape {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        }
     }
     
     func checkTimeTrigger() {
@@ -143,6 +172,18 @@ class StopwatchViewController: UIViewController {
 }
 
 extension StopwatchViewController : ChangeViewController2 {
+    
+    func setLandscape() {
+        modeTimerLabel.alpha = 1
+        modeStopWatchLabel.alpha = 1
+        logLabel.alpha = 1
+    }
+    
+    func setPortrait() {
+        modeTimerLabel.alpha = 0
+        modeStopWatchLabel.alpha = 0
+        logLabel.alpha = 0
+    }
     
     func changeGoalTime() {
         isFirst = true
@@ -577,5 +618,7 @@ extension StopwatchViewController {
         //하루 그래프 데이터 계산
         daily.stopTask()
         daily.save()
+        //화면 회전 체크
+        deviceRotated()
     }
 }

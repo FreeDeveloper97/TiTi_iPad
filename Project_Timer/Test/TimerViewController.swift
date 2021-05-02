@@ -72,6 +72,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         modeTimer.backgroundColor = UIColor.gray
         modeTimerLabel.textColor = UIColor.gray
         modeTimer.isUserInteractionEnabled = false
@@ -94,6 +95,22 @@ class TimerViewController: UIViewController {
         
         daily.load()
         setTask()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+
+    @objc func deviceRotated(){
+        if UIDevice.current.orientation.isLandscape {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -160,6 +177,18 @@ class TimerViewController: UIViewController {
 }
 
 extension TimerViewController : ChangeViewController {
+    
+    func setLandscape() {
+        modeTimerLabel.alpha = 1
+        modeStopWatchLabel.alpha = 1
+        logLabel.alpha = 1
+    }
+    
+    func setPortrait() {
+        modeTimerLabel.alpha = 0
+        modeStopWatchLabel.alpha = 0
+        logLabel.alpha = 0
+    }
     
     func updateViewController() {
         stopColor()
@@ -656,6 +685,11 @@ extension TimerViewController {
         
         stopColor()
         stopEnable()
+        //하루 그래프 데이터 계산
+        daily.stopTask()
+        daily.save()
+        //화면 회전 체크
+        deviceRotated()
     }
     
     func algoOfRestart() {
