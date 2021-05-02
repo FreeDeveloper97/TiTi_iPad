@@ -13,8 +13,6 @@ import AVFoundation
 class TimerViewController: UIViewController {
 
     @IBOutlet var taskButton: UIButton!
-//    @IBOutlet var taskLeft: UILabel!
-//    @IBOutlet var taskRight: UILabel!
     @IBOutlet var innerProgress: CircularProgressView!
     @IBOutlet var outterProgress: CircularProgressView!
     
@@ -29,11 +27,9 @@ class TimerViewController: UIViewController {
     @IBOutlet var modeTimer: UIButton!
     @IBOutlet var modeTimerLabel: UILabel!
     @IBOutlet var modeStopWatch: UIButton!
-    @IBOutlet var modeStopwatchLabel: UILabel!
+    @IBOutlet var modeStopWatchLabel: UILabel!
     @IBOutlet var log: UIButton!
     @IBOutlet var logLabel: UILabel!
-//    @IBOutlet var lineLeft: UIView!
-//    @IBOutlet var lineRight: UIView!
     
     @IBOutlet var startStopBT: UIButton!
     @IBOutlet var startStopBTLabel: UILabel!
@@ -94,7 +90,6 @@ class TimerViewController: UIViewController {
         
         setBackground()
         checkIsFirst()
-        checkAverage()
         setProgress()
         
         daily.load()
@@ -132,7 +127,7 @@ class TimerViewController: UIViewController {
             saveTimes()
             printLogs()
             updateProgress()
-            showNowTime()
+//            showNowTime()
         }
     }
 
@@ -169,9 +164,6 @@ extension TimerViewController : ChangeViewController {
     func updateViewController() {
         stopColor()
         stopEnable()
-//        RestartButton.backgroundColor = CLICK
-//        RestartButton.setTitleColor(UIColor.white, for: .normal)
-//        RestartButton.isUserInteractionEnabled = false
         
         isStop = true
         realTime.invalidate()
@@ -188,20 +180,13 @@ extension TimerViewController : ChangeViewController {
         //정지 회수 저장
         stopCount = 0
         UserDefaults.standard.set(0, forKey: "stopCount")
-//        AverageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
         
         TIMEofSum.text = printTime(temp: sumTime)
         TIMEofTimer.text = printTime(temp: timerTime)
         TIMEofTarget.text = printTime(temp: goalTime)
         
         persentReset()
-        //빡공률 보이기 설정
-//        if(showAverage == 0) {
-//            AverageLabel.alpha = 1
-//        }
-//        else {
-//            AverageLabel.alpha = 0
-//        }
+ 
         //종료 예상시간 보이기
         finishTimeLabel.text = getFutureTime()
     }
@@ -261,28 +246,6 @@ extension TimerViewController {
         }
     }
     
-    func checkAverage() {
-//        if(showAverage == 0) {
-//            AverageLabel.alpha = 1
-//            AverageLabel.textColor = UIColor.white
-//            setAverage()
-//        } else {
-//            AverageLabel.alpha = 0
-//        }
-    }
-    
-    func setAverage() {
-//        AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 23)
-//        if(stopCount == 0) {
-//            AverageLabel.text = "STOP : " + String(stopCount) + "\nAVER : 0:00:00"
-//        } else {
-//            var print = "STOP : " + String(stopCount)
-//            let aver = (Int)(sumTime/stopCount)
-//            print += "\nAVER : " + printTime(temp: aver)
-//            AverageLabel.text = print
-//        }
-    }
-    
     func setButtonRotation() {
         startStopBT.transform = CGAffineTransform(rotationAngle: .pi*5/6)
         settingBT.transform = CGAffineTransform(rotationAngle: .pi*1/6)
@@ -325,11 +288,6 @@ extension TimerViewController {
         log.layer.shadowOpacity = 0.4
         log.layer.shadowOffset = CGSize.zero
         log.layer.shadowRadius = 4
-        
-//        taskButton.layer.shadowColor = UIColor.gray.cgColor
-//        taskButton.layer.shadowOpacity = 1.0
-//        taskButton.layer.shadowOffset = CGSize.zero
-//        taskButton.layer.shadowRadius = 4
     }
     
     func getDatas() {
@@ -590,18 +548,9 @@ extension TimerViewController {
         outterProgress.progressColor = UIColor.white
         innerProgress.progressColor = INNER!
         startStopBT.backgroundColor = RED!
-//        StartButton.backgroundColor = BUTTON
-//        StopButton.backgroundColor = CLICK
-//        RestartButton.backgroundColor = BUTTON
-//        StartButton.setTitleColor(BLUE, for: .normal)
-//        StopButton.setTitleColor(UIColor.white, for: .normal)
-//        RestartButton.setTitleColor(BLUE, for: .normal)
         TIMEofTimer.textColor = UIColor.white
         //예상종료시간 보이기, stop 버튼 제자리로 이동
         UIView.animate(withDuration: 0.3, animations: {
-//            self.finishTimeLabel_show.alpha = 1
-//            self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-//            self.ModeButton.layer.borderColor = UIColor.white.cgColor
             self.setTimerBT.alpha = 1
             self.settingBT.alpha = 1
             self.taskButton.layer.borderColor = UIColor.white.cgColor
@@ -615,21 +564,9 @@ extension TimerViewController {
             self.modeStopWatch.alpha = 1
             self.log.alpha = 1
             self.modeTimerLabel.alpha = 1
-            self.modeStopwatchLabel.alpha = 1
+            self.modeStopWatchLabel.alpha = 1
             self.logLabel.alpha = 1
-//            self.lineLeft.alpha = 1
-//            self.lineRight.alpha = 1
-//            self.taskLeft.alpha = 1
-//            self.taskRight.alpha = 1
-//            self.StartButton.alpha = 1
-//            self.RestartButton.alpha = 1
-//            self.SettingButton.alpha = 1
-//            self.TimerButton.alpha = 1
-//            self.LogButton.alpha = 1
-//            self.viewLabels.alpha = 1
         })
-//        self.nowTimeLabel.text = "Now Time".localized()
-//        self.nowTimeLabel.alpha = 0
     }
     
     func startColor() {
@@ -637,12 +574,6 @@ extension TimerViewController {
         outterProgress.progressColor = BLUE!
         innerProgress.progressColor = UIColor.white
         startStopBT.backgroundColor = UIColor.clear
-//        StartButton.backgroundColor = CLICK
-//        StopButton.backgroundColor = UIColor.clear
-//        RestartButton.backgroundColor = CLICK
-//        StartButton.setTitleColor(UIColor.white, for: .normal)
-//        StopButton.setTitleColor(UIColor.white, for: .normal)
-//        RestartButton.setTitleColor(UIColor.white, for: .normal)
         TIMEofTimer.textColor = BLUE
         //예상종료시간 숨기기, stop 버튼 센터로 이동
         UIView.animate(withDuration: 0.3, animations: {
@@ -650,42 +581,18 @@ extension TimerViewController {
             self.modeStopWatch.alpha = 0
             self.log.alpha = 0
             self.modeTimerLabel.alpha = 0
-            self.modeStopwatchLabel.alpha = 0
+            self.modeStopWatchLabel.alpha = 0
             self.logLabel.alpha = 0
-//            self.lineLeft.alpha = 0
-//            self.lineRight.alpha = 0
             self.setTimerBT.alpha = 0
             self.settingBT.alpha = 0
             self.taskButton.layer.borderColor = UIColor.clear.cgColor
             self.startStopBTLabel.textColor = self.RED!
             self.setTimerBTLabel.alpha = 0
             self.settingBTLabel.alpha = 0
-//            self.taskLeft.alpha = 0
-//            self.taskRight.alpha = 0
-//            self.finishTimeLabel_show.alpha = 0
-//            self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: -15)
-//            self.StartButton.alpha = 0
-//            self.RestartButton.alpha = 0
-//            self.SettingButton.alpha = 0
-//            self.TimerButton.alpha = 0
-//            self.LogButton.alpha = 0
-//            self.viewLabels.alpha = 0
-//            self.AverageLabel.alpha = 1
-//            self.ModeButton.layer.borderColor = nil
-//            self.nowTimeLabel.alpha = 1
         })
     }
     
-    func restartColor() {
-//        RestartButton.backgroundColor = CLICK
-//        RestartButton.setTitleColor(UIColor.white, for: .normal)
-//        RestartButton.isUserInteractionEnabled = false
-    }
-    
     func stopEnable() {
-//        StartButton.isUserInteractionEnabled = true
-//        RestartButton.isUserInteractionEnabled = true
-//        StopButton.isUserInteractionEnabled = false
         settingBT.isUserInteractionEnabled = true
         setTimerBT.isUserInteractionEnabled = true
         log.isUserInteractionEnabled = true
@@ -694,13 +601,6 @@ extension TimerViewController {
     }
     
     func startEnable() {
-//        StartButton.isUserInteractionEnabled = false
-//        RestartButton.isUserInteractionEnabled = false
-//        StopButton.isUserInteractionEnabled = true
-//        SettingButton.isUserInteractionEnabled = false
-//        TimerButton.isUserInteractionEnabled = false
-//        LogButton.isUserInteractionEnabled = false
-//        ModeButton.isUserInteractionEnabled = false
         settingBT.isUserInteractionEnabled = false
         setTimerBT.isUserInteractionEnabled = false
         log.isUserInteractionEnabled = false
@@ -708,7 +608,7 @@ extension TimerViewController {
         taskButton.isUserInteractionEnabled = false
     }
     
-    func showNowTime() {
+//    func showNowTime() {
 //        let now = Date()
 //        let dateFormatter = DateFormatter()
 //        dateFormatter.locale = Locale(identifier: "en_US")
@@ -717,13 +617,12 @@ extension TimerViewController {
 //        AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
 //        nowTimeLabel.text = "\n" + "Now Time".localized()
 //        AverageLabel.text = "\(today)"
-    }
+//    }
     
     func setLocalizable() {
-        targetTimeLabel.text = "Target Time".localized()
         sumTimeLabel.text = "Sum Time".localized()
         timerLabel.text = "Timer".localized()
-//        finishTimeLabel_show.text = "End Time".localized()
+        targetTimeLabel.text = "Target Time".localized()
     }
     
     func setTask() {
@@ -743,7 +642,7 @@ extension TimerViewController {
             firstStop()
             isFirst = false
         }
-        showNowTime()
+//        showNowTime()
     }
     
     func algoOfStop() {
@@ -757,12 +656,9 @@ extension TimerViewController {
         
         stopColor()
         stopEnable()
-        checkAverage()
-        setAverage()
     }
     
     func algoOfRestart() {
-        restartColor()
         resetTimer()
         resetProgress()
         finishTimeLabel.text = getFutureTime()
