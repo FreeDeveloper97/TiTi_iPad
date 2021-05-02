@@ -98,18 +98,21 @@ class TimerViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        print("disappear in timer")
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     @objc func deviceRotated(){
-        if UIDevice.current.orientation.isLandscape {
-            //Code here
-            print("Landscape")
-            setLandscape()
-        } else {
-            //Code here
-            print("Portrait")
-            setPortrait()
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            }
         }
     }
     

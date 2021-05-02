@@ -70,16 +70,16 @@ class StopwatchViewController: UIViewController {
     //하루 그래프를 위한 구조
     var daily = Daily()
     
-    override func viewWillAppear(_ animated: Bool) {
-        if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
-        }
-        if UIDevice.current.orientation.isFlat {
-            print("Flat")
-        } else {
-            print("Portrait")
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        if UIDevice.current.orientation.isLandscape {
+//            print("Landscape")
+//        }
+//        if UIDevice.current.orientation.isFlat {
+//            print("Flat")
+//        } else {
+//            print("Portrait")
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,18 +113,21 @@ class StopwatchViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        print("disappear in stopwatch")
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     @objc func deviceRotated(){
-        if UIDevice.current.orientation.isLandscape {
-            //Code here
-            print("Landscape")
-            setLandscape()
-        } else {
-            //Code here
-            print("Portrait")
-            setPortrait()
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            }
         }
     }
     
@@ -303,10 +306,10 @@ extension StopwatchViewController {
         settingBT.layer.shadowOffset = CGSize.zero
         settingBT.layer.shadowRadius = 4
         
-        modeStopWatch.layer.shadowColor = UIColor.gray.cgColor
-        modeStopWatch.layer.shadowOpacity = 0.4
-        modeStopWatch.layer.shadowOffset = CGSize.zero
-        modeStopWatch.layer.shadowRadius = 4
+        modeTimer.layer.shadowColor = UIColor.gray.cgColor
+        modeTimer.layer.shadowOpacity = 0.4
+        modeTimer.layer.shadowOffset = CGSize.zero
+        modeTimer.layer.shadowRadius = 4
         
         log.layer.shadowColor = UIColor.gray.cgColor
         log.layer.shadowOpacity = 0.4
