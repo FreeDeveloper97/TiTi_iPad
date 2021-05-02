@@ -323,7 +323,7 @@ extension TimerViewController {
         log.layer.shadowRadius = 4
         
         taskButton.layer.shadowColor = UIColor.gray.cgColor
-        taskButton.layer.shadowOpacity = 0.5
+        taskButton.layer.shadowOpacity = 1.0
         taskButton.layer.shadowOffset = CGSize.zero
         taskButton.layer.shadowRadius = 4
     }
