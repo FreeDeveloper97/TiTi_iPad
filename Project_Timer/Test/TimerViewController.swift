@@ -36,13 +36,17 @@ class TimerViewController: UIViewController {
 //    @IBOutlet var lineRight: UIView!
     
     @IBOutlet var startStopBT: UIButton!
+    @IBOutlet var startStopBTLabel: UILabel!
     @IBOutlet var setTimerBT: UIButton!
+    @IBOutlet var setTimerBTLabel: UILabel!
     @IBOutlet var settingBT: UIButton!
+    @IBOutlet var settingBTLabel: UILabel!
     
     let BLUE = UIColor(named: "Blue")
     let BUTTON = UIColor(named: "Button")
     let CLICK = UIColor(named: "Click")
     let RED = UIColor(named: "Text")
+    let INNER = UIColor(named: "innerColor")
     
     var audioPlayer : AVPlayer!
     var timeTrigger = true
@@ -322,10 +326,10 @@ extension TimerViewController {
         log.layer.shadowOffset = CGSize.zero
         log.layer.shadowRadius = 4
         
-        taskButton.layer.shadowColor = UIColor.gray.cgColor
-        taskButton.layer.shadowOpacity = 1.0
-        taskButton.layer.shadowOffset = CGSize.zero
-        taskButton.layer.shadowRadius = 4
+//        taskButton.layer.shadowColor = UIColor.gray.cgColor
+//        taskButton.layer.shadowOpacity = 1.0
+//        taskButton.layer.shadowOffset = CGSize.zero
+//        taskButton.layer.shadowRadius = 4
     }
     
     func getDatas() {
@@ -340,9 +344,8 @@ extension TimerViewController {
     
     func setBorner() {
         startStopBT.layer.borderWidth = 5
-        startStopBT.layer.borderColor = RED?.cgColor
-        taskButton.layer.borderWidth = 2
-        taskButton.layer.borderColor = UIColor.white.cgColor
+        startStopBT.layer.borderColor = RED!.cgColor
+        taskButton.layer.borderWidth = 3
     }
     
     func goToViewController(where: String) {
@@ -585,7 +588,7 @@ extension TimerViewController {
     func stopColor() {
         self.view.backgroundColor = BLUE
         outterProgress.progressColor = UIColor.white
-        innerProgress.progressColor = UIColor.black
+        innerProgress.progressColor = INNER!
         startStopBT.backgroundColor = RED!
 //        StartButton.backgroundColor = BUTTON
 //        StopButton.backgroundColor = CLICK
@@ -602,6 +605,9 @@ extension TimerViewController {
             self.setTimerBT.alpha = 1
             self.settingBT.alpha = 1
             self.taskButton.layer.borderColor = UIColor.white.cgColor
+            self.startStopBTLabel.textColor = UIColor.white
+            self.setTimerBTLabel.alpha = 1
+            self.settingBTLabel.alpha = 1
         })
         //animation test
         UIView.animate(withDuration: 0.5, animations: {
@@ -651,6 +657,9 @@ extension TimerViewController {
             self.setTimerBT.alpha = 0
             self.settingBT.alpha = 0
             self.taskButton.layer.borderColor = UIColor.clear.cgColor
+            self.startStopBTLabel.textColor = self.RED!
+            self.setTimerBTLabel.alpha = 0
+            self.settingBTLabel.alpha = 0
 //            self.taskLeft.alpha = 0
 //            self.taskRight.alpha = 0
 //            self.finishTimeLabel_show.alpha = 0
