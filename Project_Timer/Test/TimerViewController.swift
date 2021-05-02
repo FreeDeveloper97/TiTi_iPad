@@ -13,8 +13,8 @@ import AVFoundation
 class TimerViewController: UIViewController {
 
     @IBOutlet var taskButton: UIButton!
-    @IBOutlet var taskLeft: UILabel!
-    @IBOutlet var taskRight: UILabel!
+//    @IBOutlet var taskLeft: UILabel!
+//    @IBOutlet var taskRight: UILabel!
     @IBOutlet var innerProgress: CircularProgressView!
     @IBOutlet var outterProgress: CircularProgressView!
     
@@ -26,11 +26,14 @@ class TimerViewController: UIViewController {
     @IBOutlet var TIMEofTarget: UILabel!
     @IBOutlet var finishTimeLabel: UILabel!
     
-    @IBOutlet var modeStopWatch: UIButton!
     @IBOutlet var modeTimer: UIButton!
+    @IBOutlet var modeTimerLabel: UILabel!
+    @IBOutlet var modeStopWatch: UIButton!
+    @IBOutlet var modeStopwatchLabel: UILabel!
     @IBOutlet var log: UIButton!
-    @IBOutlet var lineLeft: UIView!
-    @IBOutlet var lineRight: UIView!
+    @IBOutlet var logLabel: UILabel!
+//    @IBOutlet var lineLeft: UIView!
+//    @IBOutlet var lineRight: UIView!
     
     @IBOutlet var startStopBT: UIButton!
     @IBOutlet var setTimerBT: UIButton!
@@ -69,13 +72,15 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        modeTimer.setTitleColor(UIColor.darkGray, for: .normal)
+        modeTimer.backgroundColor = UIColor.gray
+        modeTimerLabel.textColor = UIColor.gray
         modeTimer.isUserInteractionEnabled = false
         getVCNum()
         setLocalizable()
         
         setButtonRotation()
         setRadius()
+        setShadow()
         setBorner()
         getDatas()
         
@@ -277,12 +282,50 @@ extension TimerViewController {
     func setButtonRotation() {
         startStopBT.transform = CGAffineTransform(rotationAngle: .pi*5/6)
         settingBT.transform = CGAffineTransform(rotationAngle: .pi*1/6)
+        modeTimer.transform = CGAffineTransform(rotationAngle: .pi*1/6)
+        log.transform = CGAffineTransform(rotationAngle: .pi*5/6)
     }
     
     func setRadius() {
         startStopBT.layer.cornerRadius = 15
         setTimerBT.layer.cornerRadius = 15
         settingBT.layer.cornerRadius = 15
+        modeTimer.layer.cornerRadius = 15
+        modeStopWatch.layer.cornerRadius = 15
+        log.layer.cornerRadius = 15
+        taskButton.layer.cornerRadius = 15
+    }
+    
+    func setShadow() {
+        startStopBT.layer.shadowColor = UIColor(named: "darkRed")!.cgColor
+        startStopBT.layer.shadowOpacity = 0.3
+        startStopBT.layer.shadowOffset = CGSize.zero
+        startStopBT.layer.shadowRadius = 3
+        
+        setTimerBT.layer.shadowColor = UIColor.gray.cgColor
+        setTimerBT.layer.shadowOpacity = 0.5
+        setTimerBT.layer.shadowOffset = CGSize.zero
+        setTimerBT.layer.shadowRadius = 4
+        
+        settingBT.layer.shadowColor = UIColor.gray.cgColor
+        settingBT.layer.shadowOpacity = 0.5
+        settingBT.layer.shadowOffset = CGSize.zero
+        settingBT.layer.shadowRadius = 4
+        
+        modeStopWatch.layer.shadowColor = UIColor.gray.cgColor
+        modeStopWatch.layer.shadowOpacity = 0.4
+        modeStopWatch.layer.shadowOffset = CGSize.zero
+        modeStopWatch.layer.shadowRadius = 4
+        
+        log.layer.shadowColor = UIColor.gray.cgColor
+        log.layer.shadowOpacity = 0.4
+        log.layer.shadowOffset = CGSize.zero
+        log.layer.shadowRadius = 4
+        
+        taskButton.layer.shadowColor = UIColor.gray.cgColor
+        taskButton.layer.shadowOpacity = 0.5
+        taskButton.layer.shadowOffset = CGSize.zero
+        taskButton.layer.shadowRadius = 4
     }
     
     func getDatas() {
@@ -298,6 +341,8 @@ extension TimerViewController {
     func setBorner() {
         startStopBT.layer.borderWidth = 5
         startStopBT.layer.borderColor = RED?.cgColor
+        taskButton.layer.borderWidth = 2
+        taskButton.layer.borderColor = UIColor.white.cgColor
     }
     
     func goToViewController(where: String) {
@@ -556,16 +601,20 @@ extension TimerViewController {
 //            self.ModeButton.layer.borderColor = UIColor.white.cgColor
             self.setTimerBT.alpha = 1
             self.settingBT.alpha = 1
+            self.taskButton.layer.borderColor = UIColor.white.cgColor
         })
         //animation test
         UIView.animate(withDuration: 0.5, animations: {
             self.modeTimer.alpha = 1
             self.modeStopWatch.alpha = 1
             self.log.alpha = 1
-            self.lineLeft.alpha = 1
-            self.lineRight.alpha = 1
-            self.taskLeft.alpha = 1
-            self.taskRight.alpha = 1
+            self.modeTimerLabel.alpha = 1
+            self.modeStopwatchLabel.alpha = 1
+            self.logLabel.alpha = 1
+//            self.lineLeft.alpha = 1
+//            self.lineRight.alpha = 1
+//            self.taskLeft.alpha = 1
+//            self.taskRight.alpha = 1
 //            self.StartButton.alpha = 1
 //            self.RestartButton.alpha = 1
 //            self.SettingButton.alpha = 1
@@ -594,12 +643,16 @@ extension TimerViewController {
             self.modeTimer.alpha = 0
             self.modeStopWatch.alpha = 0
             self.log.alpha = 0
-            self.lineLeft.alpha = 0
-            self.lineRight.alpha = 0
+            self.modeTimerLabel.alpha = 0
+            self.modeStopwatchLabel.alpha = 0
+            self.logLabel.alpha = 0
+//            self.lineLeft.alpha = 0
+//            self.lineRight.alpha = 0
             self.setTimerBT.alpha = 0
             self.settingBT.alpha = 0
-            self.taskLeft.alpha = 0
-            self.taskRight.alpha = 0
+            self.taskButton.layer.borderColor = UIColor.clear.cgColor
+//            self.taskLeft.alpha = 0
+//            self.taskRight.alpha = 0
 //            self.finishTimeLabel_show.alpha = 0
 //            self.finishTimeLabel.transform = CGAffineTransform(translationX: 0, y: -15)
 //            self.StartButton.alpha = 0

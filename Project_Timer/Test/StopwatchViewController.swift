@@ -79,6 +79,7 @@ class StopwatchViewController: UIViewController {
         setButtonRotation()
         setColor()
         setRadius()
+        setShadow()
         setBorder()
         setDatas()
         setTimes()
@@ -289,6 +290,17 @@ extension StopwatchViewController {
         startStopBT.layer.cornerRadius = 15
         tempBT.layer.cornerRadius = 15
         settingBT.layer.cornerRadius = 15
+    }
+    
+    func setShadow() {
+        startStopBT.layer.shadowColor = UIColor.gray.cgColor
+        startStopBT.layer.shadowOpacity = 1.0
+        startStopBT.layer.shadowOffset = CGSize.zero
+        startStopBT.layer.shadowRadius = 6
+        settingBT.layer.shadowColor = UIColor.gray.cgColor
+        settingBT.layer.shadowOpacity = 1.0
+        settingBT.layer.shadowOffset = CGSize.zero
+        settingBT.layer.shadowRadius = 6
     }
     
     func setBorder() {
