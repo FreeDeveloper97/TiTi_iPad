@@ -131,7 +131,6 @@ class StopwatchViewController: UIViewController {
         sumTime += 1
         sumTime_temp += 1
         goalTime -= 1
-        sumTime_temp = sumTime_temp%fixedSecond
         
         updateTimeLabels()
         updateProgress()
@@ -323,7 +322,7 @@ extension StopwatchViewController {
         totalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         //새로운 스톱워치 시간
         sumTime_temp = 0
-        fixedSecond = 3600
+        fixedSecond = 60
     }
     
     func setTimes() {
@@ -395,7 +394,7 @@ extension StopwatchViewController {
     }
     
     func updateProgress() {
-        progressPer = Float(sumTime_temp) / Float(fixedSecond)
+        progressPer = Float(sumTime_temp%fixedSecond) / Float(fixedSecond)
         outterProgress.setProgressWithAnimation(duration: 0.0, value: progressPer, from: beforePer)
         beforePer = progressPer
         //circle2
