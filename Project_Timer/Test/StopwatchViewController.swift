@@ -322,7 +322,7 @@ extension StopwatchViewController {
         totalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
         //새로운 스톱워치 시간
         sumTime_temp = 0
-        fixedSecond = 60
+        fixedSecond = 3600
     }
     
     func setTimes() {
