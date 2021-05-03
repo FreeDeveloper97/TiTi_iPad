@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircularProgressView: UIView {
+class StaticCircularProgressView: UIView {
 
     fileprivate var progressLayer = CAShapeLayer()
     fileprivate var trackLayer = CAShapeLayer()
@@ -51,7 +51,7 @@ class CircularProgressView: UIView {
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.lineWidth = 30.0
         progressLayer.strokeEnd = 0.0
-        progressLayer.lineCap = .round
+//        progressLayer.lineCap = .round
         
         
         layer.addSublayer(progressLayer)
