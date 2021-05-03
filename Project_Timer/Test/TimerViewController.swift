@@ -351,11 +351,13 @@ extension TimerViewController {
     }
     
     func setProgress() {
+        outterProgress.progressWidth = 30.0
         outterProgress.trackColor = UIColor.darkGray
         progressPer = Float(fixedSecond - timerTime) / Float(fixedSecond)
         fromSecond = progressPer
         outterProgress.setProgressWithAnimation(duration: 1.0, value: progressPer, from: 0.0)
         //circle2
+        innerProgress.progressWidth = 10.0
         innerProgress.trackColor = UIColor.clear
         beforePer2 = Float(sumTime)/Float(totalTime)
         innerProgress.setProgressWithAnimation(duration: 1.0, value: beforePer2, from: 0.0)

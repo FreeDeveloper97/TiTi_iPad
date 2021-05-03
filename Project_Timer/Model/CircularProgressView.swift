@@ -34,6 +34,13 @@ class CircularProgressView: UIView {
         }
     }
     
+    var progressWidth = CGFloat(30.0) {
+        didSet {
+            trackLayer.lineWidth = progressWidth
+            progressLayer.lineWidth = progressWidth
+        }
+    }
+    
     func createCircularPath() {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = self.frame.size.width/2
