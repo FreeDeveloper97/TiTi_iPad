@@ -51,7 +51,6 @@ class GraphViewController2: UIViewController {
     var fixed_sum: Int = 0
     let f = Float(0.003)
     var breakTime: Int = 0
-    let BLUE = UIColor(named: "CC1")
     var daily = Daily()
     
     override func viewDidLoad() {
@@ -238,7 +237,12 @@ extension GraphViewController2 {
     
     func fillHourColor() {
         let timeline = daily.timeline
-//        timeline[21] = 1100
+//        timeline[6] = 600-1
+//        timeline[7] = 1200-1
+//        timeline[8] = 1800-1
+//        timeline[9] = 2400-1
+//        timeline[10] = 3000-1
+//        timeline[11] = 3600-1
         print("timeLine : \(timeline)")
         fillColor(time: timeline[0], view: time_24)
         fillColor(time: timeline[1], view: time_01)
@@ -270,13 +274,19 @@ extension GraphViewController2 {
         if(time == 0) {
             return
         }
-        view.backgroundColor = BLUE
-        if(time < 1200) {
-            view.alpha = 0.3
-        } else if(time >= 1200 && time < 2400) {
-            view.alpha = 0.6
-        } else {
-            view.alpha = 1
+        view.backgroundColor = UIColor(named: "CC2")
+        if(time < 600) { //0 ~ 10
+            view.alpha = 0.2
+        } else if(time < 1200) { //10 ~ 20
+            view.alpha = 0.35
+        } else if(time < 1800) { //20 ~ 30
+            view.alpha = 0.5
+        } else if(time < 2400) { //30 ~ 40
+            view.alpha = 0.65
+        } else if(time < 3000) { //40 ~ 50
+            view.alpha = 0.8
+        } else { //50 ~ 60
+            view.alpha = 1.0
         }
     }
 }
