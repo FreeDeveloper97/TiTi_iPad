@@ -1599,7 +1599,7 @@ AVER : 0:00:00</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTe-b7-krP">
-                                <rect key="frame" x="53.5" y="48.5" width="597" height="631"/>
+                                <rect key="frame" x="53.5" y="48.5" width="597.5" height="631"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oel-cR-YiO">
                                         <rect key="frame" x="464.5" y="401" width="13.5" height="14.5"/>
@@ -1974,7 +1974,7 @@ AVER : 0:00:00</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qga-of-hFc">
-                                        <rect key="frame" x="259" y="5" width="79" height="30"/>
+                                        <rect key="frame" x="259" y="5" width="79.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="BiJ-Xx-w0Y"/>
                                         </constraints>
@@ -2430,8 +2430,8 @@ AVER : 0:00:00</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StopWatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj3-Dh-QeL">
-                                                        <rect key="frame" x="226.5" y="178" width="87" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj3-Dh-QeL">
+                                                        <rect key="frame" x="227" y="178" width="86" height="22"/>
                                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2519,6 +2519,9 @@ AVER : 0:00:00</string>
                                     <constraint firstAttribute="height" constant="80" id="MH4-Wt-KWB"/>
                                     <constraint firstAttribute="width" constant="40" id="Oto-RE-IWi"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="resetBTAction:" destination="ub6-y6-1Xn" eventType="touchUpInside" id="I8z-AT-xNc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysk-tF-ORT">
                                 <rect key="frame" x="789" y="556.5" width="40" height="80"/>
@@ -2603,6 +2606,12 @@ AVER : 0:00:00</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXv-B4-4CI">
+                                <rect key="frame" x="845" y="412.5" width="14" height="28"/>
+                                <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="25"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YKK-14-2Hc"/>
                         <color key="backgroundColor" name="Background2"/>
@@ -2626,10 +2635,12 @@ AVER : 0:00:00</string>
                             <constraint firstItem="huW-5H-s7R" firstAttribute="centerX" secondItem="sCj-Yh-bLz" secondAttribute="centerX" id="lLP-tg-vhs"/>
                             <constraint firstItem="9Xd-D4-PcH" firstAttribute="leading" secondItem="VAv-Ou-ZbK" secondAttribute="trailing" constant="10" id="oGw-Nb-uTb"/>
                             <constraint firstItem="cpV-hA-2hX" firstAttribute="leading" secondItem="9Xd-D4-PcH" secondAttribute="trailing" constant="-13" id="piV-kT-T6J"/>
+                            <constraint firstItem="RXv-B4-4CI" firstAttribute="centerX" secondItem="73u-bc-wxb" secondAttribute="centerX" id="t6r-r2-e6Y"/>
                             <constraint firstItem="5rj-3k-4Me" firstAttribute="top" secondItem="Msj-zk-KJO" secondAttribute="bottom" constant="130" id="tLY-bE-YxS"/>
                             <constraint firstItem="73u-bc-wxb" firstAttribute="leading" secondItem="cpV-hA-2hX" secondAttribute="trailing" constant="30" id="tXB-16-gEw"/>
                             <constraint firstItem="tKM-EA-XbQ" firstAttribute="centerY" secondItem="6yy-a6-pdF" secondAttribute="centerY" id="uMB-x9-xmO"/>
                             <constraint firstItem="CPI-c8-TR3" firstAttribute="centerX" secondItem="Ysk-tF-ORT" secondAttribute="centerX" id="vDI-i0-yfY"/>
+                            <constraint firstItem="RXv-B4-4CI" firstAttribute="centerY" secondItem="73u-bc-wxb" secondAttribute="centerY" id="w6K-ai-2VE"/>
                             <constraint firstItem="6yy-a6-pdF" firstAttribute="leading" secondItem="cpV-hA-2hX" secondAttribute="trailing" constant="-13" id="wmN-u6-l3A"/>
                         </constraints>
                     </view>
@@ -2646,6 +2657,8 @@ AVER : 0:00:00</string>
                         <outlet property="modeTimer" destination="9Xd-D4-PcH" id="rNG-AT-wPC"/>
                         <outlet property="modeTimerLabel" destination="VAv-Ou-ZbK" id="tuJ-fe-CB2"/>
                         <outlet property="outterProgress" destination="cpV-hA-2hX" id="HDW-hr-3OG"/>
+                        <outlet property="resetBT" destination="73u-bc-wxb" id="gqx-s4-J94"/>
+                        <outlet property="resetBTLabel" destination="RXv-B4-4CI" id="hCe-aJ-e8X"/>
                         <outlet property="settingBT" destination="Ysk-tF-ORT" id="rnd-n5-87i"/>
                         <outlet property="settingBTLabel" destination="CPI-c8-TR3" id="M3p-Yz-3e0"/>
                         <outlet property="startStopBT" destination="6yy-a6-pdF" id="drY-gU-fhh"/>
@@ -2654,7 +2667,6 @@ AVER : 0:00:00</string>
                         <outlet property="sumTimeLabel" destination="pHp-4T-oUt" id="94Q-fR-lcY"/>
                         <outlet property="targetTimeLabel" destination="tpg-rP-h7c" id="vTR-SZ-FgN"/>
                         <outlet property="taskButton" destination="7vw-7n-z4s" id="CHi-re-4sj"/>
-                        <outlet property="tempBT" destination="73u-bc-wxb" id="gqx-s4-J94"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jc-N7-q8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

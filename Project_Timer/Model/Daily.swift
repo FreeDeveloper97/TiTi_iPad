@@ -21,15 +21,24 @@ struct Daily: Codable {
     var currentTask: String = ""
     var tasks: [String:Int] = [:]
     
+    var beforeTime: Int = 0
+    
     mutating func startTask(_ task: String) {
         self.currentTask = task
         self.startTime = Date()
+        self.beforeTime = tasks[currentTask] ?? 0
     }
     
     mutating func stopTask() {
         var value = tasks[currentTask] ?? 0
         value += getSeconds()
         tasks[currentTask] = value
+    }
+    
+    mutating func updateTask() {
+        let term = getSeconds()
+        tasks[currentTask] = beforeTime+term
+        self.save()
     }
     
     mutating func reset() {

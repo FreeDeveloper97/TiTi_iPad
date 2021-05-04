@@ -31,7 +31,8 @@ class StopwatchViewController: UIViewController {
     
     @IBOutlet var startStopBT: UIButton!
     @IBOutlet var startStopBTLabel: UILabel!
-    @IBOutlet var tempBT: UIButton!
+    @IBOutlet var resetBT: UIButton!
+    @IBOutlet var resetBTLabel: UILabel!
     @IBOutlet var settingBT: UIButton!
     @IBOutlet var settingBTLabel: UILabel!
     
@@ -67,6 +68,7 @@ class StopwatchViewController: UIViewController {
     var totalTime: Int = 0
     var beforePer2: Float = 0.0
     var task: String = ""
+    var time = Time()
     //하루 그래프를 위한 구조
     var daily = Daily()
     
@@ -77,7 +79,6 @@ class StopwatchViewController: UIViewController {
         modeStopWatch.backgroundColor = UIColor.gray
         modeStopWatchLabel.textColor = UIColor.gray
         modeStopWatch.isUserInteractionEnabled = false
-        tempBT.alpha = 0
         
         setVCNum()
         setLocalizable()
@@ -128,15 +129,17 @@ class StopwatchViewController: UIViewController {
     }
     
     @objc func updateCounter(){
-        sumTime += 1
-        sumTime_temp += 1
-        goalTime -= 1
+        let seconds = time.getSeconds()
+        sumTime = time.startSumTime + seconds
+        sumTime_temp = seconds
+        goalTime = time.startGoalTime - seconds
         
         updateTimeLabels()
         updateProgress()
         printLogs()
         saveTimes()
 //        showNowTime()
+        daily.updateTask()
     }
     
     @IBAction func taskBTAction(_ sender: Any) {
@@ -162,6 +165,10 @@ class StopwatchViewController: UIViewController {
     @IBAction func settingBTAction(_ sender: Any) {
         showSettingView()
     }
+    
+    @IBAction func resetBTAction(_ sender: Any) {
+    }
+    
 }
 
 extension StopwatchViewController : ChangeViewController2 {
@@ -283,6 +290,7 @@ extension StopwatchViewController {
         modeStopWatch.layer.cornerRadius = 15
         log.layer.cornerRadius = 15
         taskButton.layer.cornerRadius = 15
+        resetBT.layer.cornerRadius = 15
     }
     
     func setShadow() {
@@ -305,6 +313,11 @@ extension StopwatchViewController {
         log.layer.shadowOpacity = 0.4
         log.layer.shadowOffset = CGSize.zero
         log.layer.shadowRadius = 4
+        
+        resetBT.layer.shadowColor = UIColor.gray.cgColor
+        resetBT.layer.shadowOpacity = 0.5
+        resetBT.layer.shadowOffset = CGSize.zero
+        resetBT.layer.shadowRadius = 4
     }
     
     func setBorder() {
@@ -505,6 +518,8 @@ extension StopwatchViewController {
             self.modeTimerLabel.alpha = 1
             self.modeStopWatchLabel.alpha = 1
             self.logLabel.alpha = 1
+            self.resetBT.alpha = 1
+            self.resetBTLabel.alpha = 1
         })
     }
     
@@ -526,6 +541,8 @@ extension StopwatchViewController {
             self.taskButton.layer.borderColor = UIColor.clear.cgColor
             self.startStopBTLabel.textColor = self.RED!
             self.settingBTLabel.alpha = 0
+            self.resetBT.alpha = 0
+            self.resetBTLabel.alpha = 0
         })
     }
     
@@ -534,6 +551,7 @@ extension StopwatchViewController {
         log.isUserInteractionEnabled = true
         modeTimer.isUserInteractionEnabled = true
         taskButton.isUserInteractionEnabled = true
+        resetBT.isUserInteractionEnabled = true
     }
     
     func startEnable() {
@@ -541,6 +559,7 @@ extension StopwatchViewController {
         log.isUserInteractionEnabled = false
         modeTimer.isUserInteractionEnabled = false
         taskButton.isUserInteractionEnabled = false
+        resetBT.isUserInteractionEnabled = false
     }
     
     func goToViewController(where: String) {
@@ -594,6 +613,7 @@ extension StopwatchViewController {
         startColor()
         resetSum_temp()
         updateProgress()
+        time.setTimes(goal: goalTime, sum: sumTime, timer: 0)
         startAction()
         finishTimeLabel.text = getFutureTime()
         if(isFirst) {
@@ -601,8 +621,7 @@ extension StopwatchViewController {
             isFirst = false
         }
 //        showNowTime()
-        //하루 그래프 데이터 생성
-        daily.startTask(task)
+        daily.startTask(task) //하루 그래프 데이터 생성
     }
     
     func algoOfStop() {
@@ -615,10 +634,7 @@ extension StopwatchViewController {
         
         stopColor()
         stopEnable()
-        //하루 그래프 데이터 계산
-        daily.stopTask()
-        daily.save()
-        //화면 회전 체크
-        deviceRotated()
+        daily.save() //하루 그래프 데이터 계산
+        deviceRotated() //화면 회전 체크
     }
 }
