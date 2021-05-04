@@ -13,6 +13,7 @@ struct Time {
     var startGoalTime: Int = 0
     var startSumTime: Int = 0
     var startTimerTime: Int = 0
+    var startSumTimeTemp: Int = 0
     
     init() {
         self.startTime = nil

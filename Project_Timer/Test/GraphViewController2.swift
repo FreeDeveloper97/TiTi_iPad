@@ -52,11 +52,11 @@ class GraphViewController2: UIViewController {
     let f = Float(0.003)
     var breakTime: Int = 0
     let BLUE = UIColor(named: "CC1")
+    var daily = Daily()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setRadius()
-//        dumyComor()
         
         //7days
         let hostingController = UIHostingController(rootView: ContentView())
@@ -68,8 +68,8 @@ class GraphViewController2: UIViewController {
         viewOfView.addSubview(hostingController.view)
         
         //today
-        var daily = Daily()
         daily.load()
+        fillHourColor()
         if(daily.tasks != [:]) {
             today.text = getDay(day: daily.day)
             let temp: [String:Int] = daily.tasks
@@ -236,8 +236,10 @@ extension GraphViewController2 {
         return temp
     }
     
-    func dumyComor() {
-        let timeline = [2450,1250,1000,0,0,0,0,0,0,1000,3300,3300,2400,1200,1000,3600,3600,2400,2400,1000,0,2400,23400,0]
+    func fillHourColor() {
+        let timeline = daily.timeline
+//        timeline[21] = 1100
+        print("timeLine : \(timeline)")
         fillColor(time: timeline[0], view: time_24)
         fillColor(time: timeline[1], view: time_01)
         fillColor(time: timeline[2], view: time_02)

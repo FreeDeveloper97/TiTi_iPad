@@ -53,7 +53,6 @@ class StopwatchViewController: UIViewController {
     var diffMins = 0
     var diffSecs = 0
     var isStop = true
-    var isBreak = false
     var isFirst = false
     var progressPer: Float = 0.0
     var fixedSecond: Int = 3600
@@ -131,6 +130,7 @@ class StopwatchViewController: UIViewController {
     @objc func updateCounter(){
         let seconds = time.getSeconds()
         sumTime = time.startSumTime + seconds
+//        sumTime_temp = time.startSumTimeTemp + seconds
         sumTime_temp = seconds
         goalTime = time.startGoalTime - seconds
         
@@ -167,6 +167,8 @@ class StopwatchViewController: UIViewController {
     }
     
     @IBAction func resetBTAction(_ sender: Any) {
+        resetSum_temp()
+        updateProgress()
     }
     
 }
@@ -229,12 +231,7 @@ extension StopwatchViewController {
             realTime.invalidate()
             timeTrigger = true
             let shared = UserDefaults.standard
-            shared.set(Date(), forKey: "savedTime")
-        } else if(isBreak) {
-            realTime.invalidate()
-            timeTrigger = true
-            let shared = UserDefaults.standard
-            shared.set(Date(), forKey: "savedTime")
+            shared.set(Date(), forKey: "savedTime") //나가는 시점의 시간 저장
         }
     }
     
@@ -243,8 +240,8 @@ extension StopwatchViewController {
         finishTimeLabel.text = getFutureTime()
         if(!isStop) {
             if let savedDate = UserDefaults.standard.object(forKey: "savedTime") as? Date {
-                (diffHrs, diffMins, diffSecs) = ViewController.getTimeDifference(startDate: savedDate)
-                refresh(hours: diffHrs, mins: diffMins, secs: diffSecs)
+                (diffHrs, diffMins, diffSecs) = StopwatchViewController.getTimeDifference(startDate: savedDate)
+                refresh(hours: diffHrs, mins: diffMins, secs: diffSecs, start: savedDate)
                 removeSavedDate()
             }
         }
@@ -256,7 +253,7 @@ extension StopwatchViewController {
         return(components.hour!, components.minute!, components.second!)
     }
     
-    func refresh (hours: Int, mins: Int, secs: Int) {
+    func refresh (hours: Int, mins: Int, secs: Int, start: Date) {
         let tempSeconds = hours*3600 + mins*60 + secs
         
         goalTime -= tempSeconds
@@ -268,6 +265,8 @@ extension StopwatchViewController {
         updateTimeLabels()
         startAction()
         finishTimeLabel.text = getFutureTime()
+        //나간 시점 start, 현재 시각 Date 와 비교
+        daily.addHoursInBackground(start, tempSeconds)
     }
     
     func removeSavedDate() {
