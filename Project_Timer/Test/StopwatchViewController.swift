@@ -282,12 +282,12 @@ extension StopwatchViewController {
     }
     
     func setRadius() {
+        taskButton.layer.cornerRadius = 15
         startStopBT.layer.cornerRadius = 15
         settingBT.layer.cornerRadius = 15
         modeTimer.layer.cornerRadius = 15
         modeStopWatch.layer.cornerRadius = 15
         log.layer.cornerRadius = 15
-        taskButton.layer.cornerRadius = 15
         resetBT.layer.cornerRadius = 15
     }
     
@@ -593,7 +593,7 @@ extension StopwatchViewController {
     }
     
     func setTask() {
-        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task"
+        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task".localized()
         taskButton.setTitle(task, for: .normal)
     }
     

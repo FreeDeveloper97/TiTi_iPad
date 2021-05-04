@@ -50,7 +50,6 @@ class GraphViewController2: UIViewController {
     var counts: Int = 0
     var fixed_sum: Int = 0
     let f = Float(0.003)
-    var breakTime: Int = 0
     var daily = Daily()
     
     override func viewDidLoad() {
@@ -186,14 +185,10 @@ extension GraphViewController2 {
             let prog = StaticCircularProgressView(frame: CGRect(x: 0, y: 0, width: width, height: height))
             prog.trackColor = UIColor.clear
             prog.progressColor = colors[i%colors.count]
-            if(datas[i] == breakTime) {
-                prog.progressColor = UIColor(named: "Text")!
-            }
             print(value)
             prog.setProgressWithAnimation(duration: 1, value: value, from: 0)
             
             let per = Float(datas[i])/Float(sum) //그래프 퍼센트
-            let fixed_per = Float(datas[i])/Float(fixed_sum)
             value -= per
             
             progress.addSubview(prog)
