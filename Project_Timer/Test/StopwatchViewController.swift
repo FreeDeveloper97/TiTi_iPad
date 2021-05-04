@@ -130,8 +130,7 @@ class StopwatchViewController: UIViewController {
     @objc func updateCounter(){
         let seconds = time.getSeconds()
         sumTime = time.startSumTime + seconds
-//        sumTime_temp = time.startSumTimeTemp + seconds
-        sumTime_temp = seconds
+        sumTime_temp = time.startSumTimeTemp + seconds
         goalTime = time.startGoalTime - seconds
         
         updateTimeLabels()
@@ -168,7 +167,6 @@ class StopwatchViewController: UIViewController {
     
     @IBAction func resetBTAction(_ sender: Any) {
         resetSum_temp()
-        updateProgress()
     }
     
 }
@@ -214,6 +212,7 @@ extension StopwatchViewController : ChangeViewController2 {
     
     func changeTask() {
         setTask()
+        resetSum_temp()
     }
 }
 
@@ -600,7 +599,9 @@ extension StopwatchViewController {
     
     func resetSum_temp() {
         sumTime_temp = 0
+        time.startSumTimeTemp = 0
         updateTimeLabels()
+        updateProgress()
     }
 }
 
@@ -610,7 +611,7 @@ extension StopwatchViewController {
     func algoOfStart() {
         isStop = false
         startColor()
-        resetSum_temp()
+//        resetSum_temp()
         updateProgress()
         time.setTimes(goal: goalTime, sum: sumTime, timer: 0)
         startAction()
@@ -633,6 +634,7 @@ extension StopwatchViewController {
         
         stopColor()
         stopEnable()
+        time.startSumTimeTemp = sumTime_temp //기준시간 저장
         daily.save() //하루 그래프 데이터 계산
         deviceRotated() //화면 회전 체크
     }
