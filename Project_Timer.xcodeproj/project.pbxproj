@@ -114,7 +114,6 @@
 				932EE0592490A78400B00774 /* SetViewController.swift */,
 				935411AA25402D89008CB6DD /* SetTimerViewController.swift */,
 				870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */,
-				87577972261B05E30055C674 /* taskSelectViewController.swift */,
 				875A6FF3261BFF800026F575 /* DailyViewController.swift */,
 			);
 			path = Controller;
@@ -145,6 +144,7 @@
 				87EA080325E5463B00E17CF9 /* ContentView.swift */,
 				87E07B87263C49940051EE85 /* StopwatchViewController.swift */,
 				87E07B89263C4F030051EE85 /* TimerViewController.swift */,
+				87577972261B05E30055C674 /* taskSelectViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";

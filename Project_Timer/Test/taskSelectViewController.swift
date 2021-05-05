@@ -9,12 +9,18 @@
 import UIKit
 
 class taskSelectViewController: UIViewController {
-
+    
+    @IBOutlet var table: UITableView!
+    
+    var tasks: [String] = []
     var SetTimerViewControllerDelegate : ChangeViewController2!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        for i in 1...10 {
+            tasks.append("task\(i)")
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -55,3 +61,42 @@ class taskSelectViewController: UIViewController {
     
 }
 
+extension taskSelectViewController: UITableViewDataSource, UITableViewDelegate {
+    //몇개 표시 할까?
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
+    }
+    //셀 어떻게 표시 할까?
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskListCell", for: indexPath) as? taskListCell else {
+            return UITableViewCell()
+        }
+        cell.taskName.text = tasks[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, index in
+            self.tasks.remove(at: indexPath.row)
+            self.table.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        return [deleteAction]
+    }
+}
+
+class taskListCell: UITableViewCell {
+    @IBOutlet var taskName: UILabel!
+}
+
+//extension taskSelectViewController: UICollectionViewFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width: CGFloat = collectionView.bounds.width
+//        let height: CGFloat = 100
+//        return CGSize(width: width, height: height)
+//    }
+//}

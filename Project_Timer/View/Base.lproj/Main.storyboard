@@ -1180,58 +1180,76 @@ AVER : 0:00:00</string>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="55"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rE1-rY-MAq">
-                                <rect key="frame" x="454" y="158.5" width="116" height="45"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-ZP-xAE">
+                                <rect key="frame" x="287" y="153.5" width="450" height="564.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="MUE-5R-kNU"/>
+                                    <constraint firstAttribute="width" constant="450" id="rLC-CK-jXW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="30"/>
-                                <state key="normal" title="과목 입력">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskListCell" rowHeight="60" id="0A6-x8-ZLl" customClass="taskListCell" customModule="TiTi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="450" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0A6-x8-ZLl" id="Auv-n1-jTA">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift 프로그래밍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esO-O6-fR0">
+                                                    <rect key="frame" x="140.5" y="16" width="169" height="28"/>
+                                                    <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWl-RG-WU6">
+                                                    <rect key="frame" x="30" y="57" width="390" height="3"/>
+                                                    <color key="backgroundColor" name="Blue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="2sX-m0-VDe"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WWl-RG-WU6" secondAttribute="trailing" constant="30" id="Axs-uH-x5s"/>
+                                                <constraint firstItem="esO-O6-fR0" firstAttribute="centerY" secondItem="Auv-n1-jTA" secondAttribute="centerY" id="Njs-75-xFF"/>
+                                                <constraint firstItem="esO-O6-fR0" firstAttribute="centerX" secondItem="Auv-n1-jTA" secondAttribute="centerX" id="Z8o-n9-K2c"/>
+                                                <constraint firstItem="WWl-RG-WU6" firstAttribute="leading" secondItem="Auv-n1-jTA" secondAttribute="leading" constant="30" id="cUd-oH-wrd"/>
+                                                <constraint firstItem="WWl-RG-WU6" firstAttribute="centerX" secondItem="Auv-n1-jTA" secondAttribute="centerX" id="kpW-gK-XvB"/>
+                                                <constraint firstAttribute="bottom" secondItem="WWl-RG-WU6" secondAttribute="bottom" id="wzg-gj-AQi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="taskName" destination="esO-O6-fR0" id="pe0-ke-tIX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="test_new:" destination="5P5-Nh-CHC" eventType="touchUpInside" id="HC6-8P-9sz"/>
+                                    <outlet property="dataSource" destination="5P5-Nh-CHC" id="dnd-N2-EWa"/>
+                                    <outlet property="delegate" destination="5P5-Nh-CHC" id="Y4K-yC-P9U"/>
                                 </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Qo-7W-aw1">
-                                <rect key="frame" x="312" y="205.5" width="400" height="3"/>
-                                <color key="backgroundColor" name="Blue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="6m5-qr-mnK"/>
-                                    <constraint firstAttribute="width" constant="400" id="ORf-9j-1bk"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f7-YO-WgE">
-                                <rect key="frame" x="273.5" y="62" width="40" height="55"/>
-                                <color key="tintColor" name="Blue"/>
-                                <state key="normal" image="chevron.backward" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="55"/>
-                                </state>
-                                <connections>
-                                    <action selector="back:" destination="5P5-Nh-CHC" eventType="touchUpInside" id="I8u-YN-ReR"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="htV-Gj-TOl"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rE1-rY-MAq" firstAttribute="centerX" secondItem="htV-Gj-TOl" secondAttribute="centerX" id="HIB-qM-n5T"/>
                             <constraint firstItem="eHG-bs-3PT" firstAttribute="top" secondItem="htV-Gj-TOl" secondAttribute="top" constant="70" id="IOy-am-RxM"/>
-                            <constraint firstItem="eHG-bs-3PT" firstAttribute="leading" secondItem="4f7-YO-WgE" secondAttribute="trailing" constant="80" id="IiA-lF-itW"/>
+                            <constraint firstItem="o0x-ZP-xAE" firstAttribute="centerX" secondItem="htV-Gj-TOl" secondAttribute="centerX" id="X9X-Xd-kOn"/>
+                            <constraint firstItem="o0x-ZP-xAE" firstAttribute="top" secondItem="eHG-bs-3PT" secondAttribute="bottom" constant="45" id="bFr-zo-eEg"/>
                             <constraint firstItem="eHG-bs-3PT" firstAttribute="centerX" secondItem="htV-Gj-TOl" secondAttribute="centerX" id="cQx-di-Try"/>
-                            <constraint firstItem="8Qo-7W-aw1" firstAttribute="top" secondItem="rE1-rY-MAq" secondAttribute="bottom" constant="2" id="k7y-Of-wTY"/>
-                            <constraint firstItem="8Qo-7W-aw1" firstAttribute="centerX" secondItem="rE1-rY-MAq" secondAttribute="centerX" id="ocp-9F-iWt"/>
                             <constraint firstItem="TgA-Tb-Fwb" firstAttribute="centerY" secondItem="eHG-bs-3PT" secondAttribute="centerY" id="qU7-nt-xGy"/>
-                            <constraint firstItem="4f7-YO-WgE" firstAttribute="centerY" secondItem="eHG-bs-3PT" secondAttribute="centerY" id="rDB-9e-Q2b"/>
-                            <constraint firstItem="rE1-rY-MAq" firstAttribute="top" secondItem="eHG-bs-3PT" secondAttribute="bottom" constant="50" id="wMg-uk-844"/>
+                            <constraint firstItem="htV-Gj-TOl" firstAttribute="bottom" secondItem="o0x-ZP-xAE" secondAttribute="bottom" constant="50" id="sjj-iE-KUm"/>
                             <constraint firstItem="TgA-Tb-Fwb" firstAttribute="leading" secondItem="eHG-bs-3PT" secondAttribute="trailing" constant="80" id="xWs-yQ-3rC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FbP-g9-E8W"/>
+                    <connections>
+                        <outlet property="table" destination="o0x-ZP-xAE" id="AGZ-A0-zN3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lui-hY-s12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144" y="2175"/>
+            <point key="canvasLocation" x="143.5546875" y="2175"/>
         </scene>
         <!--Set Timer View Controller2-->
         <scene sceneID="AxP-QN-Wtl">
@@ -1987,7 +2005,7 @@ AVER : 0:00:00</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--/--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne2-p1-RCl">
-                                        <rect key="frame" x="279.5" y="316" width="38" height="17"/>
+                                        <rect key="frame" x="280" y="316" width="37.5" height="17"/>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2705,10 +2723,9 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hiu-5e-ocH"/>
+        <segue reference="Ky0-TM-SuF"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="Background">
             <color red="0.61960784313725492" green="0.75686274509803919" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2729,7 +2746,7 @@ AVER : 0:00:00</string>
             <color red="0.23800000548362732" green="0.23800000548362732" blue="0.23800000548362732" alpha="0.30199998617172241" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Empty">
-            <color red="0.086999997496604919" green="0.086999997496604919" blue="0.086999997496604919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.086999997496604919" green="0.086999997496604919" blue="0.086999997496604919" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text">
             <color red="0.91764705882352937" green="0.43137254901960786" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
