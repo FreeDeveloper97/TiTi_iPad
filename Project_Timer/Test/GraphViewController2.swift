@@ -15,8 +15,8 @@ class GraphViewController2: UIViewController {
     
     @IBOutlet var progress: UIView!
     @IBOutlet var sumTime: UILabel!
-    @IBOutlet var taskTitle: UILabel!
-    @IBOutlet var taskTime: UILabel!
+//    @IBOutlet var taskTitle: UILabel!
+//    @IBOutlet var taskTime: UILabel!
     @IBOutlet var today: UILabel!
     
     @IBOutlet var time_05: UIView!
@@ -44,13 +44,13 @@ class GraphViewController2: UIViewController {
     @IBOutlet var time_03: UIView!
     @IBOutlet var time_04: UIView!
     
-    var printTitle: [String] = []
-    var printTime: [String] = []
+    var arrayTaskName: [String] = []
+    var arrayTaskTime: [String] = []
     var colors: [UIColor] = []
-    var counts: Int = 0
     var fixed_sum: Int = 0
     let f = Float(0.003)
     var daily = Daily()
+    var counts: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +79,8 @@ class GraphViewController2: UIViewController {
             
             var array: [Int] = []
             for (key, value) in tasks {
-                printTitle.append(key)
-                printTime.append(printTime(temp: value))
+                arrayTaskName.append(key)
+                arrayTaskTime.append(printTime(temp: value))
                 array.append(value)
             }
             
@@ -90,11 +90,11 @@ class GraphViewController2: UIViewController {
             var p1 = ""
             var p2 = ""
             for i in (0..<tasks.count).reversed() {
-                p1 += "\(printTitle[i])\n"
-                p2 += "\(printTime[i])\n"
+                p1 += "\(arrayTaskName[i])\n"
+                p2 += "\(arrayTaskTime[i])\n"
             }
-            taskTitle.text = p1
-            taskTime.text = p2
+//            taskTitle.text = p1
+//            taskTime.text = p2
         } else {
             print("no data")
         }
@@ -286,3 +286,30 @@ extension GraphViewController2 {
     }
 }
 
+extension GraphViewController2: UICollectionViewDataSource {
+    //몇개 표시 할까?
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return counts
+    }
+    //셀 어떻게 표시 할까?
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as? ListCell else {
+            return UICollectionViewCell()
+        }
+        let color = colors[counts - indexPath.item - 1]
+        cell.colorView.backgroundColor = color
+        cell.colorView.layer.cornerRadius = 2
+        cell.taskName.text = arrayTaskName[counts - indexPath.item - 1]
+        cell.taskTime.text = arrayTaskTime[counts - indexPath.item - 1]
+        cell.taskTime.textColor = color
+        
+        return cell
+    }
+}
+
+
+class ListCell: UICollectionViewCell {
+    @IBOutlet var colorView: UIView!
+    @IBOutlet var taskName: UILabel!
+    @IBOutlet var taskTime: UILabel!
+}
