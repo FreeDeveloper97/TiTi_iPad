@@ -1180,14 +1180,14 @@ AVER : 0:00:00</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공부할 내용 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHG-bs-3PT">
-                                <rect key="frame" x="393.5" y="70" width="237" height="38.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select to Study" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHG-bs-3PT">
+                                <rect key="frame" x="403.5" y="70" width="217" height="39"/>
                                 <fontDescription key="fontDescription" name="HGGGothicssiP80g" family="HGGGothicssi_Pro" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgA-Tb-Fwb">
-                                <rect key="frame" x="710.5" y="61" width="63" height="57"/>
+                                <rect key="frame" x="700.5" y="61" width="63" height="57"/>
                                 <color key="tintColor" name="Blue"/>
                                 <state key="normal" image="plus.app.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="55"/>
@@ -1197,7 +1197,7 @@ AVER : 0:00:00</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-ZP-xAE">
-                                <rect key="frame" x="287" y="153.5" width="450" height="564.5"/>
+                                <rect key="frame" x="287" y="154" width="450" height="564"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="rLC-CK-jXW"/>
@@ -1260,6 +1260,7 @@ AVER : 0:00:00</string>
                     </view>
                     <navigationItem key="navigationItem" id="FbP-g9-E8W"/>
                     <connections>
+                        <outlet property="studyTitle" destination="eHG-bs-3PT" id="9U0-JI-dT6"/>
                         <outlet property="table" destination="o0x-ZP-xAE" id="AGZ-A0-zN3"/>
                     </connections>
                 </viewController>
@@ -2487,6 +2488,7 @@ AVER : 0:00:00</string>
                         <outlet property="Text_H" destination="gQQ-Ik-oHB" id="sDm-gA-g2Y"/>
                         <outlet property="Text_M" destination="t9h-LL-Q5J" id="gnC-36-JaY"/>
                         <outlet property="Text_S" destination="TmK-9g-Ebz" id="i0K-ke-XZ0"/>
+                        <outlet property="colorLabel" destination="QF3-KT-k0A" id="Vea-ih-w9D"/>
                         <outlet property="endLabel" destination="0qk-Uu-nh7" id="Nmg-Wn-NkW"/>
                         <outlet property="targetLabel" destination="cti-O3-McF" id="F3l-gO-hdV"/>
                         <outlet property="view1" destination="nAs-cD-JGR" id="Twq-mh-YdI"/>
@@ -2684,8 +2686,8 @@ AVER : 0:00:00</string>
                                     <action selector="modeStopWatchBTAction:" destination="ada-er-fd0" eventType="touchUpInside" id="rct-Jd-VJD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StopWatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLV-A2-gDh">
-                                <rect key="frame" x="55" y="415.5" width="87" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLV-A2-gDh">
+                                <rect key="frame" x="56" y="415.5" width="86" height="22"/>
                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2968,8 +2970,8 @@ AVER : 0:00:00</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StopWatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-Vc-p7t">
-                                <rect key="frame" x="55" y="415.5" width="87" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-Vc-p7t">
+                                <rect key="frame" x="56" y="415.5" width="86" height="22"/>
                                 <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3085,7 +3087,7 @@ AVER : 0:00:00</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hiu-5e-ocH"/>
+        <segue reference="BQq-rr-ARQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>

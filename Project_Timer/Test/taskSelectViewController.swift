@@ -10,6 +10,8 @@ import UIKit
 
 class taskSelectViewController: UIViewController {
     
+    
+    @IBOutlet var studyTitle: UILabel!
     @IBOutlet var table: UITableView!
     
     var tasks: [String] = []
@@ -17,14 +19,14 @@ class taskSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setLocalizable()
         tasks = UserDefaults.standard.value(forKey: "tasks") as? [String] ?? []
     }
     
     @IBAction func test_new(_ sender: Any) {
-        let alert = UIAlertController(title: "새로운 과목 입력", message: "12자리 내의 새로운 과목을 입력하세요", preferredStyle: .alert)
-        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
-        let ok = UIAlertAction(title: "입력", style: .destructive, handler: {
+        let alert = UIAlertController(title: "Enter a new subject".localized(), message: "Enter a subject that's max length is 20".localized(), preferredStyle: .alert)
+        let cancle = UIAlertAction(title: "CANCLE", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "ENTER", style: .destructive, handler: {
             action in
             let newTask: String = alert.textFields?[0].text ?? ""
             // 위 변수를 통해 특정기능 수행
@@ -33,12 +35,12 @@ class taskSelectViewController: UIViewController {
         })
         //텍스트 입력 추가
         alert.addTextField { (inputNewNickName) in
-            inputNewNickName.placeholder = "새로운 과목 입력"
+            inputNewNickName.placeholder = "New subject".localized()
             inputNewNickName.textAlignment = .center
             inputNewNickName.font = UIFont(name: "HGGGothicssiP60g", size: 17)
         }
-        alert.addAction(cancle)
         alert.addAction(ok)
+        alert.addAction(cancle)
         present(alert,animated: true,completion: nil)
     }
     
@@ -56,6 +58,10 @@ class taskSelectViewController: UIViewController {
     
     func saveTasks() {
         UserDefaults.standard.set(tasks, forKey: "tasks")
+    }
+    
+    func setLocalizable() {
+        studyTitle.text = "Select a subject".localized()
     }
     
 }

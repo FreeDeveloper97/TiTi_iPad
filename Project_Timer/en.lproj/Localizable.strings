@@ -53,4 +53,10 @@
 
 "Total : " = "Total : ";
 
-"Enter New Task" = "Enter New Task";
+"Enter a new subject" = "Enter a new subject";
+
+"Select a subject" = "Select a subject";
+
+"Enter a subject that's max length is 20" = "Enter a subject that's max length is 20";
+
+"New subject" = "New subject";

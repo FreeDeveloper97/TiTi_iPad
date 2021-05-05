@@ -34,7 +34,9 @@ class SetTimerViewController2: UIViewController {
     
     @IBOutlet var targetLabel: UILabel!
     @IBOutlet var endLabel: UILabel!
+    @IBOutlet var colorLabel: UILabel!
     @IBOutlet var ColorButton: UIButton!
+    
     
     @IBOutlet var view1: UIView!
     @IBOutlet var view2: UIView!
@@ -221,7 +223,8 @@ extension SetTimerViewController2 {
     func setLocalizable() {
         targetLabel.text = "Target Time2".localized()
         endLabel.text = "End Time".localized()
-        ColorButton.setTitle("Change Color".localized(), for: .normal)
+        colorLabel.text = "Change Background Color".localized()
+//        ColorButton.setTitle("Change background Color".localized(), for: .normal)
     }
 }
 

@@ -656,8 +656,8 @@ extension TimerViewController {
     }
     
     func setTask() {
-        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task".localized()
-        if(task == "Enter New Task".localized()) {
+        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter a new subject".localized()
+        if(task == "Enter a new subject".localized()) {
             setFirstStart()
         } else {
             taskButton.setTitleColor(UIColor.white, for: .normal)
