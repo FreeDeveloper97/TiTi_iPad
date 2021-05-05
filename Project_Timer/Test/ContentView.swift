@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  chartEx
 //
-//  Created by 신효근 on 2021/01/12.
+//  Created by minsang on 2021/01/12.
 //
 import SwiftUI
 
@@ -13,7 +13,7 @@ struct ContentView: View {
     //화면
     var body : some View {
         //세로 스크롤 설정
-        ScrollView(.vertical, showsIndicators: false) {
+//        ScrollView(.vertical, showsIndicators: false) {
             /* 전체 큰 틀 */
             VStack {
                 //평균시간 텍스트
@@ -48,7 +48,7 @@ struct ContentView: View {
                                         //그래프 막대 높이설정
                                         .frame(height:getHeight(value: work.studyTime))
                                 }
-                                .frame(height:140)
+                                .frame(height:165)
                                 //날짜 설정
                                 Text(work.day)
                                     .font(.system(size: 14))
@@ -66,7 +66,7 @@ struct ContentView: View {
             }
 //            .padding(.horizontal, 20)
             .padding(.vertical, 10)
-        }
+//        }
         .background(Color.black.edgesIgnoringSafeArea(.all))
         .preferredColorScheme(.dark)
     }
@@ -75,7 +75,7 @@ struct ContentView: View {
     
     func getHeight(value : Int) -> CGFloat {
         let max = getMaxInTotalTime(value: DailyDatas)
-        return (CGFloat(value) / CGFloat(max)) * 110
+        return (CGFloat(value) / CGFloat(max)) * 135
     }
     
     func getMaxInTotalTime (value : [daily]) -> Int {

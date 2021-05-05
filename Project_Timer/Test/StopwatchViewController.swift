@@ -594,6 +594,13 @@ extension StopwatchViewController {
     
     func setTask() {
         task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task".localized()
+        if(task == "Enter New Task".localized()) {
+            setFirstStart()
+        } else {
+            taskButton.setTitleColor(UIColor.white, for: .normal)
+            taskButton.layer.borderColor = UIColor.white.cgColor
+            startStopBT.isUserInteractionEnabled = true
+        }
         taskButton.setTitle(task, for: .normal)
     }
     
@@ -602,6 +609,12 @@ extension StopwatchViewController {
         time.startSumTimeTemp = 0
         updateTimeLabels()
         updateProgress()
+    }
+    
+    func setFirstStart() {
+        taskButton.setTitleColor(UIColor.systemPink, for: .normal)
+        taskButton.layer.borderColor = UIColor.systemPink.cgColor
+        startStopBT.isUserInteractionEnabled = false
     }
 }
 
