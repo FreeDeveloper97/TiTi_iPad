@@ -660,7 +660,7 @@ extension TimerViewController {
     }
     
     func setTask() {
-        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task"
+        task = UserDefaults.standard.value(forKey: "task") as? String ?? "Enter New Task".localized()
         taskButton.setTitle(task, for: .normal)
     }
 }
