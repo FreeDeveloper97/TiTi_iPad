@@ -37,9 +37,8 @@ struct Daily: Codable {
         tasks[currentTask] = value
     }
     
-    mutating func updateTask() {
-        let term = getSeconds()
-        tasks[currentTask] = beforeTime+term
+    mutating func updateTask(_ seconds: Int) {
+        tasks[currentTask] = beforeTime+seconds
         //현재 시간에 따른 값을 증가
         let H: Int = getHour(Date())
         timeline[H] += 1

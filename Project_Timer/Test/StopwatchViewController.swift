@@ -132,13 +132,13 @@ class StopwatchViewController: UIViewController {
         sumTime = time.startSumTime + seconds
         sumTime_temp = time.startSumTimeTemp + seconds
         goalTime = time.startGoalTime - seconds
+        daily.updateTask(seconds)
         
         updateTimeLabels()
         updateProgress()
         printLogs()
         saveTimes()
 //        showNowTime()
-        daily.updateTask()
     }
     
     @IBAction func taskBTAction(_ sender: Any) {
@@ -206,8 +206,8 @@ extension StopwatchViewController : ChangeViewController2 {
         
         stopColor()
         stopEnable()
-        //하루 그래프 초기화
-        daily.reset()
+        daily.reset() //하루 그래프 초기화
+        resetSum_temp()
     }
     
     func changeTask() {
