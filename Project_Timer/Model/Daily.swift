@@ -16,6 +16,7 @@ struct Daily: Codable {
     var currentSumTime: Int = 0
     var currentTimerTime: Int = 0
     var breakTime: Int = 0
+    var maxTime: Int = 0
     
     var startTime: Date = Date()
     var currentTask: String = ""
@@ -66,6 +67,9 @@ struct Daily: Codable {
     }
     
     mutating func addHoursInBackground(_ start: Date, _ term: Int) {
+        let H: Int = getHour(Date())
+        timeline[H] -= 1
+        
         let now = Date()
         let startH = getHour(start)
         let nowH = getHour(now)

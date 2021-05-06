@@ -95,6 +95,7 @@ class GraphViewController2: UIViewController {
             }
 //            taskTitle.text = p1
 //            taskTime.text = p2
+            print("max : \(daily.maxTime)")
         } else {
             print("no data")
         }

@@ -145,6 +145,7 @@ class TimerViewController: UIViewController {
             sumTime = time.startSumTime + seconds
             timerTime = time.startTimerTime - seconds
             daily.updateTask(seconds)
+            if(seconds > daily.maxTime) { daily.maxTime = seconds }
             
             updateTimeLabels()
             saveTimes()
@@ -262,13 +263,13 @@ extension TimerViewController {
     
     @objc func willEnterForeground(noti: Notification) {
         print("Enter")
-        finishTimeLabel.text = getFutureTime()
         if(!isStop) {
             if let savedDate = UserDefaults.standard.object(forKey: "savedTime") as? Date {
                 (diffHrs, diffMins, diffSecs) = TimerViewController.getTimeDifference(startDate: savedDate)
                 refresh(hours: diffHrs, mins: diffMins, secs: diffSecs, start: savedDate)
                 removeSavedDate()
             }
+            finishTimeLabel.text = getFutureTime()
         }
     }
     
@@ -279,27 +280,25 @@ extension TimerViewController {
     }
     
     func refresh (hours: Int, mins: Int, secs: Int, start: Date) {
-        let tempSeconds = hours*3600 + mins*60 + secs
-        let temp = timerTime-tempSeconds;
+        let temp = sumTime
+        let seconds = time.getSeconds()
         
-        if(timerTime - tempSeconds < 0) {
-            goalTime = goalTime - tempSeconds
-            sumTime = sumTime + tempSeconds
-            timerTime = 0
-        } else {
-            goalTime = goalTime - tempSeconds
-            sumTime = sumTime + tempSeconds
-            timerTime = timerTime - tempSeconds
-        }
+        goalTime = time.startGoalTime - seconds
+        sumTime = time.startSumTime + seconds
+        print("before : \(temp), after : \(sumTime), term : \(sumTime - temp)")
+        timerTime = time.startTimerTime - seconds
+        daily.updateTask(seconds)
+        if(seconds > daily.maxTime) { daily.maxTime = seconds }
         
+        printLogs()
         updateProgress()
         updateTimeLabes()
         startAction()
-        if(timerTime - tempSeconds < 0) {
-            TIMEofTimer.text = printTime(temp: temp)
+        if(timerTime < 0) {
+            TIMEofTimer.text = printTime(temp: timerTime)
         }
         //나간 시점 start, 현재 시각 Date 와 비교
-        daily.addHoursInBackground(start, tempSeconds)
+        daily.addHoursInBackground(start, sumTime - temp)
     }
     
     func removeSavedDate() {
