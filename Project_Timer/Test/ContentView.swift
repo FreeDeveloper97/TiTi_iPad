@@ -9,7 +9,6 @@ import SwiftUI
 struct ContentView: View {
     //그래프 색상 그라데이션 설정
     var colors = [Color("CCC2"), Color("CCC1")]
-    var colors2 = [Color.red, Color.purple]
     //화면
     var body : some View {
         //세로 스크롤 설정
@@ -215,27 +214,28 @@ extension ContentView {
     }
     
     func appendDumyDatas(){
-        DailyDatas.append(daily(id: 1, day: "2/24",
-                                studyTime: translate2(input: "12:35:20"),
-                                breakTime: translate2(input: "0:35:20")))
-        DailyDatas.append(daily(id: 2, day: "2/23",
-                                studyTime: translate2(input: "4:03:41"),
-                                breakTime: translate2(input: "2:01:00")))
-        DailyDatas.append(daily(id: 3, day: "2/22",
-                                studyTime: translate2(input: "6:08:14"),
-                                breakTime: translate2(input: "2:32:56")))
-        DailyDatas.append(daily(id: 4, day: "2/21",
-                                studyTime: translate2(input: "4:03:39"),
-                                breakTime: translate2(input: "1:05:00")))
-        DailyDatas.append(daily(id: 5, day: "2/20",
-                                studyTime: translate2(input: "5:44:07"),
-                                breakTime: translate2(input: "1:40:08")))
-        DailyDatas.append(daily(id: 6, day: "2/19",
-                                studyTime: translate2(input: "4:58:23"),
-                                breakTime: translate2(input: "2:02:15")))
-        DailyDatas.append(daily(id: 7, day: "2/18",
+        
+        DailyDatas.append(daily(id: 1, day: "4/30",
                                 studyTime: translate2(input: "3:37:20"),
                                 breakTime: translate2(input: "0:37:50")))
+        DailyDatas.append(daily(id: 2, day: "5/1",
+                                studyTime: translate2(input: "2:58:23"),
+                                breakTime: translate2(input: "2:02:15")))
+        DailyDatas.append(daily(id: 3, day: "5/2",
+                                studyTime: translate2(input: "6:02:07"),
+                                breakTime: translate2(input: "1:40:08")))
+        DailyDatas.append(daily(id: 4, day: "5/3",
+                                studyTime: translate2(input: "4:03:39"),
+                                breakTime: translate2(input: "1:05:00")))
+        DailyDatas.append(daily(id: 5, day: "5/4",
+                                studyTime: translate2(input: "3:35:15"),
+                                breakTime: translate2(input: "2:32:56")))
+        DailyDatas.append(daily(id: 6, day: "5/5",
+                                studyTime: translate2(input: "5:10:12"),
+                                breakTime: translate2(input: "2:01:00")))
+        DailyDatas.append(daily(id: 7, day: "5/6",
+                                studyTime: translate2(input: "4:21:00"),
+                                breakTime: translate2(input: "0:35:20")))
     }
 }
 

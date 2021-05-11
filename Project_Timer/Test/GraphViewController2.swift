@@ -213,33 +213,23 @@ extension GraphViewController2 {
     
     func addDumy() -> [String:Int] {
         var temp: [String:Int] = [:]
-        temp["ios 프로그래밍"] = 2100
-        temp["OS 공부"] = 4680
-        temp["DB 공부"] = 3900
-        temp["통계학 공부"] = 2700
-        temp["영어 공부"] = 2280
-        temp["swift 프로그래밍"] = 2400
-//        temp["수업"] = 2160
-//        temp["시스템 분석 공부"] = 1800
-//        temp["문학세계 공부"] = 1200
-//        temp["코딩테스트 공부"] = 2200
-//        temp["자바스크립트 공부"] = 1980
-//        temp["휴식 시간"] = 2500
-//        temp["13번째과목"] = 2000
-//        temp["14번째 과목"] = 2300
-        
+//        temp["Learning Korean"] = 2100
+//        temp["Swift Programming"] = 4680
+//        temp["Cycleing"] = 3900
+//        temp["Running"] = 2700
+//        temp["Reading Book"] = 2280
+        temp["프로그래밍 공부"] = 4680
+        temp["전공수업 과제"] = 3900
+        temp["프로젝트 토의"] = 2700
+        temp["책읽기"] = 2280
+        temp["영문학 공부"] = 2100
         return temp
     }
     
     func fillHourColor() {
         let timeline = daily.timeline
-//        timeline[6] = 600-1
-//        timeline[7] = 1200-1
-//        timeline[8] = 1800-1
-//        timeline[9] = 2400-1
-//        timeline[10] = 3000-1
-//        timeline[11] = 3600-1
         print("timeLine : \(timeline)")
+//        let timeline = [3600,1300,0,0,0,0,0,0,0,1200,2000,3000,2600,2600,3600,3600,1000,0,500,2000,0,0,0,1200]
         fillColor(time: timeline[0], view: time_24)
         fillColor(time: timeline[1], view: time_01)
         fillColor(time: timeline[2], view: time_02)
@@ -270,7 +260,7 @@ extension GraphViewController2 {
         if(time == 0) {
             return
         }
-        view.backgroundColor = UIColor(named: "CC2")
+        view.backgroundColor = UIColor(named: "CCC2")
         if(time < 600) { //0 ~ 10
             view.alpha = 0.2
         } else if(time < 1200) { //10 ~ 20

@@ -30,6 +30,15 @@
 		<string>HGGGOTHICSSI_PRO_60G.otf</string>
 		<string>HGGGOTHICSSI_PRO_80G.otf</string>
 		<string>HGGGOTHICSSI_PRO_99G.otf</string>
+		<string>Maplestory OTF Light.otf</string>
+		<string>HangeulNuriB.ttf</string>
+		<string>HangeulNuriR.ttf</string>
+		<string>Binggrae.otf</string>
+		<string>BinggraeMelona.otf</string>
+		<string>BinggraeTaom.otf</string>
+		<string>Cafe24Oneprettynight.ttf</string>
+		<string>NanumBarunpenRegular.ttf</string>
+		<string>NanumSquareRoundR.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

@@ -21,6 +21,15 @@
 		8787DFDD25B5322A007B8C13 /* HGGGOTHICSSI_PRO_40G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD725B5322A007B8C13 /* HGGGOTHICSSI_PRO_40G.otf */; };
 		8787DFDE25B5322A007B8C13 /* HGGGOTHICSSI_PRO_00G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD825B5322A007B8C13 /* HGGGOTHICSSI_PRO_00G.otf */; };
 		8787DFDF25B5322A007B8C13 /* HGGGOTHICSSI_PRO_80G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD925B5322A007B8C13 /* HGGGOTHICSSI_PRO_80G.otf */; };
+		8799C7F2264A33F200D7E871 /* Maplestory OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7E5264A30E500D7E871 /* Maplestory OTF Light.otf */; };
+		8799C7F3264A33F500D7E871 /* HangeulNuriB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7EA264A31A200D7E871 /* HangeulNuriB.ttf */; };
+		8799C7F4264A33F800D7E871 /* HangeulNuriR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7EB264A31A200D7E871 /* HangeulNuriR.ttf */; };
+		8799C7F5264A33FA00D7E871 /* Binggrae.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7EC264A31F800D7E871 /* Binggrae.otf */; };
+		8799C7F6264A33FD00D7E871 /* BinggraeMelona.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7EE264A320400D7E871 /* BinggraeMelona.otf */; };
+		8799C7F7264A340000D7E871 /* BinggraeTaom.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7ED264A320400D7E871 /* BinggraeTaom.otf */; };
+		8799C7F8264A340300D7E871 /* Cafe24Oneprettynight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7EF264A324500D7E871 /* Cafe24Oneprettynight.ttf */; };
+		8799C7F9264A340500D7E871 /* NanumBarunpenRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7F0264A32C200D7E871 /* NanumBarunpenRegular.ttf */; };
+		8799C7FA264A340800D7E871 /* NanumSquareRoundR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8799C7F1264A32D500D7E871 /* NanumSquareRoundR.ttf */; };
 		87BF47D525B6E12A00EE2819 /* timer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87BF47D425B6E12A00EE2819 /* timer.mp3 */; };
 		87E07B88263C49940051EE85 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E07B87263C49940051EE85 /* StopwatchViewController.swift */; };
 		87E07B8A263C4F030051EE85 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E07B89263C4F030051EE85 /* TimerViewController.swift */; };
@@ -58,6 +67,15 @@
 		8787DFD725B5322A007B8C13 /* HGGGOTHICSSI_PRO_40G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_40G.otf; sourceTree = "<group>"; };
 		8787DFD825B5322A007B8C13 /* HGGGOTHICSSI_PRO_00G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_00G.otf; sourceTree = "<group>"; };
 		8787DFD925B5322A007B8C13 /* HGGGOTHICSSI_PRO_80G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_80G.otf; sourceTree = "<group>"; };
+		8799C7E5264A30E500D7E871 /* Maplestory OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Light.otf"; sourceTree = "<group>"; };
+		8799C7EA264A31A200D7E871 /* HangeulNuriB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangeulNuriB.ttf; sourceTree = "<group>"; };
+		8799C7EB264A31A200D7E871 /* HangeulNuriR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangeulNuriR.ttf; sourceTree = "<group>"; };
+		8799C7EC264A31F800D7E871 /* Binggrae.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Binggrae.otf; sourceTree = "<group>"; };
+		8799C7ED264A320400D7E871 /* BinggraeTaom.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BinggraeTaom.otf; sourceTree = "<group>"; };
+		8799C7EE264A320400D7E871 /* BinggraeMelona.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BinggraeMelona.otf; sourceTree = "<group>"; };
+		8799C7EF264A324500D7E871 /* Cafe24Oneprettynight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Oneprettynight.ttf; sourceTree = "<group>"; };
+		8799C7F0264A32C200D7E871 /* NanumBarunpenRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenRegular.ttf; sourceTree = "<group>"; };
+		8799C7F1264A32D500D7E871 /* NanumSquareRoundR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundR.ttf; sourceTree = "<group>"; };
 		87BF47D425B6E12A00EE2819 /* timer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer.mp3; sourceTree = "<group>"; };
 		87E07B87263C49940051EE85 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
 		87E07B89263C4F030051EE85 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +176,15 @@
 				8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */,
 				8787DFD925B5322A007B8C13 /* HGGGOTHICSSI_PRO_80G.otf */,
 				8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */,
+				8799C7E5264A30E500D7E871 /* Maplestory OTF Light.otf */,
+				8799C7EA264A31A200D7E871 /* HangeulNuriB.ttf */,
+				8799C7EB264A31A200D7E871 /* HangeulNuriR.ttf */,
+				8799C7EC264A31F800D7E871 /* Binggrae.otf */,
+				8799C7EE264A320400D7E871 /* BinggraeMelona.otf */,
+				8799C7ED264A320400D7E871 /* BinggraeTaom.otf */,
+				8799C7EF264A324500D7E871 /* Cafe24Oneprettynight.ttf */,
+				8799C7F0264A32C200D7E871 /* NanumBarunpenRegular.ttf */,
+				8799C7F1264A32D500D7E871 /* NanumSquareRoundR.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -254,16 +281,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8799C7F2264A33F200D7E871 /* Maplestory OTF Light.otf in Resources */,
 				93B0852D248DDF3000E215BD /* LaunchScreen.storyboard in Resources */,
 				8787DFDE25B5322A007B8C13 /* HGGGOTHICSSI_PRO_00G.otf in Resources */,
 				872A525125F3E07E008D9F4B /* Localizable.strings in Resources */,
+				8799C7F6264A33FD00D7E871 /* BinggraeMelona.otf in Resources */,
 				93B0852A248DDF3000E215BD /* Assets.xcassets in Resources */,
 				87BF47D525B6E12A00EE2819 /* timer.mp3 in Resources */,
+				8799C7FA264A340800D7E871 /* NanumSquareRoundR.ttf in Resources */,
+				8799C7F3264A33F500D7E871 /* HangeulNuriB.ttf in Resources */,
+				8799C7F7264A340000D7E871 /* BinggraeTaom.otf in Resources */,
+				8799C7F8264A340300D7E871 /* Cafe24Oneprettynight.ttf in Resources */,
 				8787DFDC25B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf in Resources */,
 				8787DFDA25B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf in Resources */,
 				8787DFDD25B5322A007B8C13 /* HGGGOTHICSSI_PRO_40G.otf in Resources */,
 				8787DFDB25B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf in Resources */,
+				8799C7F9264A340500D7E871 /* NanumBarunpenRegular.ttf in Resources */,
 				8787DFDF25B5322A007B8C13 /* HGGGOTHICSSI_PRO_80G.otf in Resources */,
+				8799C7F5264A33FA00D7E871 /* Binggrae.otf in Resources */,
+				8799C7F4264A33F800D7E871 /* HangeulNuriR.ttf in Resources */,
 				93B08528248DDF2F00E215BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
