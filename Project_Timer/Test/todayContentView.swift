@@ -210,7 +210,7 @@ extension todayContentView {
     }
     
     func reset() {
-        DailyDatas = []
+        times = []
     }
     
     func appendDumyDatas(){

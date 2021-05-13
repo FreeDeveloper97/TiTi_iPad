@@ -62,6 +62,10 @@ class TodayViewController: UIViewController {
             print("no data")
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        todayContentView().reset()
+    }
 
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
