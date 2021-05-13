@@ -103,6 +103,11 @@ class GraphViewController2: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         ContentView().reset()
     }
+    
+    @IBAction func todayButtonAction(_ sender: Any) {
+        goToViewController(where: "TodayViewController")
+    }
+    
 }
 
 extension GraphViewController2 {
@@ -274,6 +279,13 @@ extension GraphViewController2 {
         } else { //50 ~ 60
             view.alpha = 1.0
         }
+    }
+    
+    func goToViewController(where: String) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: `where`)
+        vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+        vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        self.present(vcName!, animated: true, completion: nil)
     }
 }
 
