@@ -16,6 +16,7 @@
 		875A6FED261BF4050026F575 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A6FEC261BF4050026F575 /* Daily.swift */; };
 		875A6FF1261BFC390026F575 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A6FF0261BFC390026F575 /* Storage.swift */; };
 		875A6FF4261BFF800026F575 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A6FF3261BFF800026F575 /* DailyViewController.swift */; };
+		87654A43264D5C640046F66E /* todayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87654A42264D5C640046F66E /* todayContentView.swift */; };
 		8787DFDA25B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */; };
 		8787DFDB25B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */; };
 		8787DFDC25B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */; };
@@ -63,6 +64,7 @@
 		875A6FEC261BF4050026F575 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		875A6FF0261BFC390026F575 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		875A6FF3261BFF800026F575 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyViewController.swift; path = ../View/DailyViewController.swift; sourceTree = "<group>"; };
+		87654A42264D5C640046F66E /* todayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayContentView.swift; sourceTree = "<group>"; };
 		8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_20G.otf; sourceTree = "<group>"; };
 		8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_60G.otf; sourceTree = "<group>"; };
 		8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_99G.otf; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				87E07B89263C4F030051EE85 /* TimerViewController.swift */,
 				87577972261B05E30055C674 /* taskSelectViewController.swift */,
 				8739DB4E264D36540066A029 /* TodayViewController.swift */,
+				87654A42264D5C640046F66E /* todayContentView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				875A6FF4261BFF800026F575 /* DailyViewController.swift in Sources */,
 				8739DB4F264D36540066A029 /* TodayViewController.swift in Sources */,
 				93A892B124C14D4700F89180 /* CircularProgressView.swift in Sources */,
+				87654A43264D5C640046F66E /* todayContentView.swift in Sources */,
 				87F59CAE263AF91F00EFFC15 /* GraphViewController2.swift in Sources */,
 				935411AB25402D89008CB6DD /* SetTimerViewController.swift in Sources */,
 				87E07B8A263C4F030051EE85 /* TimerViewController.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TodayViewController: UIViewController {
 
@@ -24,6 +25,8 @@ class TodayViewController: UIViewController {
     @IBOutlet var maxTime: UILabel!
     @IBOutlet var progress: UIView!
     
+    @IBOutlet var timeline: UIView!
+    
     var arrayTaskName: [String] = []
     var arrayTaskTime: [String] = []
     var colors: [UIColor] = []
@@ -38,7 +41,17 @@ class TodayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //timeline
+        let hostingController = UIHostingController(rootView: todayContentView())
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = true
+        hostingController.view.frame = timeline.bounds
+        todayContentView().appendTimes()
+//        ContentView().appendDumyDatas()
+        addChild(hostingController)
+        timeline.addSubview(hostingController.view)
+        
+        
+        //extra
         daily.load()
         if(daily.tasks != [:]) {
             setDay()
