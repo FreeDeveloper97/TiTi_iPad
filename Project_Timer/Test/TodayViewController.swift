@@ -233,6 +233,15 @@ extension TodayViewController: UICollectionViewDataSource {
     }
 }
 
+extension TodayViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // TODO: 사이즈 계산하기 : OK
+        let width: CGFloat = collectionView.bounds.width
+        let height: CGFloat = 45
+        return CGSize(width: width, height: height)
+    }
+}
+
 class todayCell: UICollectionViewCell {
     @IBOutlet var check: UILabel!
     @IBOutlet var taskName: UILabel!

@@ -36,23 +36,24 @@ struct todayContentView: View {
                                     //그래프 막대 높이설정
                                     .frame(height:getHeight(value: time.sumTime))
                             }
-                            .frame(height:150)
+                            .frame(height:140)
                             //날짜 설정
                             Text(String(time.id))
                                 .font(.system(size: 14))
                                 .foregroundColor(Color("SystemBackground_reverse"))
+                                .padding(.bottom,10)
                         }
                     }
                 }
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+//            .padding(.horizontal, 20)
+//            .padding(.vertical, 10)
             .cornerRadius(10)
             
             /* ----차트끝---- */
         }
         //            .padding(.horizontal, 20)
-        .padding(.vertical, 10)
+//        .padding(.vertical, 10)
 //        .background(Color.black.edgesIgnoringSafeArea(.all))
         .background(Color.clear.edgesIgnoringSafeArea(.all))
         .preferredColorScheme(.dark)
@@ -62,7 +63,7 @@ struct todayContentView: View {
     
     func getHeight(value : Int) -> CGFloat {
         let max = getMaxInTotalTime(value: times)
-        return (CGFloat(value) / CGFloat(max)) * 120
+        return (CGFloat(value) / CGFloat(max)) * 115
     }
     
     func getMaxInTotalTime (value : [timeBlock]) -> Int {
@@ -114,8 +115,9 @@ extension todayContentView {
         print("timeline : \(timeline)")
         var i = 5
         while(i < 29) {
-            let id = i%24
+            var id = i%24
             let sumTime = timeline[id]
+            if(id == 0) { id = 24 }
             times.append(timeBlock(id: id, sumTime: sumTime))
             i += 1
         }
