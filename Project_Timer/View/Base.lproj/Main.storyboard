@@ -3327,7 +3327,7 @@ AVER : 0:00:00</string>
                                                             <constraint firstItem="RXg-Cv-sWf" firstAttribute="centerX" secondItem="8qT-Vn-gCY" secondAttribute="centerX" id="NhE-xa-EhX"/>
                                                             <constraint firstAttribute="trailing" secondItem="nig-FI-Iqu" secondAttribute="trailing" constant="5" id="RuN-Fq-k4i"/>
                                                             <constraint firstItem="d5K-1c-RCA" firstAttribute="centerX" secondItem="8qT-Vn-gCY" secondAttribute="centerX" id="Vfm-6b-KQA"/>
-                                                            <constraint firstItem="nig-FI-Iqu" firstAttribute="top" secondItem="d5K-1c-RCA" secondAttribute="bottom" constant="25" id="XjZ-yZ-Jq3"/>
+                                                            <constraint firstItem="nig-FI-Iqu" firstAttribute="top" secondItem="8qT-Vn-gCY" secondAttribute="top" constant="74.5" id="fnW-GT-dPt"/>
                                                             <constraint firstItem="d5K-1c-RCA" firstAttribute="top" secondItem="RXg-Cv-sWf" secondAttribute="bottom" id="g0r-8Z-bzb"/>
                                                             <constraint firstAttribute="bottom" secondItem="nig-FI-Iqu" secondAttribute="bottom" constant="5" id="hEQ-Mj-Va8"/>
                                                             <constraint firstItem="nig-FI-Iqu" firstAttribute="centerX" secondItem="8qT-Vn-gCY" secondAttribute="centerX" id="pZa-j9-nVF"/>
@@ -3530,23 +3530,23 @@ AVER : 0:00:00</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shV-p7-iNJ">
                                                 <rect key="frame" x="3" y="3" width="214" height="95"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-d8-eIc">
-                                                        <rect key="frame" x="15" y="0.0" width="184" height="95"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-d8-eIc">
+                                                        <rect key="frame" x="30" y="0.0" width="154" height="95"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="오늘의 공부시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0B-Pb-ofW">
-                                                                <rect key="frame" x="20" y="5" width="144" height="27"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 공부시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0B-Pb-ofW">
+                                                                <rect key="frame" x="5" y="5" width="144" height="27"/>
                                                                 <fontDescription key="fontDescription" name="Binggrae" family="Binggrae" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Today's Study Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iB-2W-aiy">
-                                                                <rect key="frame" x="26" y="32" width="132.5" height="17.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Study Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iB-2W-aiy">
+                                                                <rect key="frame" x="11" y="32" width="132.5" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="Binggrae" family="Binggrae" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="7:35:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzV-9v-BfR">
-                                                                <rect key="frame" x="29" y="55" width="126" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:35:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzV-9v-BfR">
+                                                                <rect key="frame" x="14" y="55" width="126" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="Hmy-TB-Spx"/>
                                                                 </constraints>
@@ -3557,14 +3557,16 @@ AVER : 0:00:00</string>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="kzV-9v-BfR" firstAttribute="centerX" secondItem="s8a-d8-eIc" secondAttribute="centerX" id="agh-eD-ysI"/>
-                                                            <constraint firstItem="kzV-9v-BfR" firstAttribute="top" secondItem="1iB-2W-aiy" secondAttribute="bottom" constant="5.5" id="bCH-yA-n41"/>
                                                             <constraint firstItem="1iB-2W-aiy" firstAttribute="centerX" secondItem="q0B-Pb-ofW" secondAttribute="centerX" id="bhx-8c-TDq"/>
                                                             <constraint firstItem="1iB-2W-aiy" firstAttribute="centerX" secondItem="s8a-d8-eIc" secondAttribute="centerX" id="bzg-Yl-KLh"/>
                                                             <constraint firstAttribute="bottom" secondItem="kzV-9v-BfR" secondAttribute="bottom" constant="5" id="kOH-cY-8cJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="q0B-Pb-ofW" secondAttribute="trailing" constant="5" id="lhT-UC-Jam"/>
                                                             <constraint firstItem="q0B-Pb-ofW" firstAttribute="top" secondItem="s8a-d8-eIc" secondAttribute="top" constant="5" id="lxc-Q4-qvm"/>
+                                                            <constraint firstItem="q0B-Pb-ofW" firstAttribute="leading" secondItem="s8a-d8-eIc" secondAttribute="leading" constant="5" id="qzm-lb-ckE"/>
                                                             <constraint firstItem="q0B-Pb-ofW" firstAttribute="centerX" secondItem="s8a-d8-eIc" secondAttribute="centerX" id="u9o-On-EKA"/>
                                                             <constraint firstItem="1iB-2W-aiy" firstAttribute="top" secondItem="q0B-Pb-ofW" secondAttribute="bottom" id="v7o-O0-o1H"/>
                                                             <constraint firstItem="kzV-9v-BfR" firstAttribute="centerX" secondItem="q0B-Pb-ofW" secondAttribute="centerX" id="w84-vY-JM9"/>
+                                                            <constraint firstItem="kzV-9v-BfR" firstAttribute="top" secondItem="s8a-d8-eIc" secondAttribute="top" constant="55" id="x9i-t7-9Mm"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -3590,17 +3592,17 @@ AVER : 0:00:00</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H32-uc-Jgz">
                                                 <rect key="frame" x="3" y="3" width="214" height="95"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CGB-MR-XAR">
-                                                        <rect key="frame" x="5.5" y="0.0" width="203.5" height="95"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGB-MR-XAR">
+                                                        <rect key="frame" x="20.5" y="0.0" width="173.5" height="95"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="최고 연속공부시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePf-C1-VZH">
-                                                                <rect key="frame" x="20" y="5" width="163.5" height="27"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고 연속공부시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePf-C1-VZH">
+                                                                <rect key="frame" x="5" y="5" width="163.5" height="27"/>
                                                                 <fontDescription key="fontDescription" name="Binggrae" family="Binggrae" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0:49:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-89-ro1">
-                                                                <rect key="frame" x="34" y="55" width="135" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:49:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-89-ro1">
+                                                                <rect key="frame" x="19" y="55" width="135" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="qwf-qO-uab"/>
                                                                 </constraints>
@@ -3608,20 +3610,22 @@ AVER : 0:00:00</string>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Max continus time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqm-Tf-sYr">
-                                                                <rect key="frame" x="39.5" y="32" width="124" height="17.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max continus time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqm-Tf-sYr">
+                                                                <rect key="frame" x="24.5" y="32" width="124" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="Binggrae" family="Binggrae" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="BFe-89-ro1" firstAttribute="top" secondItem="CGB-MR-XAR" secondAttribute="top" constant="55" id="064-h6-1FV"/>
                                                             <constraint firstAttribute="bottom" secondItem="BFe-89-ro1" secondAttribute="bottom" constant="5" id="2Oj-6B-PBA"/>
                                                             <constraint firstItem="BFe-89-ro1" firstAttribute="centerX" secondItem="CGB-MR-XAR" secondAttribute="centerX" id="3oR-52-8Zv"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ePf-C1-VZH" secondAttribute="trailing" constant="5" id="8Ep-Nh-8ZX"/>
+                                                            <constraint firstItem="ePf-C1-VZH" firstAttribute="leading" secondItem="CGB-MR-XAR" secondAttribute="leading" constant="5" id="E7g-J6-caX"/>
                                                             <constraint firstItem="Zqm-Tf-sYr" firstAttribute="top" secondItem="ePf-C1-VZH" secondAttribute="bottom" id="FOa-oQ-4Dd"/>
                                                             <constraint firstItem="Zqm-Tf-sYr" firstAttribute="centerX" secondItem="CGB-MR-XAR" secondAttribute="centerX" id="Fax-0F-5GY"/>
                                                             <constraint firstItem="Zqm-Tf-sYr" firstAttribute="centerX" secondItem="ePf-C1-VZH" secondAttribute="centerX" id="PIO-f0-wby"/>
-                                                            <constraint firstItem="BFe-89-ro1" firstAttribute="top" secondItem="Zqm-Tf-sYr" secondAttribute="bottom" constant="5.5" id="ZDd-d3-bch"/>
                                                             <constraint firstItem="ePf-C1-VZH" firstAttribute="top" secondItem="CGB-MR-XAR" secondAttribute="top" constant="5" id="cUr-s9-kJl"/>
                                                             <constraint firstItem="BFe-89-ro1" firstAttribute="centerX" secondItem="ePf-C1-VZH" secondAttribute="centerX" id="nvM-Sx-ZPx"/>
                                                             <constraint firstItem="ePf-C1-VZH" firstAttribute="centerX" secondItem="CGB-MR-XAR" secondAttribute="centerX" id="wvA-kq-C0C"/>
