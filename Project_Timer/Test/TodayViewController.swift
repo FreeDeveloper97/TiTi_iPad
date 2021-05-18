@@ -73,6 +73,7 @@ class TodayViewController: UIViewController {
         } else {
             print("no data")
         }
+        checkRotate()
         super.viewDidLoad()
     }
     
@@ -82,7 +83,7 @@ class TodayViewController: UIViewController {
     }
     
     @objc func deviceRotated(){
-        checkRotate()
+        afterRotate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -98,6 +99,19 @@ class TodayViewController: UIViewController {
 extension TodayViewController {
     
     func checkRotate() {
+        let del = UIApplication.shared.delegate as! AppDelegate
+        if del.isLandscape == false {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        } else if del.isLandscape == true {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else { }
+    }
+    
+    func afterRotate() {
         if UIDevice.current.orientation.isPortrait {
             //Code here
             print("Portrait")

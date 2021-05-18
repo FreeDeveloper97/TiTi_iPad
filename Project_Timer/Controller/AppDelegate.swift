@@ -10,6 +10,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var isLandscape: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UIDevice.current.orientation.isPortrait {
             //Code here
             print("appdelecate : Portrait")
-//            setPortrait()
+            isLandscape = false
         } else if UIDevice.current.orientation.isLandscape {
             //Code here
             print("appdelecate : Landscape")
-//            setLandscape()
+            isLandscape = true
         } else { }
     }
 

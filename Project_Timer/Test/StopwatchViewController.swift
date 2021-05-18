@@ -109,7 +109,7 @@ class StopwatchViewController: UIViewController {
     }
 
     @objc func deviceRotated(){
-        checkRotate()
+        afterRotate()
     }
     
     func checkTimeTrigger() {
@@ -167,16 +167,29 @@ extension StopwatchViewController : ChangeViewController2 {
     
     func checkRotate() {
         if(isStop) {
-            if UIDevice.current.orientation.isPortrait {
+            let del = UIApplication.shared.delegate as! AppDelegate
+            if del.isLandscape == false {
                 //Code here
                 print("Portrait")
                 setPortrait()
-            } else if UIDevice.current.orientation.isLandscape {
+            } else if del.isLandscape == true {
                 //Code here
                 print("Landscape")
                 setLandscape()
             } else { }
         }
+    }
+    
+    func afterRotate() {
+        if UIDevice.current.orientation.isPortrait {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        } else if UIDevice.current.orientation.isLandscape {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else { }
     }
     
     func setLandscape() {
