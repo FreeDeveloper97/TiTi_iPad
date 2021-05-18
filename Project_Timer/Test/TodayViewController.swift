@@ -41,6 +41,8 @@ class TodayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+        
         //timeline
         let hostingController = UIHostingController(rootView: todayContentView())
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
@@ -60,6 +62,18 @@ class TodayViewController: UIViewController {
             setTimes()
         } else {
             print("no data")
+        }
+    }
+    
+    @objc func deviceRotated(){
+        if UIDevice.current.orientation.isPortrait {
+            //Code here
+            print("Portrait")
+//            setPortrait()
+        } else {
+            //Code here
+            print("Landscape")
+//            setLandscape()
         }
     }
     
