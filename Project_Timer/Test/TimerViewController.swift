@@ -71,7 +71,6 @@ class TimerViewController: UIViewController {
     var daily = Daily()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         modeTimer.backgroundColor = UIColor.gray
         modeTimerLabel.textColor = UIColor.gray
@@ -96,6 +95,8 @@ class TimerViewController: UIViewController {
         
         daily.load()
         setTask()
+        checkRotate()
+        super.viewDidLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,17 +105,7 @@ class TimerViewController: UIViewController {
     }
 
     @objc func deviceRotated(){
-        if(isStop) {
-            if UIDevice.current.orientation.isPortrait {
-                //Code here
-                print("Portrait")
-                setPortrait()
-            } else {
-                //Code here
-                print("Landscape")
-                setLandscape()
-            }
-        }
+        checkRotate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -184,6 +175,20 @@ class TimerViewController: UIViewController {
 }
 
 extension TimerViewController : ChangeViewController {
+    
+    func checkRotate() {
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else if UIDevice.current.orientation.isLandscape {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            } else { }
+        }
+    }
     
     func setLandscape() {
         modeTimerLabel.alpha = 1
@@ -707,7 +712,7 @@ extension TimerViewController {
         stopColor()
         stopEnable()
         daily.save() //하루 그래프 데이터 계산
-        deviceRotated() //화면 회전 체크
+        checkRotate() //화면 회전 체크
     }
     
     func algoOfRestart() {

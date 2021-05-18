@@ -72,7 +72,6 @@ class StopwatchViewController: UIViewController {
     var daily = Daily()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         modeStopWatch.backgroundColor = UIColor.gray
@@ -100,25 +99,17 @@ class StopwatchViewController: UIViewController {
         
         daily.load()
         setTask()
+        checkRotate()
+        super.viewDidLoad()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         print("disappear in stopwatch")
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     @objc func deviceRotated(){
-        if(isStop) {
-            if UIDevice.current.orientation.isPortrait {
-                //Code here
-                print("Portrait")
-                setPortrait()
-            } else {
-                //Code here
-                print("Landscape")
-                setLandscape()
-            }
-        }
+        checkRotate()
     }
     
     func checkTimeTrigger() {
@@ -173,6 +164,20 @@ class StopwatchViewController: UIViewController {
 }
 
 extension StopwatchViewController : ChangeViewController2 {
+    
+    func checkRotate() {
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else if UIDevice.current.orientation.isLandscape {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            } else { }
+        }
+    }
     
     func setLandscape() {
         modeTimerLabel.alpha = 1
@@ -653,6 +658,6 @@ extension StopwatchViewController {
         stopEnable()
         time.startSumTimeTemp = sumTime_temp //기준시간 저장
         daily.save() //하루 그래프 데이터 계산
-        deviceRotated() //화면 회전 체크
+        checkRotate() //화면 회전 체크
     }
 }

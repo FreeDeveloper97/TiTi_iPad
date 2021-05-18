@@ -27,6 +27,17 @@ class TodayViewController: UIViewController {
     
     @IBOutlet var timeline: UIView!
     
+    @IBOutlet var sumLabel1: UILabel!
+    @IBOutlet var sumLabel2: UILabel!
+    @IBOutlet var sumHeight: NSLayoutConstraint!
+    @IBOutlet var maxLabel1: UILabel!
+    @IBOutlet var maxLabel2: UILabel!
+    @IBOutlet var maxHeight: NSLayoutConstraint!
+    @IBOutlet var ratioLabel1: UILabel!
+    @IBOutlet var ratioLabel2: UILabel!
+    @IBOutlet var ratioHeight: NSLayoutConstraint!
+    
+    
     var arrayTaskName: [String] = []
     var arrayTaskTime: [String] = []
     var colors: [UIColor] = []
@@ -40,7 +51,6 @@ class TodayViewController: UIViewController {
     var COLOR: UIColor = UIColor(named: "CCC1")!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         //timeline
@@ -63,18 +73,16 @@ class TodayViewController: UIViewController {
         } else {
             print("no data")
         }
+        super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("disappear in today")
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     @objc func deviceRotated(){
-        if UIDevice.current.orientation.isPortrait {
-            //Code here
-            print("Portrait")
-//            setPortrait()
-        } else {
-            //Code here
-            print("Landscape")
-//            setLandscape()
-        }
+        checkRotate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,6 +96,47 @@ class TodayViewController: UIViewController {
 
 
 extension TodayViewController {
+    
+    func checkRotate() {
+        if UIDevice.current.orientation.isPortrait {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        } else if UIDevice.current.orientation.isLandscape {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else { }
+    }
+    
+    func setPortrait() {
+        sumLabel1.alpha = 1
+        sumLabel2.alpha = 1
+        maxLabel1.alpha = 1
+        maxLabel2.alpha = 1
+        ratioLabel1.alpha = 1
+        ratioLabel2.alpha = 1
+        
+        sumHeight.constant = 55
+        maxHeight.constant = 55
+        ratioHeight.constant = 74.5
+        view.layoutIfNeeded()
+    }
+    
+    func setLandscape() {
+        sumLabel1.alpha = 0
+        sumLabel2.alpha = 0
+        maxLabel1.alpha = 0
+        maxLabel2.alpha = 0
+        ratioLabel1.alpha = 0
+        ratioLabel2.alpha = 0
+        
+        sumHeight.constant = 5
+        maxHeight.constant = 5
+        ratioHeight.constant = 25
+        view.layoutIfNeeded()
+    }
+    
     func getDay(day: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY.MM.dd"
