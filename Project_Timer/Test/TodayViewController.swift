@@ -37,6 +37,7 @@ class TodayViewController: UIViewController {
     @IBOutlet var ratioLabel2: UILabel!
     @IBOutlet var ratioHeight: NSLayoutConstraint!
     
+    @IBOutlet var memo: UITextView!
     
     var arrayTaskName: [String] = []
     var arrayTaskTime: [String] = []
@@ -70,6 +71,7 @@ class TodayViewController: UIViewController {
             getTasks()
             setProgress()
             setTimes()
+            setMemo()
         } else {
             print("no data")
         }
@@ -78,6 +80,8 @@ class TodayViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        let getMemo = memo.text
+        UserDefaults.standard.set(getMemo, forKey: "memo")
         print("disappear in today")
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
@@ -288,6 +292,11 @@ extension TodayViewController {
         maxTime.text = printTime(temp: daily.maxTime)
         maxTime.textColor = COLOR
     }
+    
+    func setMemo() {
+        let getMemo = UserDefaults.standard.value(forKey: "memo") as? String ?? "\n\n오늘도 화이팅 :)"
+        memo.text = getMemo
+    }
 }
 
 extension TodayViewController: UICollectionViewDataSource {
@@ -305,6 +314,7 @@ extension TodayViewController: UICollectionViewDataSource {
         cell.taskName.text = arrayTaskName[counts - indexPath.item - 1]
         cell.taskTime.text = arrayTaskTime[counts - indexPath.item - 1]
         cell.taskTime.textColor = color
+        cell.background.backgroundColor = color
         
         return cell
     }
@@ -320,7 +330,9 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
 }
 
 class todayCell: UICollectionViewCell {
+    var click: Bool = false
     @IBOutlet var check: UILabel!
     @IBOutlet var taskName: UILabel!
     @IBOutlet var taskTime: UILabel!
+    @IBOutlet var background: UIView!
 }

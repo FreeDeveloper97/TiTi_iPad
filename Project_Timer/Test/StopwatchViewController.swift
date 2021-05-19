@@ -671,6 +671,6 @@ extension StopwatchViewController {
         stopEnable()
         time.startSumTimeTemp = sumTime_temp //기준시간 저장
         daily.save() //하루 그래프 데이터 계산
-        checkRotate() //화면 회전 체크
+        afterRotate() //화면 회전 체크
     }
 }
