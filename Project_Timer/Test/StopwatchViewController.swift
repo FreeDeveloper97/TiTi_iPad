@@ -143,13 +143,17 @@ class StopwatchViewController: UIViewController {
     }
     
     @IBAction func startStopBTAction(_ sender: Any) {
-        //start action
-        if(isStop == true) {
-            algoOfStart()
-        }
-        //stop action
-        else {
-            algoOfStop()
+        if(task == "Enter a new subject".localized()) {
+            showFirstAlert()
+        } else {
+            //start action
+            if(isStop == true) {
+                algoOfStart()
+            }
+            //stop action
+            else {
+                algoOfStop()
+            }
         }
     }
     
@@ -623,7 +627,7 @@ extension StopwatchViewController {
         } else {
             taskButton.setTitleColor(UIColor.white, for: .normal)
             taskButton.layer.borderColor = UIColor.white.cgColor
-            startStopBT.isUserInteractionEnabled = true
+//            startStopBT.isUserInteractionEnabled = true
         }
         taskButton.setTitle(task, for: .normal)
     }
@@ -638,7 +642,20 @@ extension StopwatchViewController {
     func setFirstStart() {
         taskButton.setTitleColor(UIColor.systemPink, for: .normal)
         taskButton.layer.borderColor = UIColor.systemPink.cgColor
-        startStopBT.isUserInteractionEnabled = false
+//        startStopBT.isUserInteractionEnabled = false
+    }
+    
+    func showFirstAlert() {
+        //1. 경고창 내용 만들기
+        let alert = UIAlertController(title:"Enter a new subject".localized(),
+            message: "",
+            preferredStyle: UIAlertController.Style.alert)
+        //2. 확인 버튼 만들기
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        //3. 확인 버튼을 경고창에 추가하기
+        alert.addAction(ok)
+        //4. 경고창 보이기
+        present(alert,animated: true,completion: nil)
     }
 }
 
@@ -673,6 +690,6 @@ extension StopwatchViewController {
         stopEnable()
         time.startSumTimeTemp = sumTime_temp //기준시간 저장
         daily.save() //하루 그래프 데이터 계산
-        afterRotate() //화면 회전 체크
+        checkRotate() //화면 회전 체크
     }
 }

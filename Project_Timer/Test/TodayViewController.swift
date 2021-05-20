@@ -39,6 +39,9 @@ class TodayViewController: UIViewController {
     
     @IBOutlet var memo: UITextView!
     
+    @IBOutlet var timelineLabel: UILabel!
+    @IBOutlet var tasksLabel: UILabel!
+    
     var arrayTaskName: [String] = []
     var arrayTaskTime: [String] = []
     var colors: [UIColor] = []
@@ -54,6 +57,8 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
+        setLocalizable()
+        setMemo()
         //timeline
         let hostingController = UIHostingController(rootView: todayContentView())
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
@@ -71,7 +76,6 @@ class TodayViewController: UIViewController {
             getTasks()
             setProgress()
             setTimes()
-            setMemo()
         } else {
             print("no data")
         }
@@ -294,8 +298,19 @@ extension TodayViewController {
     }
     
     func setMemo() {
-        let getMemo = UserDefaults.standard.value(forKey: "memo") as? String ?? "\n\n오늘도 화이팅 :)"
+        let getMemo = UserDefaults.standard.value(forKey: "memo") as? String ?? "#TimerTiTi\n\nHave a nice day :)".localized()
         memo.text = getMemo
+    }
+    
+    func setLocalizable() {
+        timelineLabel.text = "Timeline | 타임라인".localized()
+        tasksLabel.text = "Tasks | 과목들".localized()
+        sumLabel1.text = "Today's Study Time".localized()
+        sumLabel2.text = "오늘의 공부시간".localized()
+        maxLabel1.text = "Max Continus Time".localized()
+        maxLabel2.text = "최고 연속공부시간".localized()
+        ratioLabel1.text = "Task ratio".localized()
+        ratioLabel2.text = "과목별 비율".localized()
     }
 }
 
