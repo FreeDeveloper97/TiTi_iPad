@@ -192,15 +192,17 @@ extension TimerViewController : ChangeViewController {
     }
     
     func afterRotate() {
-        if UIDevice.current.orientation.isPortrait {
-            //Code here
-            print("Portrait")
-            setPortrait()
-        } else if UIDevice.current.orientation.isLandscape {
-            //Code here
-            print("Landscape")
-            setLandscape()
-        } else { }
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else if UIDevice.current.orientation.isLandscape {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            } else { }
+        }
     }
     
     func setLandscape() {
