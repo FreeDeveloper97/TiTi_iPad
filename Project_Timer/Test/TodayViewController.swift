@@ -64,7 +64,7 @@ class TodayViewController: UIViewController {
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
         hostingController.view.frame = timeline.bounds
         todayContentView().appendTimes()
-//        ContentView().appendDumyDatas()
+//        todayContentView().appendDumyDatas()
         addChild(hostingController)
         timeline.addSubview(hostingController.view)
         
@@ -245,6 +245,7 @@ extension TodayViewController {
     
     func setWeek() {
         let todayNum = weekday(daily.day)
+        print(todayNum)
         switch(todayNum) {
         case 1:
             mon.backgroundColor = COLOR
@@ -258,7 +259,7 @@ extension TodayViewController {
             fri.backgroundColor = COLOR
         case 6:
             set.backgroundColor = COLOR
-        case 7:
+        case 0:
             sun.backgroundColor = COLOR
         default:
             mon.backgroundColor = UIColor.clear
@@ -268,6 +269,8 @@ extension TodayViewController {
     func setDay() {
         today.text = getDay(day: daily.day)
         setWeek()
+//        today.text = "2021.05.06"
+//        thu.backgroundColor = COLOR
     }
     
     func getTasks() {
@@ -294,6 +297,7 @@ extension TodayViewController {
         sumTime.text = printTime(temp: fixedSum)
         sumTime.textColor = COLOR
         maxTime.text = printTime(temp: daily.maxTime)
+//        maxTime.text = "1:12:30"
         maxTime.textColor = COLOR
     }
     
@@ -311,6 +315,21 @@ extension TodayViewController {
         maxLabel2.text = "최고 연속공부시간".localized()
         ratioLabel1.text = "Task ratio".localized()
         ratioLabel2.text = "과목별 비율".localized()
+    }
+    
+    func addDumy() -> [String:Int] {
+        var temp: [String:Int] = [:]
+//        temp["Learning Korean"] = 2100
+//        temp["Swift Programming"] = 4680
+//        temp["Cycleing"] = 3900
+//        temp["Running"] = 2700
+//        temp["Reading Book"] = 2280
+        temp["프로그래밍 공부"] = 4680
+        temp["전공수업 과제"] = 3900
+        temp["프로젝트 토의"] = 2700
+        temp["책읽기"] = 2280
+        temp["영문학 공부"] = 2100
+        return temp
     }
 }
 

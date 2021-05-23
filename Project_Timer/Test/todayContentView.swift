@@ -81,31 +81,6 @@ struct timeBlock : Identifiable {
 
 var times: [timeBlock] = []
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
-//
-//struct RoundedShape : Shape {
-//    func path(in rect : CGRect) -> Path {
-//        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 5, height: 5))
-//
-//        return Path(path.cgPath)
-//    }
-//}
-//// Dummy Data
-//
-//struct daily : Identifiable {
-//    var id : Int
-//    var day : String
-//    var studyTime : Int
-//    var breakTime : Int
-//}
-//
-//var DailyDatas: [daily] = []
-
-
 extension todayContentView {
     
     func appendTimes(){
@@ -216,28 +191,15 @@ extension todayContentView {
     }
     
     func appendDumyDatas(){
-        
-        DailyDatas.append(daily(id: 1, day: "4/30",
-                                studyTime: translate2(input: "3:37:20"),
-                                breakTime: translate2(input: "0:37:50")))
-        DailyDatas.append(daily(id: 2, day: "5/1",
-                                studyTime: translate2(input: "2:58:23"),
-                                breakTime: translate2(input: "2:02:15")))
-        DailyDatas.append(daily(id: 3, day: "5/2",
-                                studyTime: translate2(input: "6:02:07"),
-                                breakTime: translate2(input: "1:40:08")))
-        DailyDatas.append(daily(id: 4, day: "5/3",
-                                studyTime: translate2(input: "4:03:39"),
-                                breakTime: translate2(input: "1:05:00")))
-        DailyDatas.append(daily(id: 5, day: "5/4",
-                                studyTime: translate2(input: "3:35:15"),
-                                breakTime: translate2(input: "2:32:56")))
-        DailyDatas.append(daily(id: 6, day: "5/5",
-                                studyTime: translate2(input: "5:10:12"),
-                                breakTime: translate2(input: "2:01:00")))
-        DailyDatas.append(daily(id: 7, day: "5/6",
-                                studyTime: translate2(input: "4:21:00"),
-                                breakTime: translate2(input: "0:35:20")))
+        let timeline = [3600,1300,0,0,0,0,0,0,0,1200,2000,3000,2600,2600,3600,3600,1000,0,500,2000,0,0,0,1200]
+        var i = 5
+        while(i < 29) {
+            var id = i%24
+            let sumTime = timeline[id]
+            if(id == 0) { id = 24 }
+            times.append(timeBlock(id: id, sumTime: sumTime))
+            i += 1
+        }
     }
 }
 
