@@ -2131,6 +2131,7 @@ AVER : 0:00:00</string>
                     <navigationItem key="navigationItem" id="S5u-3x-9bp"/>
                     <value key="contentSizeForViewInPopover" type="size" width="800" height="1000"/>
                     <connections>
+                        <outlet property="collectionView" destination="9jT-5L-5ga" id="ORv-kT-xS6"/>
                         <outlet property="progress" destination="VO8-6X-ZHe" id="pRP-Se-eRU"/>
                         <outlet property="sumTime" destination="65w-bz-h95" id="4Jg-8B-xI9"/>
                         <outlet property="time_01" destination="zJX-iv-tW1" id="TLL-0M-6KM"/>
