@@ -165,9 +165,51 @@ class StopwatchViewController: UIViewController {
         resetSum_temp()
     }
     
+    @IBAction func logBTAction(_ sender: Any) {
+        showLog()
+    }
 }
 
 extension StopwatchViewController : ChangeViewController2 {
+    
+    func changeGoalTime() {
+        isFirst = true
+        UserDefaults.standard.set(nil, forKey: "startTime")
+        setColor()
+        goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
+        showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
+        sumTime = 0
+        sumTime_temp = 0
+        breakTime = 0
+        breakTime2 = 0
+        
+        UserDefaults.standard.set(goalTime, forKey: "allTime2")
+        UserDefaults.standard.set(sumTime, forKey: "sum2")
+        UserDefaults.standard.set(breakTime, forKey: "breakTime")
+        
+        resetProgress()
+        updateTimeLabels()
+        finishTimeLabel.text = getFutureTime()
+        
+        stopColor()
+        stopEnable()
+        daily.reset() //하루 그래프 초기화
+        resetSum_temp()
+    }
+    
+    func changeTask() {
+        setTask()
+        resetSum_temp()
+    }
+    
+    func reload() {
+        self.viewDidLoad()
+        self.view.layoutIfNeeded()
+    }
+}
+
+
+extension StopwatchViewController {
     
     func checkRotate() {
         if(isStop) {
@@ -209,40 +251,6 @@ extension StopwatchViewController : ChangeViewController2 {
         modeStopWatchLabel.alpha = 0
         logLabel.alpha = 0
     }
-    
-    func changeGoalTime() {
-        isFirst = true
-        UserDefaults.standard.set(nil, forKey: "startTime")
-        setColor()
-        goalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
-        showAvarage = UserDefaults.standard.value(forKey: "showPersent") as? Int ?? 0
-        sumTime = 0
-        sumTime_temp = 0
-        breakTime = 0
-        breakTime2 = 0
-        
-        UserDefaults.standard.set(goalTime, forKey: "allTime2")
-        UserDefaults.standard.set(sumTime, forKey: "sum2")
-        UserDefaults.standard.set(breakTime, forKey: "breakTime")
-        
-        resetProgress()
-        updateTimeLabels()
-        finishTimeLabel.text = getFutureTime()
-        
-        stopColor()
-        stopEnable()
-        daily.reset() //하루 그래프 초기화
-        resetSum_temp()
-    }
-    
-    func changeTask() {
-        setTask()
-        resetSum_temp()
-    }
-}
-
-
-extension StopwatchViewController {
     
     func setBackground() {
         NotificationCenter.default.addObserver(self, selector: #selector(pauseWhenBackground(noti:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -415,6 +423,12 @@ extension StopwatchViewController {
     func showTaskView() {
         let setVC = storyboard?.instantiateViewController(withIdentifier: "taskSelectViewController") as! taskSelectViewController
             setVC.SetTimerViewControllerDelegate = self
+            present(setVC,animated: true,completion: nil)
+    }
+    
+    func showLog() {
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "GraphViewController2") as! GraphViewController2
+            setVC.logViewControllerDelegate = self
             present(setVC,animated: true,completion: nil)
     }
     

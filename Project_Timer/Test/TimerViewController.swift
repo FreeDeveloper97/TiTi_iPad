@@ -176,50 +176,13 @@ class TimerViewController: UIViewController {
     @IBAction func settingTimerBTAction(_ sender: Any) {
         showTimerView()
     }
+    
+    @IBAction func logBTAction(_ sender: Any) {
+        showLog()
+    }
 }
 
 extension TimerViewController : ChangeViewController {
-    
-    func checkRotate() {
-        if(isStop) {
-            let del = UIApplication.shared.delegate as! AppDelegate
-            if del.isLandscape == false {
-                //Code here
-                print("Portrait")
-                setPortrait()
-            } else if del.isLandscape == true {
-                //Code here
-                print("Landscape")
-                setLandscape()
-            } else { }
-        }
-    }
-    
-    func afterRotate() {
-        if(isStop) {
-            if UIDevice.current.orientation.isPortrait {
-                //Code here
-                print("Portrait")
-                setPortrait()
-            } else if UIDevice.current.orientation.isLandscape {
-                //Code here
-                print("Landscape")
-                setLandscape()
-            } else { }
-        }
-    }
-    
-    func setLandscape() {
-        modeTimerLabel.alpha = 1
-        modeStopWatchLabel.alpha = 1
-        logLabel.alpha = 1
-    }
-    
-    func setPortrait() {
-        modeTimerLabel.alpha = 0
-        modeStopWatchLabel.alpha = 0
-        logLabel.alpha = 0
-    }
     
     func updateViewController() {
         stopColor()
@@ -266,9 +229,55 @@ extension TimerViewController: ChangeViewController2 {
     func changeTask() {
         setTask()
     }
+    
+    func reload() {
+        self.viewDidLoad()
+        self.view.layoutIfNeeded()
+    }
 }
 
 extension TimerViewController {
+    
+    func checkRotate() {
+        if(isStop) {
+            let del = UIApplication.shared.delegate as! AppDelegate
+            if del.isLandscape == false {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else if del.isLandscape == true {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            } else { }
+        }
+    }
+    
+    func afterRotate() {
+        if(isStop) {
+            if UIDevice.current.orientation.isPortrait {
+                //Code here
+                print("Portrait")
+                setPortrait()
+            } else if UIDevice.current.orientation.isLandscape {
+                //Code here
+                print("Landscape")
+                setLandscape()
+            } else { }
+        }
+    }
+    
+    func setLandscape() {
+        modeTimerLabel.alpha = 1
+        modeStopWatchLabel.alpha = 1
+        logLabel.alpha = 1
+    }
+    
+    func setPortrait() {
+        modeTimerLabel.alpha = 0
+        modeStopWatchLabel.alpha = 0
+        logLabel.alpha = 0
+    }
     
     func setBackground() {
         NotificationCenter.default.addObserver(self, selector: #selector(pauseWhenBackground(noti:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -468,6 +477,12 @@ extension TimerViewController {
     func showTaskView() {
         let setVC = storyboard?.instantiateViewController(withIdentifier: "taskSelectViewController") as! taskSelectViewController
             setVC.SetTimerViewControllerDelegate = self
+            present(setVC,animated: true,completion: nil)
+    }
+    
+    func showLog() {
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "GraphViewController2") as! GraphViewController2
+            setVC.logViewControllerDelegate = self
             present(setVC,animated: true,completion: nil)
     }
     

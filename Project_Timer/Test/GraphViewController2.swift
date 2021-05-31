@@ -8,15 +8,16 @@
 
 import UIKit
 import SwiftUI
+import Firebase
 
 class GraphViewController2: UIViewController {
+    
+    let db = Database.database().reference().child("test")
 
     @IBOutlet var viewOfView: UIView!
     
     @IBOutlet var progress: UIView!
     @IBOutlet var sumTime: UILabel!
-//    @IBOutlet var taskTitle: UILabel!
-//    @IBOutlet var taskTime: UILabel!
     @IBOutlet var today: UILabel!
     
     @IBOutlet var time_05: UIView!
@@ -51,6 +52,8 @@ class GraphViewController2: UIViewController {
     let f = Float(0.003)
     var daily = Daily()
     var counts: Int = 0
+    
+    var logViewControllerDelegate : ChangeViewController2!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +111,140 @@ class GraphViewController2: UIViewController {
         goToViewController(where: "TodayViewController")
     }
     
+    @IBAction func upload(_ sender: Any) {
+        let temp = getTemp()
+        db.child("today").setValue(temp)
+        alert("upload Success")
+    }
+    
+    @IBAction func download(_ sender: Any) {
+        db.child("today").observeSingleEvent(of: .value) { (snapshot) in
+            do {
+                let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
+                let decoder = JSONDecoder()
+                let getDaily: GetDaily = try decoder.decode(GetDaily.self, from: data)
+                print("--> daily : \(getDaily)")
+                
+                let newDaily: Daily = self.transDaily(getDaily)
+                newDaily.save()
+                self.alert("download Success")
+                
+                DispatchQueue.main.async {
+                    ContentView().reset()
+                    self.viewDidLoad()
+                    self.view.layoutIfNeeded()
+                    
+                    self.logViewControllerDelegate.reload()
+                }
+            } catch let error { print("--> error: \(error)") }
+        }
+        self.viewDidAppear(true)
+    }
+    
+    func getTemp() -> [String:Any] {
+        let day = uploadDate(day: daily.day)
+        let fixedTotalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 0
+        let fixedSumTime = 0
+        let fixedTimerTime = UserDefaults.standard.value(forKey: "second") as? Int ?? 0
+        let currentTotalTime = UserDefaults.standard.value(forKey: "allTime2") as? Int ?? 0
+        let currentSumTime = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
+        let currentTimerTime = UserDefaults.standard.value(forKey: "second2") as? Int ?? 0
+        let breakTime = 0
+        let maxTime = daily.maxTime
+        let startTime = daily.startTime.timeIntervalSince1970
+//        let currentTask = daily.currentTask
+        let currentTask = ""
+        let tasks = daily.tasks
+        let beforeTime = daily.beforeTime
+        let timeline = daily.timeline
+        
+        var temp: [String:Any] = [:]
+        temp.updateValue(day, forKey: "day")
+        temp.updateValue(fixedTotalTime, forKey: "fixedTotalTime")
+        temp.updateValue(fixedSumTime, forKey: "fixedSumTime")
+        temp.updateValue(fixedTimerTime, forKey: "fixedTimerTime")
+        temp.updateValue(currentTotalTime, forKey: "currentTotalTime")
+        temp.updateValue(currentSumTime, forKey: "currentSumTime")
+        temp.updateValue(currentTimerTime, forKey: "currentTimerTime")
+        temp.updateValue(breakTime, forKey: "breakTime")
+        temp.updateValue(maxTime, forKey: "maxTime")
+        temp.updateValue(startTime, forKey: "startTime")
+        temp.updateValue(currentTask, forKey: "currentTask")
+        temp.updateValue(tasks, forKey: "tasks")
+        temp.updateValue(beforeTime, forKey: "beforeTime")
+        temp.updateValue(timeline, forKey: "timeline")
+        
+        
+        
+        return temp
+    }
+    
+    func alert(_ message: String) {
+        //1. 경고창 내용 만들기
+        let alert = UIAlertController(title:message,
+            message: "",
+            preferredStyle: UIAlertController.Style.alert)
+        //2. 확인 버튼 만들기
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        //3. 확인 버튼을 경고창에 추가하기
+        alert.addAction(ok)
+        //4. 경고창 보이기
+        present(alert,animated: true,completion: nil)
+    }
+    
+    func uploadDate(day: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        return dateFormatter.string(from: day)
+    }
+    
+    func transDaily(_ getDaily: GetDaily) -> Daily {
+        var newDaily: Daily = Daily()
+        newDaily.day = stringToDate(getDaily.day)
+        newDaily.fixedTotalTime = getDaily.fixedTotalTime
+        newDaily.fixedSumTime = 0
+        newDaily.fixedTimerTime = getDaily.fixedTimerTime
+        newDaily.currentTotalTime = getDaily.currentTotalTime
+        newDaily.currentSumTime = getDaily.currentSumTime
+        newDaily.currentTimerTime = getDaily.currentTimerTime
+        newDaily.breakTime = 0
+        newDaily.maxTime = getDaily.maxTime
+        newDaily.startTime = doubleToDate(getDaily.startTime)
+//        newDaily.currentTask = getDaily.currentTask
+        newDaily.tasks = getDaily.tasks
+        newDaily.beforeTime = getDaily.beforeTime
+        newDaily.timeline = getDaily.timeline
+        
+        UserDefaults.standard.set(newDaily.fixedTotalTime, forKey: "allTime")
+        UserDefaults.standard.set(newDaily.fixedTimerTime, forKey: "second")
+        UserDefaults.standard.set(newDaily.currentTotalTime, forKey: "allTime2")
+        UserDefaults.standard.set(newDaily.currentSumTime, forKey: "sum2")
+        UserDefaults.standard.set(newDaily.currentTimerTime, forKey: "second2")
+//        UserDefaults.standard.set(newDaily.currentTask, forKey: "task")
+        UserDefaults.standard.set(printTime(temp: newDaily.currentSumTime), forKey: "time1")
+
+        return newDaily
+    }
+    
+    func stringToDate(_ stringDay: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        let date = dateFormatter.date(from: stringDay)!
+        setDay1(date)
+        return date
+    }
+    
+    func doubleToDate(_ doubleDay: Double) -> Date {
+        let date = Date(timeIntervalSince1970: doubleDay)
+        return date
+    }
+    
+    func setDay1(_ date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M월 d일"
+        let day = dateFormatter.string(from: date)
+        UserDefaults.standard.set(day, forKey: "day1")
+    }
 }
 
 extension GraphViewController2 {
@@ -315,4 +452,23 @@ class ListCell: UICollectionViewCell {
     @IBOutlet var colorView: UIView!
     @IBOutlet var taskName: UILabel!
     @IBOutlet var taskTime: UILabel!
+}
+
+struct GetDaily: Codable {
+    var day: String = ""
+    var fixedTotalTime: Int = 0
+    var fixedSumTime: Int = 0
+    var fixedTimerTime: Int = 0
+    var currentTotalTime: Int = 0
+    var currentSumTime: Int = 0
+    var currentTimerTime: Int = 0
+    var breakTime: Int = 0
+    var maxTime: Int = 0
+    
+    var startTime: Double = 0
+    var currentTask: String = ""
+    var tasks: [String:Int] = [:]
+    
+    var beforeTime: Int = 0
+    var timeline = Array(repeating: 0, count: 24)
 }

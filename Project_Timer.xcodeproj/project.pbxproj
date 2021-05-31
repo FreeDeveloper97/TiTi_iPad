@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BD1F5A5B12E921C47BA6431 /* Pods_Project_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC3AA8A676F050C7AB2A15B /* Pods_Project_Timer.framework */; };
 		870920F925CC364A00CD0E3F /* SetTimerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */; };
 		8718DBB126415A7D0027DAB1 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8718DBB026415A7D0027DAB1 /* Time.swift */; };
 		871A441E263F8D9300354BEE /* StaticCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871A441D263F8D9300354BEE /* StaticCircularProgressView.swift */; };
@@ -18,6 +19,7 @@
 		875A6FF1261BFC390026F575 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A6FF0261BFC390026F575 /* Storage.swift */; };
 		875A6FF4261BFF800026F575 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A6FF3261BFF800026F575 /* DailyViewController.swift */; };
 		87654A43264D5C640046F66E /* todayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87654A42264D5C640046F66E /* todayContentView.swift */; };
+		876E57432664BCA200418018 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 876E57422664BCA200418018 /* GoogleService-Info.plist */; };
 		8787DFDA25B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */; };
 		8787DFDB25B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */; };
 		8787DFDC25B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */; };
@@ -67,6 +69,7 @@
 		875A6FF0261BFC390026F575 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		875A6FF3261BFF800026F575 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyViewController.swift; path = ../View/DailyViewController.swift; sourceTree = "<group>"; };
 		87654A42264D5C640046F66E /* todayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayContentView.swift; sourceTree = "<group>"; };
+		876E57422664BCA200418018 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8787DFD425B5322A007B8C13 /* HGGGOTHICSSI_PRO_20G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_20G.otf; sourceTree = "<group>"; };
 		8787DFD525B5322A007B8C13 /* HGGGOTHICSSI_PRO_60G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_60G.otf; sourceTree = "<group>"; };
 		8787DFD625B5322A007B8C13 /* HGGGOTHICSSI_PRO_99G.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HGGGOTHICSSI_PRO_99G.otf; sourceTree = "<group>"; };
@@ -102,6 +105,9 @@
 		93B0852C248DDF3000E215BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93B0852E248DDF3000E215BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B08534248DEEBA00E215BD /* Project_Timer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project_Timer.entitlements; sourceTree = "<group>"; };
+		B9F9DD95587EC2C8E3D9B10C /* Pods-Project_Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_Timer.release.xcconfig"; path = "Target Support Files/Pods-Project_Timer/Pods-Project_Timer.release.xcconfig"; sourceTree = "<group>"; };
+		CBC3AA8A676F050C7AB2A15B /* Pods_Project_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D717C535DF3C2A8846A76A20 /* Pods-Project_Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_Timer.debug.xcconfig"; path = "Target Support Files/Pods-Project_Timer/Pods-Project_Timer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +115,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD1F5A5B12E921C47BA6431 /* Pods_Project_Timer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C8F4556C6233E3371A2EB78 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D717C535DF3C2A8846A76A20 /* Pods-Project_Timer.debug.xcconfig */,
+				B9F9DD95587EC2C8E3D9B10C /* Pods-Project_Timer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		871E99C72614A092003A5EE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +219,8 @@
 			children = (
 				93B0851F248DDF2F00E215BD /* Project_Timer */,
 				93B0851E248DDF2F00E215BD /* Products */,
+				6C8F4556C6233E3371A2EB78 /* Pods */,
+				AC5B345C29A01DA18D9F1EDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,8 +245,17 @@
 				93B08534248DEEBA00E215BD /* Project_Timer.entitlements */,
 				93B08522248DDF2F00E215BD /* SceneDelegate.swift */,
 				93B0852E248DDF3000E215BD /* Info.plist */,
+				876E57422664BCA200418018 /* GoogleService-Info.plist */,
 			);
 			path = Project_Timer;
+			sourceTree = "<group>";
+		};
+		AC5B345C29A01DA18D9F1EDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3AA8A676F050C7AB2A15B /* Pods_Project_Timer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93B08531248DDF3000E215BD /* Build configuration list for PBXNativeTarget "Project_Timer" */;
 			buildPhases = (
+				E8CAA21AC1158FBC94E3BF1C /* [CP] Check Pods Manifest.lock */,
 				93B08519248DDF2F00E215BD /* Sources */,
 				93B0851A248DDF2F00E215BD /* Frameworks */,
 				93B0851B248DDF2F00E215BD /* Resources */,
+				DB68906767AD974998BDAB74 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,10 +339,53 @@
 				8799C7F5264A33FA00D7E871 /* Binggrae.otf in Resources */,
 				8799C7F4264A33F800D7E871 /* HangeulNuriR.ttf in Resources */,
 				93B08528248DDF2F00E215BD /* Main.storyboard in Resources */,
+				876E57432664BCA200418018 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DB68906767AD974998BDAB74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Project_Timer/Pods-Project_Timer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Project_Timer/Pods-Project_Timer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Project_Timer/Pods-Project_Timer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8CAA21AC1158FBC94E3BF1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Project_Timer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93B08519248DDF2F00E215BD /* Sources */ = {
@@ -497,11 +569,12 @@
 		};
 		93B08532248DDF3000E215BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D717C535DF3C2A8846A76A20 /* Pods-Project_Timer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Project_Timer/Project_Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = 2C96RNDN63;
 				INFOPLIST_FILE = Project_Timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -509,7 +582,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.2;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FDEE.TiTi-ipad";
 				PRODUCT_NAME = TiTi;
 				SUPPORTS_MACCATALYST = NO;
@@ -520,11 +593,12 @@
 		};
 		93B08533248DDF3000E215BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9F9DD95587EC2C8E3D9B10C /* Pods-Project_Timer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Project_Timer/Project_Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = 2C96RNDN63;
 				INFOPLIST_FILE = Project_Timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -532,7 +606,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.2;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FDEE.TiTi-ipad";
 				PRODUCT_NAME = TiTi;
 				SUPPORTS_MACCATALYST = NO;

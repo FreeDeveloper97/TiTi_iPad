@@ -202,6 +202,8 @@ extension ViewController2 : ChangeViewController2 {
     func changeTask() {
         setTask()
     }
+    
+    func reload() { }
 }
 
 
