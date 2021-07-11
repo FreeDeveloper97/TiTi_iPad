@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BD1F5A5B12E921C47BA6431 /* Pods_Project_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC3AA8A676F050C7AB2A15B /* Pods_Project_Timer.framework */; };
 		870920F925CC364A00CD0E3F /* SetTimerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */; };
+		870A09D5269959DF00479B37 /* testTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870A09D4269959DF00479B37 /* testTodayViewController.swift */; };
 		8718DBB126415A7D0027DAB1 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8718DBB026415A7D0027DAB1 /* Time.swift */; };
 		871A441E263F8D9300354BEE /* StaticCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871A441D263F8D9300354BEE /* StaticCircularProgressView.swift */; };
 		872A525125F3E07E008D9F4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 872A525325F3E07E008D9F4B /* Localizable.strings */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		870920F825CC364A00CD0E3F /* SetTimerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController2.swift; sourceTree = "<group>"; };
+		870A09D4269959DF00479B37 /* testTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTodayViewController.swift; sourceTree = "<group>"; };
 		8718DBB026415A7D0027DAB1 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		871A441D263F8D9300354BEE /* StaticCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCircularProgressView.swift; sourceTree = "<group>"; };
 		872A525225F3E07E008D9F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				8739DB4E264D36540066A029 /* TodayViewController.swift */,
 				87654A42264D5C640046F66E /* todayContentView.swift */,
 				8756C43C2656BDF900944F77 /* firstViewController.swift */,
+				870A09D4269959DF00479B37 /* testTodayViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870A09D5269959DF00479B37 /* testTodayViewController.swift in Sources */,
 				8756C43D2656BDF900944F77 /* firstViewController.swift in Sources */,
 				93B08525248DDF2F00E215BD /* ViewController.swift in Sources */,
 				875A6FF1261BFC390026F575 /* Storage.swift in Sources */,
@@ -574,7 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Project_Timer/Project_Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C96RNDN63;
 				INFOPLIST_FILE = Project_Timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -598,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Project_Timer/Project_Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C96RNDN63;
 				INFOPLIST_FILE = Project_Timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
