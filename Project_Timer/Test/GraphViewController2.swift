@@ -117,7 +117,7 @@ class GraphViewController2: UIViewController {
     }
     
     @IBAction func todayButtonAction(_ sender: Any) {
-        goToViewController(where: "TodayViewController")
+        goToViewController(where: "testTodayViewController")
     }
     
     @IBAction func upload(_ sender: Any) {

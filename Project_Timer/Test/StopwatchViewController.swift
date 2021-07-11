@@ -193,7 +193,7 @@ extension StopwatchViewController : ChangeViewController2 {
         
         stopColor()
         stopEnable()
-        daily.reset() //하루 그래프 초기화
+        daily.reset(0, 0) //하루 그래프 초기화
         resetSum_temp()
     }
     

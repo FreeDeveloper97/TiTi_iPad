@@ -196,7 +196,7 @@ extension ViewController2 : ChangeViewController2 {
         checkAverage()
         allStopColor()
         //하루 그래프 초기화
-        daily.reset()
+        daily.reset(0, 0)
     }
     
     func changeTask() {

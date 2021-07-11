@@ -63,7 +63,7 @@ class TodayViewController: UIViewController {
         let hostingController = UIHostingController(rootView: todayContentView())
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
         hostingController.view.frame = timeline.bounds
-        todayContentView().appendTimes()
+        todayContentView().appendTimes(isDumy: false, daily: daily)
 //        todayContentView().appendDumyDatas()
         addChild(hostingController)
         timeline.addSubview(hostingController.view)
@@ -363,7 +363,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-class todayCell: UICollectionViewCell {
+class todayCelll: UICollectionViewCell {
     var click: Bool = false
     @IBOutlet var check: UILabel!
     @IBOutlet var taskName: UILabel!

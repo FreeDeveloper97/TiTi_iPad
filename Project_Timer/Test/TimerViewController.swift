@@ -209,7 +209,7 @@ extension TimerViewController : ChangeViewController {
  
         //종료 예상시간 보이기
         finishTimeLabel.text = getFutureTime()
-        daily.reset() //하루 그래프 초기화
+        daily.reset(0, 0) //하루 그래프 초기화
     }
     
     func changeTimer() {
