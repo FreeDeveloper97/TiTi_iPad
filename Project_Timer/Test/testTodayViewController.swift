@@ -20,6 +20,7 @@ class testTodayViewController: UIViewController {
     @IBOutlet var progress: UIView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var todo_collectionView: UICollectionView!
+    @IBOutlet var rightBottomHeight: NSLayoutConstraint! //355
     
     @IBOutlet var mon: UIView!
     @IBOutlet var tue: UIView!
@@ -56,6 +57,7 @@ class testTodayViewController: UIViewController {
     let dailyViewModel = DailyViewModel()
     
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         super.viewDidLoad()
         self.hideKeyboard()
         
@@ -74,8 +76,9 @@ class testTodayViewController: UIViewController {
         showSwiftUIGraph(isDumy: isDumy)
         
         todoListViewModel.loadTodos()
-        
         dateFormatter.dateFormat = "yyyy.MM.dd"
+        
+        checkRotate()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -86,8 +89,16 @@ class testTodayViewController: UIViewController {
         return true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         todayContentView().reset()
+    }
+    
+    @objc func deviceRotated(){
+        afterRotate()
     }
     
     @IBAction func changeColor(_ sender: UIButton) {
@@ -102,14 +113,6 @@ class testTodayViewController: UIViewController {
     }
     
     @IBAction func addList(_ sender: Any) {
-//        guard let text = input.text, text.isEmpty == false else { return }
-//        let todo = TodoManager.shared.createTodo(text: text)
-//        todoListViewModel.addTodo(todo)
-//
-//        view4_collectionView.reloadData()
-//        input.text = ""
-//        self.view.endEditing(true)
-//        self.view.layoutIfNeeded()
         let alert = UIAlertController(title: "Add new Todo".localized(), message: "Enter a subject that's max length is 20".localized(), preferredStyle: .alert)
         let cancle = UIAlertAction(title: "CANCLE", style: .default, handler: nil)
         let ok = UIAlertAction(title: "ENTER", style: .destructive, handler: {
@@ -143,6 +146,41 @@ class testTodayViewController: UIViewController {
 
 
 extension testTodayViewController {
+    
+    func checkRotate() {
+        let del = UIApplication.shared.delegate as! AppDelegate
+        if del.isLandscape == false {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        } else if del.isLandscape == true {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else { }
+    }
+    
+    func afterRotate() {
+        if UIDevice.current.orientation.isPortrait {
+            //Code here
+            print("Portrait")
+            setPortrait()
+        } else if UIDevice.current.orientation.isLandscape {
+            //Code here
+            print("Landscape")
+            setLandscape()
+        } else { }
+    }
+    
+    func setPortrait() {
+        rightBottomHeight.constant = 420
+        view.layoutIfNeeded()
+    }
+    
+    func setLandscape() {
+        rightBottomHeight.constant = 355
+        view.layoutIfNeeded()
+    }
     
     func setRadius() {
         innerView.layer.cornerRadius = 25
