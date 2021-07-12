@@ -20,7 +20,10 @@ class testTodayViewController: UIViewController {
     @IBOutlet var progress: UIView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var todo_collectionView: UICollectionView!
-    @IBOutlet var rightBottomHeight: NSLayoutConstraint! //355
+    
+    @IBOutlet var rightBottomHeight: NSLayoutConstraint! //355 <-> 420
+    @IBOutlet var todolistTopMargin: NSLayoutConstraint! //5 <-> 5+(194+5)
+    @IBOutlet var tilelineWidth: NSLayoutConstraint! //455 <-> 455+(253+5)
     
     @IBOutlet var mon: UIView!
     @IBOutlet var tue: UIView!
@@ -56,6 +59,8 @@ class testTodayViewController: UIViewController {
     let dateFormatter = DateFormatter()
     let dailyViewModel = DailyViewModel()
     
+    var isDumy: Bool = false
+    
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         super.viewDidLoad()
@@ -71,9 +76,9 @@ class testTodayViewController: UIViewController {
         dailyViewModel.loadDailys()
         
         getColor()
-        let isDumy: Bool = true //앱스토어 스크린샷을 위한 더미데이터 여부
+        isDumy = true //앱스토어 스크린샷을 위한 더미데이터 여부
         showDatas(isDumy: isDumy)
-        showSwiftUIGraph(isDumy: isDumy)
+//        showSwiftUIGraph(isDumy: isDumy)
         
         todoListViewModel.loadTodos()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -158,9 +163,14 @@ extension testTodayViewController {
             print("Landscape")
             setLandscape()
         } else { }
+        showSwiftUIGraph(isDumy: isDumy)
     }
     
     func afterRotate() {
+        todayContentView().reset()
+        for view in self.timeline.subviews {
+            view.removeFromSuperview()
+        }
         if UIDevice.current.orientation.isPortrait {
             //Code here
             print("Portrait")
@@ -170,15 +180,20 @@ extension testTodayViewController {
             print("Landscape")
             setLandscape()
         } else { }
+        showSwiftUIGraph(isDumy: isDumy)
     }
     
     func setPortrait() {
-        rightBottomHeight.constant = 420
+        rightBottomHeight.constant = 380
+        todolistTopMargin.constant = 204
+        tilelineWidth.constant = 713
         view.layoutIfNeeded()
     }
     
     func setLandscape() {
         rightBottomHeight.constant = 355
+        todolistTopMargin.constant = 5
+        tilelineWidth.constant = 455
         view.layoutIfNeeded()
     }
     

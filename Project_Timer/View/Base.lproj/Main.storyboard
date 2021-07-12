@@ -4106,7 +4106,7 @@ AVER : 0:00:00</string>
                                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="23"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni7-ak-Fdb">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni7-ak-Fdb" userLabel="TimelineView">
                                                         <rect key="frame" x="5" y="30" width="455" height="194"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mf-cQ-0p3">
@@ -4132,7 +4132,7 @@ AVER : 0:00:00</string>
                                                         <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="23"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8K-8T-UUY">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8K-8T-UUY" userLabel="circleView">
                                                         <rect key="frame" x="465" y="229" width="253" height="355"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-ht-fGj">
@@ -4222,11 +4222,12 @@ AVER : 0:00:00</string>
                                                             <constraint firstAttribute="height" constant="355" id="3Fc-Pu-wHv"/>
                                                             <constraint firstItem="Pgg-ht-fGj" firstAttribute="top" secondItem="p8K-8T-UUY" secondAttribute="top" constant="2" id="FKR-5C-dOa"/>
                                                             <constraint firstAttribute="trailing" secondItem="Pgg-ht-fGj" secondAttribute="trailing" constant="2" id="e12-tk-RDd"/>
+                                                            <constraint firstAttribute="width" constant="253" id="gmE-GK-FPK"/>
                                                             <constraint firstAttribute="bottom" secondItem="Pgg-ht-fGj" secondAttribute="bottom" constant="2" id="gvw-36-mWG"/>
                                                             <constraint firstItem="Pgg-ht-fGj" firstAttribute="leading" secondItem="p8K-8T-UUY" secondAttribute="leading" constant="2" id="wmP-Bw-2LJ"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugN-Ec-H5N">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugN-Ec-H5N" userLabel="collectionView">
                                                         <rect key="frame" x="5" y="229" width="455" height="355"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUa-ds-STd">
@@ -4317,9 +4318,10 @@ AVER : 0:00:00</string>
                                                             <constraint firstAttribute="bottom" secondItem="aUa-ds-STd" secondAttribute="bottom" constant="2" id="WEI-ah-u44"/>
                                                             <constraint firstItem="aUa-ds-STd" firstAttribute="top" secondItem="ugN-Ec-H5N" secondAttribute="top" constant="2" id="hrw-lf-wrB"/>
                                                             <constraint firstAttribute="trailing" secondItem="aUa-ds-STd" secondAttribute="trailing" constant="2" id="lF8-Al-5an"/>
+                                                            <constraint firstAttribute="width" constant="455" id="m9H-fI-QGc"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guc-Qz-XMX">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guc-Qz-XMX" userLabel="todolistView">
                                                         <rect key="frame" x="465" y="30" width="253" height="194"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uw0-N6-H17">
@@ -4356,10 +4358,10 @@ AVER : 0:00:00</string>
                                                                                     </connections>
                                                                                 </button>
                                                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiA-54-aKR">
-                                                                                    <rect key="frame" x="23.5" y="6" width="146" height="18.5"/>
+                                                                                    <rect key="frame" x="23.5" y="5.5" width="146" height="19"/>
                                                                                 </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift 프로그래밍 빡세게 하기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-Hp-2No">
-                                                                                    <rect key="frame" x="26" y="8.5" width="141" height="13.5"/>
+                                                                                    <rect key="frame" x="26" y="8" width="141" height="14"/>
                                                                                     <fontDescription key="fontDescription" name="HGGGothicssiP60g" family="HGGGothicssi_Pro" pointSize="12"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -4473,23 +4475,21 @@ AVER : 0:00:00</string>
                                                     <constraint firstItem="Wru-wt-xfz" firstAttribute="centerX" secondItem="1Cx-Ls-IYT" secondAttribute="centerX" id="3KY-3T-aq7"/>
                                                     <constraint firstItem="Ni7-ak-Fdb" firstAttribute="top" secondItem="5nH-Sd-Ufo" secondAttribute="bottom" constant="5" id="3tt-mK-pqt"/>
                                                     <constraint firstItem="1Cx-Ls-IYT" firstAttribute="centerY" secondItem="Ni7-ak-Fdb" secondAttribute="centerY" constant="-11" id="43e-61-Obh"/>
+                                                    <constraint firstItem="Jeg-9D-qWq" firstAttribute="centerX" secondItem="guc-Qz-XMX" secondAttribute="centerX" id="91O-O3-1H6"/>
                                                     <constraint firstItem="5nH-Sd-Ufo" firstAttribute="top" secondItem="WBH-kp-LgQ" secondAttribute="top" constant="5" id="CDg-Ut-oKo"/>
                                                     <constraint firstAttribute="bottom" secondItem="ugN-Ec-H5N" secondAttribute="bottom" constant="5" id="G5q-AO-T0D"/>
                                                     <constraint firstItem="Jeg-9D-qWq" firstAttribute="top" secondItem="WBH-kp-LgQ" secondAttribute="top" constant="5" id="K7c-At-90m"/>
                                                     <constraint firstItem="Wru-wt-xfz" firstAttribute="top" secondItem="1Cx-Ls-IYT" secondAttribute="bottom" constant="68" id="LZ7-Iq-dr5"/>
                                                     <constraint firstItem="4aV-6A-PNu" firstAttribute="centerX" secondItem="1Cx-Ls-IYT" secondAttribute="centerX" id="OhQ-Nw-5bG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="guc-Qz-XMX" secondAttribute="trailing" constant="5" id="QLE-Lr-HVZ"/>
                                                     <constraint firstAttribute="bottom" secondItem="p8K-8T-UUY" secondAttribute="bottom" constant="5" id="R36-Xk-aXa"/>
                                                     <constraint firstItem="5nH-Sd-Ufo" firstAttribute="centerX" secondItem="Ni7-ak-Fdb" secondAttribute="centerX" id="USC-O9-x2h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="p8K-8T-UUY" secondAttribute="trailing" constant="5" id="Xus-wn-yNY"/>
                                                     <constraint firstItem="p8K-8T-UUY" firstAttribute="top" secondItem="guc-Qz-XMX" secondAttribute="bottom" constant="5" id="cLy-g4-yez"/>
-                                                    <constraint firstItem="Jeg-9D-qWq" firstAttribute="centerX" secondItem="guc-Qz-XMX" secondAttribute="centerX" id="dvx-FA-1k6"/>
                                                     <constraint firstItem="guc-Qz-XMX" firstAttribute="top" secondItem="Jeg-9D-qWq" secondAttribute="bottom" constant="5" id="dwp-n9-tec"/>
                                                     <constraint firstItem="p8K-8T-UUY" firstAttribute="leading" secondItem="ugN-Ec-H5N" secondAttribute="trailing" constant="5" id="jYW-yL-5xX"/>
                                                     <constraint firstItem="p8K-8T-UUY" firstAttribute="centerX" secondItem="guc-Qz-XMX" secondAttribute="centerX" id="k27-iN-hU6"/>
-                                                    <constraint firstItem="guc-Qz-XMX" firstAttribute="leading" secondItem="ugN-Ec-H5N" secondAttribute="trailing" constant="5" id="pvk-9a-s3I"/>
-                                                    <constraint firstItem="guc-Qz-XMX" firstAttribute="leading" secondItem="Ni7-ak-Fdb" secondAttribute="trailing" constant="5" id="q5m-Bq-EJR"/>
                                                     <constraint firstItem="1Cx-Ls-IYT" firstAttribute="top" secondItem="4aV-6A-PNu" secondAttribute="bottom" constant="68" id="qnK-tp-IJh"/>
-                                                    <constraint firstItem="ugN-Ec-H5N" firstAttribute="centerX" secondItem="Ni7-ak-Fdb" secondAttribute="centerX" id="rhn-QF-9xA"/>
+                                                    <constraint firstItem="ugN-Ec-H5N" firstAttribute="leading" secondItem="WBH-kp-LgQ" secondAttribute="leading" constant="5" id="seU-m2-xFW"/>
                                                     <constraint firstItem="ugN-Ec-H5N" firstAttribute="top" secondItem="Ni7-ak-Fdb" secondAttribute="bottom" constant="5" id="uyd-ko-cVc"/>
                                                     <constraint firstItem="Ni7-ak-Fdb" firstAttribute="leading" secondItem="WBH-kp-LgQ" secondAttribute="leading" constant="5" id="vJh-Zx-CPy"/>
                                                 </constraints>
@@ -4529,7 +4529,7 @@ AVER : 0:00:00</string>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBH-ZK-6m3" userLabel="background">
-                                        <rect key="frame" x="306.5" y="10" width="87" height="40"/>
+                                        <rect key="frame" x="307" y="10" width="86.5" height="40"/>
                                         <color key="backgroundColor" name="Background_second"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eG-8V-g4J">
@@ -4569,7 +4569,7 @@ AVER : 0:00:00</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lE-mZ-tFK">
-                                        <rect key="frame" x="316.5" y="14.5" width="67" height="31"/>
+                                        <rect key="frame" x="317" y="14.5" width="66.5" height="31"/>
                                         <fontDescription key="fontDescription" name="HGGGothicssiP40g" family="HGGGothicssi_Pro" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -4816,9 +4816,11 @@ AVER : 0:00:00</string>
                         <outlet property="sumTime" destination="RXJ-Zg-Ibl" id="66c-PF-nav"/>
                         <outlet property="sun" destination="DM4-IL-f4K" id="xBa-N5-qmI"/>
                         <outlet property="thu" destination="UTp-d1-pDu" id="LGW-wK-Y5p"/>
+                        <outlet property="tilelineWidth" destination="Z8u-7x-nyQ" id="HtJ-lN-zgP"/>
                         <outlet property="timeline" destination="6mf-cQ-0p3" id="Bhs-2G-pZc"/>
                         <outlet property="today" destination="blZ-Fh-MqV" id="WYt-ql-1QV"/>
                         <outlet property="todo_collectionView" destination="Uw0-N6-H17" id="44d-kK-X2t"/>
+                        <outlet property="todolistTopMargin" destination="dwp-n9-tec" id="qT9-SH-ocP"/>
                         <outlet property="tue" destination="c4M-Xi-RYj" id="uh9-54-IAI"/>
                         <outlet property="wed" destination="bqg-kd-xnu" id="m5l-oN-x4c"/>
                     </connections>
