@@ -70,7 +70,10 @@ class TimerViewController: UIViewController {
     //하루 그래프를 위한 구조
     var daily = Daily()
     
+    let dailyViewModel = DailyViewModel()
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         modeTimer.backgroundColor = UIColor.gray
         modeTimerLabel.textColor = UIColor.gray
@@ -78,6 +81,9 @@ class TimerViewController: UIViewController {
         
         getVCNum()
         setLocalizable()
+        daily.load()
+        setTask()
+        setSumTime()
         
         setButtonRotation()
         setRadius()
@@ -93,10 +99,9 @@ class TimerViewController: UIViewController {
         checkIsFirst()
         setProgress()
         
-        daily.load()
-        setTask()
         checkRotate()
-        super.viewDidLoad()
+        //저장된 daily들 로딩
+        dailyViewModel.loadDailys()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,13 +112,6 @@ class TimerViewController: UIViewController {
     @objc func deviceRotated(){
         afterRotate()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        //로그인이 이미 되어있는 경우라면 홈페이지로 이동한다.
-//        if(VCNum == 2) {
-//            goToViewController(where: "StopwatchViewController")
-//        }
-//    }
     
     func checkTimeTrigger() {
         realTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
@@ -135,6 +133,8 @@ class TimerViewController: UIViewController {
             goalTime = time.startGoalTime - seconds
             sumTime = time.startSumTime + seconds
             timerTime = time.startTimerTime - seconds
+            daily.updateTimes(seconds)
+            daily.updateTimerTime(time.startTimerTime, seconds)
             daily.updateTask(seconds)
             if(seconds > daily.maxTime) { daily.maxTime = seconds }
             
@@ -142,7 +142,6 @@ class TimerViewController: UIViewController {
             saveTimes()
             printLogs()
             updateProgress()
-//            showNowTime()
         }
     }
 
@@ -209,7 +208,7 @@ extension TimerViewController : ChangeViewController {
  
         //종료 예상시간 보이기
         finishTimeLabel.text = getFutureTime()
-        daily.reset(0, 0) //하루 그래프 초기화
+        daily.reset(goalTime, timerTime) //하루 그래프 초기화
     }
     
     func changeTimer() {
@@ -220,6 +219,8 @@ extension TimerViewController : ChangeViewController {
         fixedSecond = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
         outterProgress.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
         fromSecond = 0.0
+        daily.fixedTimerTime = timerTime
+        daily.currentTimerTime = timerTime
     }
 }
 
@@ -315,23 +316,24 @@ extension TimerViewController {
     func refresh (hours: Int, mins: Int, secs: Int, start: Date) {
         let temp = sumTime
         let seconds = time.getSeconds()
-        
         goalTime = time.startGoalTime - seconds
         sumTime = time.startSumTime + seconds
-        print("before : \(temp), after : \(sumTime), term : \(sumTime - temp)")
+        //나간 시점 start, 현재 시각 Date 와 비교
+        daily.addHoursInBackground(start, sumTime - temp)
         timerTime = time.startTimerTime - seconds
+        daily.updateTimes(seconds)
+        daily.updateTimerTime(time.startTimerTime, seconds)
         daily.updateTask(seconds)
         if(seconds > daily.maxTime) { daily.maxTime = seconds }
         
-        printLogs()
-        updateProgress()
         updateTimeLabes()
+        updateProgress()
+        printLogs()
         startAction()
         if(timerTime < 0) {
             TIMEofTimer.text = printTime(temp: timerTime)
         }
-        //나간 시점 start, 현재 시각 Date 와 비교
-        daily.addHoursInBackground(start, sumTime - temp)
+        saveTimes()
     }
     
     func removeSavedDate() {
@@ -538,18 +540,17 @@ extension TimerViewController {
     
     func updateProgress() {
         progressPer = Float(fixedSecond - timerTime) / Float(fixedSecond)
-        outterProgress.setProgressWithAnimation(duration: 0.0, value: progressPer, from: fromSecond)
+        outterProgress.setProgressWithAnimation(duration: 1.0, value: progressPer, from: fromSecond)
         fromSecond = progressPer
         //circle2
         let temp = Float(sumTime)/Float(totalTime)
-        innerProgress.setProgressWithAnimation(duration: 0.0, value: temp, from: beforePer2)
+        innerProgress.setProgressWithAnimation(duration: 1.0, value: temp, from: beforePer2)
         beforePer2 = temp
     }
     
     func persentReset() {
         isFirst = true
         UserDefaults.standard.set(nil, forKey: "startTime")
-//        AverageLabel.textColor = UIColor.white
         fixedSecond = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
         outterProgress.setProgressWithAnimation(duration: 1.0, value: 0.0, from: fromSecond)
         fromSecond = 0.0
@@ -676,17 +677,6 @@ extension TimerViewController {
         taskButton.isUserInteractionEnabled = false
     }
     
-//    func showNowTime() {
-//        let now = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US")
-//        dateFormatter.dateFormat = "hh:mm a"
-//        let today = dateFormatter.string(from: now)
-//        AverageLabel.font = UIFont(name: "HGGGothicssiP60g", size: 35)
-//        nowTimeLabel.text = "\n" + "Now Time".localized()
-//        AverageLabel.text = "\(today)"
-//    }
-    
     func setLocalizable() {
         sumTimeLabel.text = "Sum Time".localized()
         timerLabel.text = "Timer".localized()
@@ -700,7 +690,6 @@ extension TimerViewController {
         } else {
             taskButton.setTitleColor(UIColor.white, for: .normal)
             taskButton.layer.borderColor = UIColor.white.cgColor
-//            startStopBT.isUserInteractionEnabled = true
         }
         taskButton.setTitle(task, for: .normal)
     }
@@ -714,7 +703,6 @@ extension TimerViewController {
     func setFirstStart() {
         taskButton.setTitleColor(UIColor.systemPink, for: .normal)
         taskButton.layer.borderColor = UIColor.systemPink.cgColor
-//        startStopBT.isUserInteractionEnabled = false
     }
     
     func showFirstAlert() {
@@ -728,6 +716,23 @@ extension TimerViewController {
         alert.addAction(ok)
         //4. 경고창 보이기
         present(alert,animated: true,completion: nil)
+    }
+    
+    func setSumTime() {
+        var tempSumTime: Int = 0
+        if(daily.tasks != [:]) {
+            for (_, value) in daily.tasks {
+                tempSumTime += value
+            }
+            sumTime = tempSumTime
+            daily.currentSumTime = tempSumTime
+            UserDefaults.standard.set(sumTime, forKey: "sum2")
+            saveLogData()
+            
+            let tempGoalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
+            goalTime = tempGoalTime - sumTime
+            UserDefaults.standard.set(goalTime, forKey: "allTime2")
+        }
     }
 }
 
@@ -744,7 +749,6 @@ extension TimerViewController {
             firstStop()
             isFirst = false
         }
-//        showNowTime()
         daily.startTask(task) //하루 그래프 데이터 생성
     }
     
@@ -759,6 +763,8 @@ extension TimerViewController {
         stopColor()
         stopEnable()
         daily.save() //하루 그래프 데이터 계산
+        //dailys 저장
+        dailyViewModel.addDaily(daily)
         checkRotate() //화면 회전 체크
     }
     

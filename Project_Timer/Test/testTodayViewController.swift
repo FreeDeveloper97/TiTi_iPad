@@ -76,9 +76,9 @@ class testTodayViewController: UIViewController {
         dailyViewModel.loadDailys()
         
         getColor()
-        isDumy = true //앱스토어 스크린샷을 위한 더미데이터 여부
+        isDumy = false //앱스토어 스크린샷을 위한 더미데이터 여부
         showDatas(isDumy: isDumy)
-//        showSwiftUIGraph(isDumy: isDumy)
+        //showSwiftUIGraph(isDumy: isDumy) -> checkRotate 내로 이동
         
         todoListViewModel.loadTodos()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -294,9 +294,9 @@ extension testTodayViewController {
     }
     
     func showCalendar() {
-//        let setVC = storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! calendarViewController
-//        setVC.calendarViewControllerDelegate = self
-//        present(setVC,animated: true,completion: nil)
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! calendarViewController
+        setVC.calendarViewControllerDelegate = self
+        present(setVC,animated: true,completion: nil)
     }
     
     func reset() {
@@ -314,13 +314,13 @@ extension testTodayViewController {
 }
 
 
-//extension testTodayViewController: selectCalendar {
-//    func getDailyIndex() {
-//        dateIndex = UserDefaults.standard.value(forKey: "dateIndex") as? Int ?? nil
-//        selectDay.text = dateFormatter.string(from: dailyViewModel.dates[dateIndex!])
-//        reset()
-//    }
-//}
+extension testTodayViewController: selectCalendar {
+    func getDailyIndex() {
+        dateIndex = UserDefaults.standard.value(forKey: "dateIndex") as? Int ?? nil
+        selectDay.text = dateFormatter.string(from: dailyViewModel.dates[dateIndex!])
+        reset()
+    }
+}
 
 
 extension testTodayViewController: UICollectionViewDataSource {
