@@ -8,11 +8,8 @@
 
 import UIKit
 import SwiftUI
-import Firebase
 
 class GraphViewController2: UIViewController {
-    
-    let db = Database.database().reference().child("test")
 
     @IBOutlet var viewOfView: UIView!
     
@@ -45,7 +42,9 @@ class GraphViewController2: UIViewController {
     @IBOutlet var time_03: UIView!
     @IBOutlet var time_04: UIView!
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var view_7days: UIView!
+    @IBOutlet var view_today: UIView!
+    @IBOutlet var collectionViewHeight: NSLayoutConstraint!
     
     var arrayTaskName: [String] = []
     var arrayTaskTime: [String] = []
@@ -56,34 +55,48 @@ class GraphViewController2: UIViewController {
     var counts: Int = 0
     
     var logViewControllerDelegate : ChangeViewController2!
-    var phone: String = UserDefaults.standard.value(forKey: "phoneNumber") as? String ?? ""
-    var password = UserDefaults.standard.value(forKey: "password") as? String ?? ""
-    var isUser: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setRadius()
-        checkUser()
+        setShadow(view_7days)
+        setShadow(view_today)
         
-//        UserDefaults.standard.setValue("", forKey: "phoneNumber")
-//        UserDefaults.standard.setValue("", forKey: "password")
-        
+        let isDumy: Bool = false //앱스토어 스크린샷을 위한 더미데이터 여부
+        showSwiftUIGraph(isDumy: isDumy)
+        showDatas(isDumy: isDumy)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        ContentView().reset()
+    }
+    
+    @IBAction func todayButtonAction(_ sender: Any) {
+        goToViewController(where: "testTodayViewController")
+    }
+}
+
+extension GraphViewController2 {
+    
+    func showSwiftUIGraph(isDumy: Bool) {
         //7days
         let hostingController = UIHostingController(rootView: ContentView())
         hostingController.view.translatesAutoresizingMaskIntoConstraints = true
         hostingController.view.frame = viewOfView.bounds
-        ContentView().appendDailyDatas()
-//        ContentView().appendDumyDatas()
+        
+        ContentView().appendDailyDatas(isDumy: isDumy)
         addChild(hostingController)
         viewOfView.addSubview(hostingController.view)
-        
+    }
+    
+    func showDatas(isDumy: Bool) {
         //today
         daily.load()
-        fillHourColor()
+        if(isDumy) { daily = Dumy().getDumyDaily() }
+        
         if(daily.tasks != [:]) {
-            today.text = getDay(day: daily.day)
+            fillHourColor()
             let temp: [String:Int] = daily.tasks
-//            let temp = addDumy()
+            today.text = getDay(day: daily.day)
             counts = temp.count
             appendColors()
             
@@ -105,301 +118,12 @@ class GraphViewController2: UIViewController {
                 p1 += "\(arrayTaskName[i])\n"
                 p2 += "\(arrayTaskTime[i])\n"
             }
-//            taskTitle.text = p1
-//            taskTime.text = p2
             print("max : \(daily.maxTime)")
+            setHeight()
         } else {
             print("no data")
         }
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        ContentView().reset()
-    }
-    
-    @IBAction func todayButtonAction(_ sender: Any) {
-        goToViewController(where: "testTodayViewController")
-    }
-    
-    @IBAction func upload(_ sender: Any) {
-        if(isUser) {
-            let temp = getTemp()
-            db.child("data").child("\(phone)_\(password)").child("today").setValue(temp)
-            alert("upload Success")
-        } else {
-            newUser(true)
-        }
-    }
-    
-    @IBAction func download(_ sender: Any) {
-        if(isUser) {
-            db.child("data").child("\(phone)_\(password)").child("today").observeSingleEvent(of: .value) { (snapshot) in
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
-                    let decoder = JSONDecoder()
-                    let getDaily: GetDaily = try decoder.decode(GetDaily.self, from: data)
-                    print("--> daily : \(getDaily)")
-                    print("day1: \(UserDefaults.standard.value(forKey: "day1"))")
-                    let newDaily: Daily = self.transDaily(getDaily)
-                    print("day1: \(UserDefaults.standard.value(forKey: "day1"))")
-                    //동일날인지 여부
-                    if(self.deferentDay(getDaily.day)) {
-                        print("day1: \(UserDefaults.standard.value(forKey: "day1"))")
-                        self.setNextDay()
-                        print("day1: \(UserDefaults.standard.value(forKey: "day1"))")
-                    }
-                    self.saveData(newDaily)
-                    print("day1: \(UserDefaults.standard.value(forKey: "day1"))")
-                    self.alert("download Success")
-                    
-                    DispatchQueue.main.async {
-                        ContentView().reset()
-                        self.viewDidLoad()
-                        self.view.layoutIfNeeded()
-                        self.collectionView.reloadData()
-                        self.logViewControllerDelegate.reload()
-                    }
-                } catch let error { print("--> error: \(error)") }
-            }
-            self.viewDidAppear(true)
-        } else {
-            newUser(false)
-        }
-    }
-    
-    func getTemp() -> [String:Any] {
-        let day = uploadDate(day: daily.day)
-        let fixedTotalTime = UserDefaults.standard.value(forKey: "allTime") as? Int ?? 21600
-        let fixedSumTime = 0
-        let fixedTimerTime = UserDefaults.standard.value(forKey: "second") as? Int ?? 2400
-        let currentTotalTime = UserDefaults.standard.value(forKey: "allTime2") as? Int ?? 0
-        let currentSumTime = UserDefaults.standard.value(forKey: "sum2") as? Int ?? 0
-        let currentTimerTime = UserDefaults.standard.value(forKey: "second2") as? Int ?? 0
-        let breakTime = 0
-        let maxTime = daily.maxTime
-        let startTime = daily.startTime.timeIntervalSince1970
-        let currentTask = daily.currentTask
-//        let currentTask = ""
-//        let tasks = daily.tasks
-        var taskKeys: [String] = []
-        var taskValues: [Int] = []
-        for (key, value) in daily.tasks {
-            taskKeys.append(key)
-            taskValues.append(value)
-        }
-        let beforeTime = daily.beforeTime
-        let timeline = daily.timeline
-        
-        var temp: [String:Any] = [:]
-        temp.updateValue(day, forKey: "day")
-        temp.updateValue(fixedTotalTime, forKey: "fixedTotalTime")
-        temp.updateValue(fixedSumTime, forKey: "fixedSumTime")
-        temp.updateValue(fixedTimerTime, forKey: "fixedTimerTime")
-        temp.updateValue(currentTotalTime, forKey: "currentTotalTime")
-        temp.updateValue(currentSumTime, forKey: "currentSumTime")
-        temp.updateValue(currentTimerTime, forKey: "currentTimerTime")
-        temp.updateValue(breakTime, forKey: "breakTime")
-        temp.updateValue(maxTime, forKey: "maxTime")
-        temp.updateValue(startTime, forKey: "startTime")
-        temp.updateValue(currentTask, forKey: "currentTask")
-//        temp.updateValue(tasks, forKey: "tasks")
-        temp.updateValue(taskKeys, forKey: "taskKeys")
-        temp.updateValue(taskValues, forKey: "taskValues")
-        temp.updateValue(beforeTime, forKey: "beforeTime")
-        temp.updateValue(timeline, forKey: "timeline")
-        
-        
-        
-        return temp
-    }
-    
-    func alert(_ message: String) {
-        //1. 경고창 내용 만들기
-        let alert = UIAlertController(title:message,
-            message: "",
-            preferredStyle: UIAlertController.Style.alert)
-        //2. 확인 버튼 만들기
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        //3. 확인 버튼을 경고창에 추가하기
-        alert.addAction(ok)
-        //4. 경고창 보이기
-        present(alert,animated: true,completion: nil)
-    }
-    
-    func uploadDate(day: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
-        return dateFormatter.string(from: day)
-    }
-    
-    func transDaily(_ getDaily: GetDaily) -> Daily {
-        var newDaily: Daily = Daily()
-        newDaily.day = stringToDate(getDaily.day)
-        newDaily.fixedTotalTime = getDaily.fixedTotalTime
-        newDaily.fixedSumTime = 0
-        newDaily.fixedTimerTime = getDaily.fixedTimerTime
-        newDaily.currentTotalTime = getDaily.currentTotalTime
-        newDaily.currentSumTime = getDaily.currentSumTime
-        newDaily.currentTimerTime = getDaily.currentTimerTime
-        newDaily.breakTime = 0
-        newDaily.maxTime = getDaily.maxTime
-        newDaily.startTime = doubleToDate(getDaily.startTime)
-        newDaily.currentTask = getDaily.currentTask
-        for i in 0..<getDaily.taskKeys.count {
-            newDaily.tasks.updateValue(getDaily.taskValues[i], forKey: getDaily.taskKeys[i])
-        }
-        newDaily.beforeTime = getDaily.beforeTime
-        newDaily.timeline = getDaily.timeline
-
-        return newDaily
-    }
-    
-    func stringToDate(_ stringDay: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
-        let date = dateFormatter.date(from: stringDay)!
-        return date
-    }
-    
-    func doubleToDate(_ doubleDay: Double) -> Date {
-        let date = Date(timeIntervalSince1970: doubleDay)
-        return date
-    }
-    
-    func transdDay1(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M월 d일"
-        return dateFormatter.string(from: date)
-    }
-    
-    func checkUser() {
-        if(phone != "" && password != "") {
-            db.child("Users").observeSingleEvent(of: .value) { (snapshot) in
-                do {
-                    guard let keyValues = snapshot.value as? [String:String] else { return }
-                    let users = Array(keyValues.values)
-                    print(users)
-                    
-                    if(users.contains("\(self.phone)_\(self.password)")) {
-                        print("isUser")
-                        self.isUser = true
-                    }
-                } catch let error { print("--> error: \(error)") }
-            }
-        }
-    }
-    
-    func newUser(_ upload: Bool) {
-        let alert = UIAlertController(title: "Beta 유저정보 등록", message: "핸드폰 번호와\n4자리 패스워드를 등록해주세요", preferredStyle: .alert)
-        let cancle = UIAlertAction(title: "CANCLE", style: .default, handler: nil)
-        let ok = UIAlertAction(title: "ENTER", style: .destructive, handler: {
-            action in
-            let phone: String = alert.textFields?[0].text ?? ""
-            let pass: String = alert.textFields?[1].text ?? ""
-            // 위 변수를 통해 특정기능 수행
-            self.checkUserInput(phone, pass, upload)
-        })
-        //텍스트 입력 추가
-        alert.addTextField { (inputNewNickName) in
-            inputNewNickName.placeholder = "01012123434"
-            inputNewNickName.textAlignment = .center
-            inputNewNickName.font = UIFont(name: "HGGGothicssiP60g", size: 17)
-            inputNewNickName.keyboardType = .numberPad
-        }
-        alert.addTextField { (inputNewNickName) in
-            inputNewNickName.placeholder = "1234"
-            inputNewNickName.textAlignment = .center
-            inputNewNickName.font = UIFont(name: "HGGGothicssiP60g", size: 17)
-            inputNewNickName.keyboardType = .numberPad
-        }
-        alert.addAction(ok)
-        alert.addAction(cancle)
-        present(alert,animated: true,completion: nil)
-    }
-    
-    func checkUserInput(_ phone: String, _ pass: String, _ upload: Bool) {
-        if(phone.count != 11) {
-            alert("핸드폰 번호를 다시 입력해주세요")
-            return
-        }
-        else if(pass.count != 4) {
-            alert("패스워드를 다시 입력해주세요")
-            return
-        }
-        guard let _ = Int(phone) else {
-            alert("핸드폰 번호를 다시 입력해주세요")
-            return
-        }
-        guard let _ = Int(pass) else {
-            alert("패스워드를 다시 입력해주세요")
-            return
-        }
-        
-        db.child("Users").updateChildValues(["\(phone)_\(pass)" : "\(phone)_\(pass)"])
-        UserDefaults.standard.setValue(phone, forKey: "phoneNumber")
-        UserDefaults.standard.setValue(pass, forKey: "password")
-        self.phone = phone
-        self.password = pass
-        isUser = true
-        
-        if(upload) {
-            let temp = getTemp()
-            db.child("data").child("\(phone)_\(password)").child("today").setValue(temp)
-        }
-        
-        alert("등록이 완료되었습니다, 다시 눌러주시기 바랍니다")
-    }
-    
-    func deferentDay(_ getDay: String) -> Bool {
-        let savedDay: String = UserDefaults.standard.value(forKey: "day1") as? String ?? "NO DATA"
-        if(savedDay == "NO DATA") { return false }
-        print("savedDay: \(savedDay)")
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
-        let exported = dateFormatter.date(from: getDay)!
-        let newDateFormatter = DateFormatter()
-        newDateFormatter.dateFormat = "M월 d일"
-        let transdDay = newDateFormatter.string(from: exported)
-        print("transdDay: \(transdDay)")
-        
-        return(savedDay != transdDay)
-    }
-    
-    func setNextDay() {
-        var array_day = [String](repeating: "", count: 7)
-        var array_time = [String](repeating: "", count: 7)
-        var array_break = [String](repeating: "", count: 7)
-        
-        for i in stride(from: 0, to: 7, by: 1) {
-            array_day[i] = UserDefaults.standard.value(forKey: "day"+String(i+1)) as? String ?? "NO DATA"
-            array_time[i] = UserDefaults.standard.value(forKey: "time"+String(i+1)) as? String ?? "NO DATA"
-            array_break[i] = UserDefaults.standard.value(forKey: "break"+String(i+1)) as? String ?? "NO DATA"
-        }
-        //값 옮기기, 값 저장하기
-        for i in stride(from: 6, to: 0, by: -1) {
-            array_day[i] = array_day[i-1]
-            UserDefaults.standard.set(array_day[i], forKey: "day"+String(i+1))
-            array_time[i] = array_time[i-1]
-            UserDefaults.standard.set(array_time[i], forKey: "time"+String(i+1))
-            array_break[i] = array_break[i-1]
-            UserDefaults.standard.set(array_break[i], forKey: "break"+String(i+1))
-        }
-    }
-    
-    func saveData(_ newDaily: Daily) {
-        UserDefaults.standard.set(newDaily.fixedTotalTime, forKey: "allTime")
-        UserDefaults.standard.set(newDaily.fixedTimerTime, forKey: "second")
-        UserDefaults.standard.set(newDaily.currentTotalTime, forKey: "allTime2")
-        UserDefaults.standard.set(newDaily.currentSumTime, forKey: "sum2")
-        UserDefaults.standard.set(newDaily.currentTimerTime, forKey: "second2")
-        UserDefaults.standard.set(newDaily.currentTask, forKey: "task")
-        UserDefaults.standard.set(printTime(temp: newDaily.currentSumTime), forKey: "time1")
-        UserDefaults.standard.set(transdDay1(newDaily.day), forKey: "day1")
-        newDaily.save()
-    }
-}
-
-extension GraphViewController2 {
     
     func setRadius() {
         time_05.layer.cornerRadius = 3
@@ -426,6 +150,9 @@ extension GraphViewController2 {
         time_02.layer.cornerRadius = 3
         time_03.layer.cornerRadius = 3
         time_04.layer.cornerRadius = 3
+        
+        view_7days.layer.cornerRadius = 25
+        view_today.layer.cornerRadius = 25
     }
     
     func getDay(day: Date) -> String {
@@ -576,6 +303,19 @@ extension GraphViewController2 {
         vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
         self.present(vcName!, animated: true, completion: nil)
     }
+    
+    func setShadow(_ view: UIView) {
+        view.layer.shadowColor = UIColor.white.cgColor
+        view.layer.shadowOpacity = 0.6
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 6
+    }
+    
+    func setHeight() {
+        if(counts < 9) {
+            collectionViewHeight.constant = CGFloat(20*counts)
+        }
+    }
 }
 
 extension GraphViewController2: UICollectionViewDataSource {
@@ -604,25 +344,4 @@ class ListCell: UICollectionViewCell {
     @IBOutlet var colorView: UIView!
     @IBOutlet var taskName: UILabel!
     @IBOutlet var taskTime: UILabel!
-}
-
-struct GetDaily: Codable {
-    var day: String = ""
-    var fixedTotalTime: Int = 0
-    var fixedSumTime: Int = 0
-    var fixedTimerTime: Int = 0
-    var currentTotalTime: Int = 0
-    var currentSumTime: Int = 0
-    var currentTimerTime: Int = 0
-    var breakTime: Int = 0
-    var maxTime: Int = 0
-    
-    var startTime: Double = 0
-    var currentTask: String = ""
-//    var tasks: [String:Int] = [:]
-    var taskKeys: [String] = []
-    var taskValues: [Int] = []
-    
-    var beforeTime: Int = 0
-    var timeline = Array(repeating: 0, count: 24)
 }
