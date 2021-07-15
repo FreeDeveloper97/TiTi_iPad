@@ -35,7 +35,6 @@ class calendarViewController: UIViewController {
         setCalendar()
         setColor()
         
-//        dumyDays = Dumy().getDumyDays(Dumy().getDumyStringDays())
         dailyViewModel.loadDailys()
     }
 

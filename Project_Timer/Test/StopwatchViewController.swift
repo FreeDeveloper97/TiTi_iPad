@@ -359,6 +359,21 @@ extension StopwatchViewController {
         resetBT.layer.shadowOpacity = 0.5
         resetBT.layer.shadowOffset = CGSize.zero
         resetBT.layer.shadowRadius = 4
+        
+        TIMEofSum.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofSum.layer.shadowOpacity = 0.6
+        TIMEofSum.layer.shadowOffset = CGSize.zero
+        TIMEofSum.layer.shadowRadius = 4
+        
+        TIMEofStopwatch.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofStopwatch.layer.shadowOpacity = 0.6
+        TIMEofStopwatch.layer.shadowOffset = CGSize.zero
+        TIMEofStopwatch.layer.shadowRadius = 4
+        
+        TIMEofTarget.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofTarget.layer.shadowOpacity = 0.6
+        TIMEofTarget.layer.shadowOffset = CGSize.zero
+        TIMEofTarget.layer.shadowRadius = 4
     }
     
     func setBorder() {
@@ -686,6 +701,10 @@ extension StopwatchViewController {
 
 
 extension StopwatchViewController {
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
     
     func algoOfStart() {
         isStop = false

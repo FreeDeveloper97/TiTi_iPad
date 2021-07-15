@@ -390,6 +390,21 @@ extension TimerViewController {
         log.layer.shadowOpacity = 0.4
         log.layer.shadowOffset = CGSize.zero
         log.layer.shadowRadius = 4
+        
+        TIMEofSum.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofSum.layer.shadowOpacity = 0.6
+        TIMEofSum.layer.shadowOffset = CGSize.zero
+        TIMEofSum.layer.shadowRadius = 4
+        
+        TIMEofTimer.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofTimer.layer.shadowOpacity = 0.6
+        TIMEofTimer.layer.shadowOffset = CGSize.zero
+        TIMEofTimer.layer.shadowRadius = 4
+        
+        TIMEofTarget.layer.shadowColor = UIColor.gray.cgColor
+        TIMEofTarget.layer.shadowOpacity = 0.6
+        TIMEofTarget.layer.shadowOffset = CGSize.zero
+        TIMEofTarget.layer.shadowRadius = 4
     }
     
     func getDatas() {
@@ -737,6 +752,10 @@ extension TimerViewController {
 }
 
 extension TimerViewController {
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
     
     func algoOfStart() {
         isStop = false

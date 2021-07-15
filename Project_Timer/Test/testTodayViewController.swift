@@ -50,6 +50,10 @@ class testTodayViewController: UIViewController {
     @IBOutlet var selectDay: UILabel!
     @IBOutlet var selectDayBgView: UIView!
     
+    @IBOutlet var todolist: UILabel!
+    @IBOutlet var innercheck: UIButton!
+    @IBOutlet var checkAll: UIButton!
+    
     let todayViewManager = TodayViewManager()
     var weeks: [UIView] = []
     
@@ -118,9 +122,9 @@ class testTodayViewController: UIViewController {
     }
     
     @IBAction func addList(_ sender: Any) {
-        let alert = UIAlertController(title: "Add new Todo".localized(), message: "Enter a subject that's max length is 20".localized(), preferredStyle: .alert)
-        let cancle = UIAlertAction(title: "CANCLE", style: .default, handler: nil)
-        let ok = UIAlertAction(title: "ENTER", style: .destructive, handler: {
+        let alert = UIAlertController(title: "Add new Todo".localized(), message: "", preferredStyle: .alert)
+        let cancle = UIAlertAction(title: "CANCLE", style: .destructive, handler: nil)
+        let ok = UIAlertAction(title: "ENTER", style: .default, handler: {
             action in
             guard let newTodo: String = alert.textFields?[0].text, newTodo.isEmpty == false else { return }
             let todo = TodoManager.shared.createTodo(text: newTodo)
@@ -130,12 +134,12 @@ class testTodayViewController: UIViewController {
         })
         //텍스트 입력 추가
         alert.addTextField { (inputNewNickName) in
-            inputNewNickName.placeholder = "Add new Todo".localized()
+            inputNewNickName.placeholder = "input".localized()
             inputNewNickName.textAlignment = .center
             inputNewNickName.font = UIFont(name: "HGGGothicssiP60g", size: 17)
         }
-        alert.addAction(ok)
         alert.addAction(cancle)
+        alert.addAction(ok)
         present(alert,animated: true,completion: nil)
     }
     
@@ -146,6 +150,17 @@ class testTodayViewController: UIViewController {
     @IBAction func saveImage(_ sender: UIButton) {
         todayViewManager.saveImage(view)
         showAlert()
+    }
+    
+    @IBAction func checkAll(_ sender: Any) {
+        let check = innercheck.isSelected
+        for i in 0..<todoListViewModel.todos.count {
+            var todo = todoListViewModel.todos[i]
+            todo.isDone = check
+            self.todoListViewModel.updateTodo(todo)
+        }
+        self.todo_collectionView.reloadData()
+        innercheck.isSelected = !innercheck.isSelected
     }
 }
 
@@ -184,6 +199,7 @@ extension testTodayViewController {
     }
     
     func setPortrait() {
+        todolist.alpha = 0
         rightBottomHeight.constant = 380
         todolistTopMargin.constant = 204
         tilelineWidth.constant = 713
@@ -191,6 +207,7 @@ extension testTodayViewController {
     }
     
     func setLandscape() {
+        todolist.alpha = 1
         rightBottomHeight.constant = 355
         todolistTopMargin.constant = 5
         tilelineWidth.constant = 455
@@ -234,6 +251,8 @@ extension testTodayViewController {
         selectDay.layer.shadowOpacity = 1
         selectDay.layer.shadowOffset = CGSize(width: 1, height: 0.5)
         selectDay.layer.shadowRadius = 1.5
+        
+        innercheck.tintColor = todayViewManager.COLOR
     }
     
     func getColor() {
